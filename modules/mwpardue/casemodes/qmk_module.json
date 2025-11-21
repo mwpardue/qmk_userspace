@@ -1,0 +1,10 @@
+{
+    "module_name": "casemode",
+    "maintainer": "mwpardue",
+    "keycodes": [
+        {
+            "key": "COMMUNITY_MODULE_CASEMODES",
+            "aliases": ["XCASE"]
+        }
+    ]
+}

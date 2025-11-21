@@ -1,0 +1,12 @@
+{
+    "features": {
+        "bootmagic": true,
+        "caps_word": false,
+        "deferred_exec": true,
+        "mousekey": true,
+        "extrakey": true,
+        "nkro": true,
+        "swap_hands": true,
+        "rgb_matrix": true
+    },
+}

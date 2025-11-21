@@ -1,0 +1,12 @@
+{
+    "module_name": "Smart Select",
+    "maintainer": "mwpardue",
+    "keycodes": [
+        {
+            "key": "SMART_SELECT",
+            "aliases": [
+              "SSELECT"
+            ]
+        }
+    ]
+}
