@@ -1,0 +1,6 @@
+{
+    "modules": [
+        "mwpardue/custom_shift_keys",
+        "mwpardue/select_word"
+    ]
+}

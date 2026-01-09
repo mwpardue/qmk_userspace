@@ -1,0 +1,10 @@
+QUANTUM_PAINTER_ENABLE = yes
+QUANTUM_PAINTER_DRIVERS += ili9341_spi surface
+SRC += img/KEEBS-small.qgf.c
+SRC += img/PD.qgf.c
+SRC += img/apple-glyph.qgf.c
+BACKLIGHT_ENABLE = yes
+BACKLIGHT_DRIVER = pwm
+QUANTUM_PAINTER_LVGL_INTEGRATION = yes
+INTROSPECTION_KEYMAP_C += keymap.c
+

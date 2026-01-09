@@ -1,0 +1,7 @@
+{
+    "modules": [
+        "mwpardue/casemodes",
+        "mwpardue/custom_shift_keys",
+        "mwpardue/select_word"
+    ]
+}
