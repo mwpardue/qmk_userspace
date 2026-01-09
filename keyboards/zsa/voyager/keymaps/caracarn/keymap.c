@@ -17,7 +17,7 @@
 #include "caracarn.h"
 
 const custom_shift_key_t custom_shift_keys[] = {
-  {CLIL_THM, KC_DEL},
+  {GLIL_THM, KC_DEL},
 };
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 //
@@ -61,6 +61,8 @@ bool terminate_case_modes(uint16_t keycode, const keyrecord_t *record) {
             case KC_RSFT:
             case LHM_D:
             case RHM_K:
+            case SFT_F:
+            case SFT_J:
             case SM_ESC:
             case SLOR_THM:
             case SLOL_THM:
@@ -96,8 +98,7 @@ enum combos {
     CM_NEXT,
     CM_HEX,
     CM_FUNC,
-    CM_ESC,
-    CM_ESC2
+    CM_BOOT
 };
 
 
@@ -107,9 +108,8 @@ const uint16_t PROGMEM mprev_combo[]        = {VIM_X,       KC_C,               
 const uint16_t PROGMEM play_combo[]         = {VIM_X,       KC_C,      KC_V,              COMBO_END};
 const uint16_t PROGMEM mnext_combo[]        = {KC_C,        KC_V,                         COMBO_END};
 const uint16_t PROGMEM hex_combo[]          = {VIM_X,       VIM_DOT,                      COMBO_END};
-const uint16_t PROGMEM function_combo[]     = {SM_ESC,      KC_1,                         COMBO_END};
-const uint16_t PROGMEM escape_combo[]       = {LHM_D,       LHM_F,                        COMBO_END};
-const uint16_t PROGMEM escape2_combo[]      = {LHM_D,       LQM_S,                        COMBO_END};
+const uint16_t PROGMEM function_combo[]     = {KC_GRV,      KC_1,                         COMBO_END};
+const uint16_t PROGMEM boot_combo[]     = {KC_GRV,          KC_EQL,                       COMBO_END};
 
 combo_t key_combos[] = {
   [CM_CAPS] = COMBO(capsword_combo,     CW_TOGG),
@@ -119,8 +119,7 @@ combo_t key_combos[] = {
   [CM_NEXT] = COMBO(mnext_combo,        KC_MNXT),
   [CM_HEX]  = COMBO(hex_combo,          TOHEX),
   [CM_FUNC] = COMBO(function_combo,     TOFUN),
-  [CM_ESC]  = COMBO(escape_combo,       SM_ESC),
-  [CM_ESC2]  = COMBO(escape2_combo,       SM_ESC)
+  [CM_BOOT] = COMBO(boot_combo,         QK_BOOT)
 };
 
 bool caps_word_press_user(uint16_t keycode) {
@@ -169,65 +168,62 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_BASE] = LAYOUT(
-  SM_ESC,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                                                KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL,
+  KC_GRV,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                                                KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL,
   KC_TAB,  KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                                                KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
   KC_BSPC, LHM_A,  LQM_S,   LHM_D,   LHM_F,   KC_G,                                                KC_H,    RHM_J,   RHM_K,   RHM_L,   RHM_SCN, KC_QUOT,
-  MEH_XCS, NUM_Z,  VIM_X,   KC_C,    KC_V,    KC_B,                                                KC_N,    KC_M,    KC_COMM, VIM_DOT, VIM_QUE, MEH_BSL,
-                                                       LIL_THM, LOL_THM,          LOR_THM, LIR_THM
-                                                    // NAV/TAB LSHFT/ENTER       RSHFT/ENTER SYM/SPACE
+  MEH_XCS, NUM_Z,  VIM_X,   KC_C,    KC_V,    KC_B,                                                KC_N,    KC_M,    KC_COMM, VIM_DOT, SYM_QUE, MEH_BSL,
+                                                       LIL_THM,   LOL_THM,          LOR_THM, LIR_THM
+                                                    // NAV/SM_ESC LSHFT/ENTER       RSHFT/ENTER SYM/SPACE
 ),
 
 [_GAMING] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  XCASE,   _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  KC_BSPC, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  MEH_LBR, NUM_Z,   VIM_X,   _______, _______, _______,                                            _______, _______, _______, VIM_DOT, VIM_QUE, MEH_RBR,
-                                                        GLIL_THM,  SLOL_THM,      LOR_THM, _______
-                                                    // NAV/SM_ESC   LSHFT/TAB       RSHFT/ENTER SYM/SPACE
+  _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  _______, SFT_Z,   _______, _______, _______, _______,                                             _______, _______, _______, _______, SFT_QUE, _______,
+                                                        LIL_THM, GLOL_THM,      CLOR_THM,  _______
+                                                    // NAV/SM_ESC NUM/ENTER   VIM/ENTER SYM/SPACE
 ),
 
 [_GAMENUM] = LAYOUT(
-  KC_GRV,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-                                                        GLIL_THM,  LOL_THM,      LOR_THM, _______
-                                                    // NAV/SM_ESC LSHFT/ENTER   RSHFT/ENTER SYM/SPACE
+  SM_ESC,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  _______, SFT_Z,   _______, _______, _______, _______,                                             _______, _______, _______, _______, SFT_QUE, _______,
+                                                        GLIL_THM, GLOL_THM,      CLOR_THM,  _______
+                                                       // NAV/BSPC NUM/ENTER   VIM/ENTER SYM/SPACE
 ),
 
 [_COLEMAK_DH] = LAYOUT(
-  KC_GRV,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   XCASE,   _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  MEH_RET, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-                                                        GLIL_THM,  SLOL_THM,      LOR_THM, _______
-                                                    // NAV/SM_ESC LSHFT/TAB   RSHFT/ENTER SYM/SPACE
+  _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+                                                        CLIL_THM, SLOL_THM,      _______,  _______
+                                                    // NAV/TAB NUM/ESC   VIM/ENTER SYM/SPACE
 ),
 
 [_NAVIGATION] = LAYOUT(
-    _______, DM_PLY1, DM_PLY2, TD_SSFL, TD_SNIP, SS_WIN,                                            _______, _______, _______, _______, _______, KC_VOLU,
-    _______, MC_SWRI, MON_L,   MON_U,   MON_R,   _______,  		                                    _______, SELWBAK, SELWORD, _______, _______, KC_VOLD,
-    _______, OSMLCTL, OSMLALT, OSMLSFT, OSMLGUI, _______,                                           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XCASE,   KC_MUTE,
+    _______, _______, _______, TD_SSFL, TD_SNIP, SS_WIN,                                            DM_REC1, DM_PLY1, DM_REC2, DM_PLY2, _______, KC_VOLU,
+    _______, MC_SWRI, MON_L,   MON_U,   MON_R,   _______,  		                                    WRD_BAK, SELWBAK, SELWORD, WRD_FWD, _______, KC_VOLD,
+    KC_BSPC, OSMLCTL, OSMLALT, OSMLSFT, OSMLGUI, _______,                                           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XCASE,   KC_MUTE,
     _______, TAB_DWN, TAB_UP,  TD_COPY, TD_PAST, _______,                                           KC_HOME, _______, _______, KC_END,  _______, _______,
                                                           _______, _______,      _______, KC_SPC
 ),
 
 [_NUMPAD] = LAYOUT(
   KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                               KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-  _______, _______, _______, _______, _______, TIPS,                                                KC_PLUS, KC_7,    KC_8,    KC_9,    KC_QUOT, KC_BSLS,
+  _______, KC_GRV,  KC_TILD, KC_LCBR, KC_RCBR, TIPS,                                                KC_PLUS, KC_7,    KC_8,    KC_9,    KC_QUOT, KC_BSLS,
   _______, OSMLCTL, OSMLALT, OSMLSFT, OSMLGUI, _______,                                             KC_MINS, KC_4,    KC_5,    KC_6,    KC_DOT,  KC_COLN,
-  _______, _______, _______, _______, _______, _______,                                             KC_EQL,  KC_1,    KC_2,    KC_3,    KC_SLSH, _______,
+  _______, KC_LT,   KC_GT,   KC_LBRC, KC_RBRC, _______,                                             KC_EQL,  KC_1,    KC_2,    KC_3,    KC_SLSH, _______,
                                                         _______, _______,       _______,  KC_0
 ),
 
 [_SYMBOL] = LAYOUT(
   KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                               KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-  // KC_GRV,  KC_GRV,  KC_TILD, KC_LCBR, KC_RCBR, TIPS,                                                _______, KC_AMPR, KC_ASTR, KC_LPRN, _______, _______,
-  // KC_DEL,  KC_AT,   KC_BSLS, KC_LPRN, KC_RPRN, KC_PIPE,                                             KC_MINS, KC_DLR,  KC_PERC, KC_CIRC, KC_SCLN, KC_QUOT,
-  // _______, _______, M_ARROW, KC_LBRC, KC_RBRC, KC_UNDS,                                             KC_EQL,  KC_EXLM, KC_AT,   KC_HASH, _______, _______,
-  KC_GRV,  KC_GRV,  KC_TILD, KC_LCBR, KC_RCBR, TIPS,                                                _______, _______, _______, _______, _______, _______,
-  KC_DEL,  KC_AT,   KC_BSLS, KC_LPRN, KC_RPRN, KC_PIPE,                                             _______, OSMRGUI, OSMRSFT, OSMRALT, OSMRCTL, _______,
-  _______, _______, M_ARROW, KC_LBRC, KC_RBRC, KC_UNDS,                                             _______, _______, _______, _______, _______, _______,
+  KC_GRV,  KC_GRV,  KC_TILD, KC_LCBR, KC_RCBR, TIPS,                                                _______, KC_AMPR, KC_ASTR, KC_LPRN, _______, _______,
+  KC_DEL,  KC_AT,   KC_UNDS, KC_LPRN, KC_RPRN, KC_PIPE,                                             KC_MINS, KC_DLR,  KC_PERC, KC_CIRC, KC_COLN, KC_DQUO,
+  _______, KC_LT,   KC_GT,   KC_LBRC, KC_RBRC, M_ARROW,                                             KC_EQL,  KC_EXLM, KC_AT,   KC_HASH, _______, _______,
                                                         KC_BSPC, _______,         _______, _______
 ),
 
