@@ -2,9 +2,6 @@
 POINTING_DEVICE_ENABLE = yes
 POINTING_DEVICE_DRIVER = cirque_pinnacle_spi
 
-# May need to be changed when adding more displays
-QUANTUM_PAINTER_ENABLE = yes
-QUANTUM_PAINTER_DRIVERS += st7789_spi surface
 
 BACKLIGHT_ENABLE = yes
 BACKLIGHT_DRIVER = pwm
@@ -19,6 +16,9 @@ ifdef HLC_ENCODER
 endif
 
 ifdef HLC_TFT_DISPLAY
+  # May need to be changed when adding more displays
+  QUANTUM_PAINTER_ENABLE = yes
+  QUANTUM_PAINTER_DRIVERS += st7789_spi surface
   include $(USER_PATH)/splitkb/hlc_tft_display/rules.mk
 endif
 
