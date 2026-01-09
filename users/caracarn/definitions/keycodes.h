@@ -101,31 +101,31 @@ enum {
     #define UOL_THM KC_F22
 
     // Lower Left Thumb Keys
-    #define LUTHUM0 KC_MPLY
-    #define LUTHUM1 KC_MNXT
+    #define LUTHUM0 MON_L
+    #define LUTHUM1 MON_R
     #define LUTHUM2 LT(_NUMPAD, KC_MINS)
-    #define LIL_THM LT(_NAVIGATION, KC_TAB)
+    #define LIL_THM LT(_NAVIGATION, KC_T)
     #define CLOL_THM LT(_NUMPAD, KC_ENTER)
 
     // Alt Base Thumb Keys
     /*#define CLUTHUM2 LT(_NUMPAD, KC_MINS)*/
     #define CLUTHUM2 LCTL_T(KC_UNDS)
-    #define CLIL_THM LT(_NAVIGATION, KC_BSPC)
-    #define GLIL_THM LT(_NAVIGATION, KC_B)
+    #define GLIL_THM LT(_NAVIGATION, KC_BSPC)
+    #define CLIL_THM LT(_NAVIGATION, KC_TAB)
     #define CUIL_THM KC_F20
     #define CUOL_THM MON_R
-    #define GLOL_THM LT(_NUMPAD, KC_TAB)
+    #define GLOL_THM LT(_NUMPAD, KC_ENTER)
     #define LOL_THM LSFT_T(KC_ENTER)
     #define SLOL_THM LSFT_T(KC_TAB)
 
 // Right thumb keys
 
     // Lower Right Thumb Keys
-    #define RUTHUM0 KC_F15
-    #define RUTHUM1 KC_F24
-    #define RUTHUM2 RGUI_T(KC_DEL)
+    #define RUTHUM0 KC_RBRC
+    #define RUTHUM1 KC_LBRC
+    #define RUTHUM2 LT(_VIM, KC_BSLS)
     #define LIR_THM LT(_SYMBOL, KC_SPACE)
-    #define CLOR_THM LT(_VIM, KC_ENTER)
+    #define CLOR_THM HYPR_T(KC_ENTER)
 
     // Upper Right Thumb Keys
     #define UIR_THM LT(_FUNCTION, KC_F16)
@@ -148,6 +148,8 @@ enum {
 #define GUI_QUE RGUI_T(KC_SLSH)
 #define SFT_QUE RSFT_T(KC_SLSH)
 #define SFT_QUO RSFT_T(KC_QUOT)
+#define SYM_QUE LT(_SYMBOL, KC_SLSH)
+#define SFT_ESC LSFT_T(KC_ESC)
 #define GUI_C LGUI_T(KC_C)
 #define GUI_COM RGUI_T(KC_COMM)
 #define ALT_X LALT_T(KC_X)
@@ -175,8 +177,16 @@ enum {
 #define LHM_S LSFT_T(KC_S)
 #define LHM_T LGUI_T(KC_T)
 #define CTL_D LCTL_T(KC_D)
+#define GUI_D LGUI_T(KC_D)
+#define GUI_K LGUI_T(KC_K)
+#define SFT_F LSFT_T(KC_F)
+#define SFT_J RSFT_T(KC_J)
 #define CTL_K RCTL_T(KC_K)
 #define SFT_A LSFT_T(KC_A)
+#define CTL_D LCTL_T(KC_D)
+#define CTL_K RCTL_T(KC_K)
+#define GUI_A LGUI_T(KC_A)
+#define GUI_SCN RGUI_T(KC_SCLN)
 #define SFT_SCN RSFT_T(KC_SCLN)
 #define CTL_TAB LCTL_T(KC_TAB)
 #define SFT_TAB LSFT_T(KC_TAB)
@@ -279,3 +289,5 @@ enum {
 #define MEH_LBR MEH_T(KC_LBRC)
 #define MEH_RBR MEH_T(KC_RBRC)
 #define MEH_BSL MEH_T(KC_BSLS)
+#define WRD_BAK LALT(KC_LEFT)
+#define WRD_FWD LALT(KC_RIGHT)

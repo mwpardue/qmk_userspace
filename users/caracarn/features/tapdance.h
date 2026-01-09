@@ -35,3 +35,4 @@ enum {
 #define TD_SSEL TD(SS_SSEL)
 
 td_state_t dance_state(tap_dance_state_t *state);
+tap_dance_action_t tap_dance_actions[5];

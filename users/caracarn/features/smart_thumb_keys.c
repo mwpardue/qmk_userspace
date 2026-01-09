@@ -7,7 +7,8 @@
 #ifdef CASEMODE_ENABLE
     #include "casemodes.h"
 #endif
-#ifdef HLC_TFT_DISPLAY
+
+#ifdef QUANTUM_PAINTER_ENABLE
     #include "features/qpainter.h"
 #endif
 
@@ -75,8 +76,8 @@ process_record_result_t process_smart_thumb_keys(uint16_t keycode, keyrecord_t *
     //     }
     // break;
 
-    case GLIL_THM:
-    case CLOL_THM:
+    case LIL_THM:
+    case SLOL_THM:
         if (record->event.pressed) {
             if (record->tap.count > 0) {
                     smart_escape();
@@ -113,13 +114,13 @@ process_record_result_t process_smart_thumb_keys(uint16_t keycode, keyrecord_t *
         return PROCESS_RECORD_RETURN_FALSE;
     break;
 
-    case RUTHUM1:
-        if (record->event.pressed) {
-            is_caps_word_on();
-        }
-        return PROCESS_RECORD_RETURN_FALSE;
-        break;
-
+    // case RUTHUM1:
+    //     if (record->event.pressed) {
+    //         is_caps_word_on();
+    //     }
+    //     return PROCESS_RECORD_RETURN_FALSE;
+    //     break;
+    //
     case UOR_THM:
     case UOL_THM:
         if (record->event.pressed) {
@@ -130,10 +131,10 @@ process_record_result_t process_smart_thumb_keys(uint16_t keycode, keyrecord_t *
     break;
 
     case LUTHUM2:
-    case CLUTHUM2:
+    case RUTHUM2:
         if (record->event.pressed) {
             if (record->tap.count > 0) {
-                    tap_code16(LSFT(KC_MINS));
+                    smart_escape();
         return PROCESS_RECORD_RETURN_FALSE;
                 }
       return PROCESS_RECORD_CONTINUE;

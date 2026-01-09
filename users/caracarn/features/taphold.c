@@ -75,6 +75,7 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case ALT_6:
         case CTL_DOT:
         case VIM_QUE:
+        case SYM_QUE:
         case VIM_DOT:
         case VIM_X:
         case MEH_Z:
@@ -100,11 +101,17 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case GUI_X:
         case GUI_DOT:
         case CTL_X:
+        case GUI_D:
+        case GUI_K:
         case CTL_D:
         case CTL_K:
+        case GUI_A:
+        case GUI_SCN:
           return get_custom_tapping_term(user_config.tapping_term.modtap);
         case SFT_A:
         case SFT_SCN:
+        case SFT_F:
+        case SFT_J:
         case RHM_K:
         case LHM_D:
         case LHM_C:
@@ -114,6 +121,7 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case SFT_Z:
         case SFT_QUE:
         case SFT_QUO:
+        case SFT_ESC:
             return get_custom_tapping_term(user_config.tapping_term.shift);
         default:
             return g_tapping_term;
@@ -168,8 +176,8 @@ bool get_hold_on_other_key_press_result(uint16_t keycode) {
         case CLOL_THM:
         case SLOR_THM:
         case SLOL_THM:
-        // case SFT_Z:
-        // case SFT_QUE:
+        case SFT_Z:
+        case SFT_QUE:
             // Immediately select the hold action when another key is pressed.
             return true;
         default:
@@ -185,10 +193,16 @@ bool get_permissive_hold_result(uint16_t keycode) {
         case RHM_L:
         case RHM_SCN:
         case LQM_S:
-        case CTL_D:
-        case CTL_K:
         case SFT_A:
         case SFT_SCN:
+        case GUI_D:
+        case GUI_K:
+        case CTL_D:
+        case CTL_K:
+        case GUI_A:
+        case GUI_SCN:
+        case SFT_F:
+        case SFT_J:
         case RUTHUM2:
         case LUTHUM2:
         case CTL_Z:
@@ -212,9 +226,8 @@ bool get_permissive_hold_result(uint16_t keycode) {
         case RHM_K:
         case MEH_Z:
         case MEH_QUE:
-        case SFT_Z:
-        case SFT_QUE:
         case SFT_QUO:
+        case SFT_ESC:
             // Immediately select the hold action when another key is tapped.
             return true;
         default:
@@ -248,24 +261,31 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_
             case SFT_5:
             case ALT_6:
             case CTL_DOT:
+            case GUI_D:
+            case GUI_K:
             case CTL_D:
             case CTL_K:
+            case GUI_A:
+            case GUI_SCN:
                 dprintln("get_tap_flow triggered, gqt case");
                 return get_custom_tapping_term(user_config.tapping_term.gqt);
             case LHM_S:
             case RHM_E:
             case LHM_C:
             case RHM_COM:
-            case SFT_Z:
-            case SFT_QUE:
                 dprintln("get_tap_flow triggered, shift gqt case");
                 return get_custom_tapping_term(user_config.tapping_term.shift_gqt);
+            case SFT_Z:
+            case SFT_QUE:
             case NUM_Z:
             case LHM_D:
             case RHM_K:
+            case SFT_F:
+            case SFT_J:
             case SFT_A:
             case SFT_SCN:
             case SFT_QUO:
+            case SFT_ESC:
             case NUM_J:
             case CLIL_THM:
             case GLIL_THM:
@@ -286,6 +306,11 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
     switch (tap_hold_keycode) {
         case MEH_Z:
             if (other_keycode == LHM_F) {
+                return true;
+            }
+            break;
+        case VIM_X:
+            if ((other_keycode == KC_B) || (other_keycode == KC_V)) {
                 return true;
             }
             break;

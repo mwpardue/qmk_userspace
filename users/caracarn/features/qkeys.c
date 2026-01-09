@@ -52,6 +52,7 @@ process_record_result_t process_qmenu_keys(uint16_t keycode, keyrecord_t *record
 
         case MENU_MD:
             if (record->event.pressed) {
+                dprintln("MENU_MD pressed");
                 switch (painter_menu.state.submenu_selector) {
                     case SUBMENU_LIGHTING:
                         if (painter_menu.state.menu_selector == LIGHTING_END - 1) {
@@ -60,7 +61,7 @@ process_record_result_t process_qmenu_keys(uint16_t keycode, keyrecord_t *record
                             painter_menu.state.menu_selector = painter_menu.state.menu_selector + 1;
                         };
                         start_index = 0;
-                        lcd_dirty = true;
+                        display_make_dirty(true);
                         dprintln("qkeys lcd_dirty1");
                         break;
                     case SUBMENU_MODTAP:
@@ -69,7 +70,7 @@ process_record_result_t process_qmenu_keys(uint16_t keycode, keyrecord_t *record
                         } else {
                             painter_menu.state.menu_selector = painter_menu.state.menu_selector + 1;
                         };
-                        lcd_dirty = true;
+                        display_make_dirty(true);
                         dprintln("qkeys lcd_dirty2");
                         break;
                     case SUBMENU_PAINTER:
@@ -78,7 +79,7 @@ process_record_result_t process_qmenu_keys(uint16_t keycode, keyrecord_t *record
                         } else {
                             painter_menu.state.menu_selector = painter_menu.state.menu_selector + 1;
                         }
-                        lcd_dirty = true;
+                        display_make_dirty(true);
                         dprintln("qkeys lcd_dirty3");
                         break;
                     case SUBMENU_KB:
@@ -87,7 +88,7 @@ process_record_result_t process_qmenu_keys(uint16_t keycode, keyrecord_t *record
                         } else {
                             painter_menu.state.menu_selector = painter_menu.state.menu_selector + 1;
                         };
-                        lcd_dirty = true;
+                        display_make_dirty(true);
                         dprintln("qkeys lcd_dirty4");
                         break;
                 }
@@ -98,6 +99,7 @@ process_record_result_t process_qmenu_keys(uint16_t keycode, keyrecord_t *record
 
         case MENU_MU:
             if (record->event.pressed) {
+                dprintln("MENU_MU pressed");
                 switch (painter_menu.state.submenu_selector) {
                     case SUBMENU_LIGHTING:
                         if (painter_menu.state.menu_selector == LIGHTING_HEADING + 1) {
@@ -106,7 +108,7 @@ process_record_result_t process_qmenu_keys(uint16_t keycode, keyrecord_t *record
                             painter_menu.state.menu_selector = painter_menu.state.menu_selector - 1;
                         }
                         start_index = 0;
-                        lcd_dirty = true;
+                        display_make_dirty(true);
                         dprintln("qkeys lcd_dirty5");
                         break;
                     case SUBMENU_MODTAP:
@@ -115,7 +117,7 @@ process_record_result_t process_qmenu_keys(uint16_t keycode, keyrecord_t *record
                         } else {
                             painter_menu.state.menu_selector = painter_menu.state.menu_selector - 1;
                         }
-                        lcd_dirty = true;
+                        display_make_dirty(true);
                         dprintln("qkeys lcd_dirty6");
                         break;
                     case SUBMENU_PAINTER:
@@ -124,7 +126,7 @@ process_record_result_t process_qmenu_keys(uint16_t keycode, keyrecord_t *record
                         } else {
                             painter_menu.state.menu_selector = painter_menu.state.menu_selector - 1;
                         }
-                        lcd_dirty = true;
+                        display_make_dirty(true);
                         dprintln("qkeys lcd_dirty7");
                         break;
                     case SUBMENU_KB:
@@ -133,7 +135,7 @@ process_record_result_t process_qmenu_keys(uint16_t keycode, keyrecord_t *record
                         } else {
                             painter_menu.state.menu_selector = painter_menu.state.menu_selector - 1;
                         }
-                        lcd_dirty = true;
+                        display_make_dirty(true);
                         dprintln("qkeys lcd_dirty8");
                         break;
                     }
@@ -297,15 +299,18 @@ process_record_result_t process_qmenu_keys(uint16_t keycode, keyrecord_t *record
                                 switch (user_config.system.os) {
                                     case MACOS:
                                         user_config.system.os = WINDOWS;
-                                        eeconfig_update_user_datablock(&user_config);
+                                        // eeconfig_update_kb_datablock(&user_config);
+                                        eeconfig_update_user_datablock_handler(&user_config, 0, EECONFIG_USER_DATA_SIZE);
                                         break;
                                     case WINDOWS:
                                         user_config.system.os = LINUX;
-                                        eeconfig_update_user_datablock(&user_config);
+                                        // eeconfig_update_kb_datablock(&user_config);
+                                        eeconfig_update_user_datablock_handler(&user_config, 0, EECONFIG_USER_DATA_SIZE);
                                         break;
                                     case LINUX:
                                         user_config.system.os = MACOS;
-                                        eeconfig_update_user_datablock(&user_config);
+                                        // eeconfig_update_kb_datablock(&user_config);
+                                        eeconfig_update_user_datablock_handler(&user_config, 0, EECONFIG_USER_DATA_SIZE);
                                         break;
                                 }
                                 break;
@@ -339,7 +344,7 @@ process_record_result_t process_qmenu_keys(uint16_t keycode, keyrecord_t *record
                         }
                     break;
                 }
-                lcd_dirty = true;
+                display_make_dirty(true);
                         dprintln("qkeys lcd_dirty8");
                 return PROCESS_RECORD_RETURN_FALSE;
             }
@@ -500,15 +505,18 @@ process_record_result_t process_qmenu_keys(uint16_t keycode, keyrecord_t *record
                                 switch (user_config.system.os) {
                                     case MACOS:
                                         user_config.system.os = LINUX;
-                                        eeconfig_update_user_datablock(&user_config);
+                                        // eeconfig_update_kb_datablock(&user_config);
+                                        eeconfig_update_user_datablock_handler(&user_config, 0, EECONFIG_USER_DATA_SIZE);
                                         break;
                                     case WINDOWS:
                                         user_config.system.os = MACOS;
-                                        eeconfig_update_user_datablock(&user_config);
+                                        // eeconfig_update_kb_datablock(&user_config);
+                                        eeconfig_update_user_datablock_handler(&user_config, 0, EECONFIG_USER_DATA_SIZE);
                                         break;
                                     case LINUX:
                                         user_config.system.os = WINDOWS;
-                                        eeconfig_update_user_datablock(&user_config);
+                                        // eeconfig_update_kb_datablock(&user_config);
+                                        eeconfig_update_user_datablock_handler(&user_config, 0, EECONFIG_USER_DATA_SIZE);
                                         break;
                                 }
                                 break;
@@ -542,13 +550,14 @@ process_record_result_t process_qmenu_keys(uint16_t keycode, keyrecord_t *record
                         }
                     break;
                 }
-                lcd_dirty = true;
+                display_make_dirty(true);
                         dprintln("qkeys lcd_dirty9");
                 return PROCESS_RECORD_RETURN_FALSE;
             }
             break;
             case TB_MENU:
                 if (record->event.pressed) {
+                    dprintln("TB_MENU pressed");
                     switch (painter_menu.state.submenu_selector) {
                         case SUBMENU_LIGHTING:
                             painter_menu.state.submenu_selector = SUBMENU_MODTAP;
@@ -566,7 +575,7 @@ process_record_result_t process_qmenu_keys(uint16_t keycode, keyrecord_t *record
                 }
             painter_menu.state.menu_selector = 1;
             qp_clear(lcd_surface);
-            lcd_dirty = true;
+            display_make_dirty(true);
                         dprintln("qkeys lcd_dirty10");
             return PROCESS_RECORD_RETURN_FALSE;
             break;

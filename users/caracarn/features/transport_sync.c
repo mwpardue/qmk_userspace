@@ -2,15 +2,21 @@
 #include "caracarn_runtime.h"
 #include "features/transport_sync.h"
 #include "transactions.h"
+
+#ifdef QUANTUM_PAINTER_ENABLE
+#include "features/qpainter.h"
+#endif
+
 #ifdef OLED_MENU_ENABLE
     #include "features/rgb_matrix_keys.h"
 #endif
+
 #ifdef SMART_CASE_ENABLE
     #include "features/smart_case.h"
 #endif
-#ifdef CASEMODE_ENABLE
-    #include "features/casemodes.h"
-#endif
+// #ifdef COMMUNITY_MODULE_CASE_MODES_ENABLE
+    #include "modules/mwpardue/casemodes/casemodes.h"
+// #endif
 #ifdef OS_TOGGLE_ENABLE
     #include "features/os_toggle.h"
 #endif
@@ -31,10 +37,10 @@ user_runtime_state_t user_runtime_state;
 extern smart_case_t smart_case;
 #endif
 
-#ifdef CASEMODE_ENABLE
+// #ifdef COMMUNITY_MODULE_CASE_MODES_ENABLE
     extern enum xcase_state xcase_state;
-    extern bool caps_word_on;
-#endif
+    // extern bool caps_word_on;
+// #endif
 
 #ifdef DYNAMIC_MACRO_ENABLE
     extern bool is_dynamic_recording;
@@ -59,15 +65,17 @@ void user_transport_update(void) {
     if (is_keyboard_master()) {
         user_runtime_state.kb.xcase_state = xcase_state;
         user_runtime_state.kb.llocked = locked_layers;
-        user_runtime_state.kb.caps_word_on = caps_word_on;
+        // user_runtime_state.kb.caps_word_on = caps_word_on;
         user_runtime_state.kb.debug_enabled = debug_enable;
+        user_runtime_state.kb.lcd_dirty = lcd_dirty;
         transport_user_runtime_state = user_runtime_state.raw;
     } else {
         user_runtime_state.raw = transport_user_runtime_state;
         xcase_state = user_runtime_state.kb.xcase_state;
         locked_layers = user_runtime_state.kb.llocked;
-        caps_word_on = user_runtime_state.kb.caps_word_on;
+        // caps_word_on = user_runtime_state.kb.caps_word_on;
         debug_enable = user_runtime_state.kb.debug_enabled;
+        lcd_dirty = user_runtime_state.kb.lcd_dirty;
     }
 }
 

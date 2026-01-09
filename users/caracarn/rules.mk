@@ -1,8 +1,8 @@
 SRC += caracarn.c
 SRC += definitions/keycodes.c
-INTROSPECTION_KEYMAP_C = caracarn.c
-INTROSPECTION_KEYMAP_C = $(USER_PATH)/definitions/keycodes.c
-INTROSPECTION_KEYMAP_C = $(USER_PATH)/features/tapdance.c
+# SRC += features/tapdance.c
+# INTROSPECTION_KEYMAP_C += caracarn.c
+# INTROSPECTION_KEYMAP_C += $(USER_PATH)/definitions/keycodes.c
 
 ifneq ($(PLATFORM),CHIBIOS)
     ifneq ($(strip $(LTO_SUPPORTED)), no)
@@ -31,6 +31,13 @@ endif
 TAP_FLOW_ENABLE ?= no
 ifeq ($(strip $(TAP_FLOW_ENABLE)), yes)
     OPT_DEFS += -DTAP_FLOW_ENABLE
+endif
+
+TAP_DANCE_ENABLE ?= no
+ifeq ($(strip $(TAP_DANCE_ENABLE)), yes)
+	# INTROSPECTION_KEYMAP_C += $(USER_PATH)/features/tapdance.c
+	SRC += $(USER_PATH)/features/tapdance.c
+    OPT_DEFS += -DTAP_DANCE_ENABLE
 endif
 
 ACHORDION_ENABLE ?= no
@@ -164,18 +171,43 @@ QMENU_ENABLE?= no
 ifeq ($(strip $(QMENU_ENABLE)), yes)
 	SRC += $(USER_PATH)/features/qmenu.c
 	SRC += $(USER_PATH)/features/qkeys.c
-	SRC += $(USER_PATH)/features/qhelper.c
 	OPT_DEFS += -DQMENU_ENABLE
 endif
 
-ifdef HLC_TFT_DISPLAY
+HALCYON_KEYBOARD?= no
+ifeq ($(strip $(HALCYON_KEYBOARD)), yes)
+	include $(USER_PATH)/splitkb/rules.mk
+	POST_CONFIG_H += $(USER_PATH)/splitkb/config.h
+	OPT_DEFS += -DHALCYON_KEYBOARD
+endif
+
+HLC_TFT_DISPLAY ?= 0
+ifeq ($(strip $(HLC_TFT_DISPLAY)), 1)
+	ifeq ($(strip $(QUANTUM_PAINTER_ENABLE)), no)
+		QUANTUM_PAINTER_ENABLE = yes
+	endif
+	SRC += $(USER_PATH)/features/qmenu.c
+	SRC += $(USER_PATH)/features/qkeys.c
+	QMENU_ENABLE = yes
+	OPT_DEFS += -DQMENU_ENABLE
+endif
+
+QUANTUM_PAINTER_ENABLE?= no
+ifeq ($(QUANTUM_PAINTER_ENABLE), yes)
+	SRC += $(USER_PATH)/features/qhelper.c
 	SRC += $(USER_PATH)/features/qpainter.c
 	SRC += $(USER_PATH)/features/mononoki.qff.c
 	SRC += $(USER_PATH)/features/kyria_logo-mono.qgf.c
 	SRC += $(USER_PATH)/fonts/bigbluetermmono.qff.c
 	SRC += $(USER_PATH)/images/glyphs.qgf.c
-	include $(USER_PATH)/splitkb/rules.mk
-	POST_CONFIG_H += $(USER_PATH)/splitkb/config.h
+endif
+
+QMENU_ENABLE ?= 0
+ifeq ($(strip $(QMENU_ENABLE)), 1)
+	SRC += $(USER_PATH)/features/qmenu.c
+	SRC += $(USER_PATH)/features/qkeys.c
+	QMENU_ENABLE = yes
+	OPT_DEFS += -DQMENU_ENABLE
 endif
 
 CUSTOM_SPLIT_TRANSPORT_SYNC ?= yes

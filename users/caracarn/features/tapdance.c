@@ -1,12 +1,21 @@
 #include QMK_KEYBOARD_H
 
-#include "tapdance.h"
-#include "transport_sync.h"
+#include "features/tapdance.h"
+#include "features/transport_sync.h"
+#include "caracarn_runtime.h"
 
 static td_tap_t tap_state = {
     .state = TD_NONE
 };
 
+
+// tap_dance_action_t tap_dance_actions[] = {
+//     [TDCOPY] = ACTION_TAP_DANCE_FN(td_copy),
+//     [TDPASTE] = ACTION_TAP_DANCE_FN(td_paste),
+//     [SS_FULL] = ACTION_TAP_DANCE_FN(td_screenshot_full),
+//     [SS_SNIP] = ACTION_TAP_DANCE_FN(td_screenshot_snippet),
+//     [SS_SSEL] = ACTION_TAP_DANCE_FN(td_smart_select),
+// };
 
 __attribute__ ((weak)) td_state_t dance_state(tap_dance_state_t *state) {
     if (state->count == 1) {
@@ -59,6 +68,17 @@ void td_copy(tap_dance_state_t *state, void *user_data) {
                 tap_code16(C(KC_X));
             }
             break;
+        case TD_DOUBLE_TAP:
+            if (user_config.system.os == MACOS) {
+                dprintln("Executing MACOS command");
+                tap_code16(G(KC_A));
+                tap_code16(G(KC_C));
+            } else {
+                dprintln("Executing WINDOWS command");
+                tap_code16(C(KC_A));
+                tap_code16(C(KC_C));
+            }
+            break;
         default: break;
     }
 };
@@ -97,7 +117,8 @@ void td_paste(tap_dance_state_t *state, void *user_data) {
                 tap_code16(G(KC_V));
             } else {
                 dprintln("Executing WINDOWS command");
-                tap_code16(G(C(KC_V)));
+                tap_code16(C(KC_A));
+                tap_code16(C(KC_V));
             }
             break;
         default: break;

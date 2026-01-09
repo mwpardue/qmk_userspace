@@ -11,6 +11,7 @@ void keyboard_post_init_keymap(void);
 void housekeeping_task_transport_sync(void);
 uint32_t eeconfig_update_user_datablock_handler(const void *data, uint8_t offset, uint8_t size);
 uint32_t eeconfig_read_user_datablock_handler(void *data, uint8_t offset, uint8_t size);
+// bool lcd_dirty;
 
 
 #ifdef TAP_DANCE_ENABLE
@@ -107,6 +108,9 @@ uint32_t eeconfig_read_user_datablock_handler(void *data, uint8_t offset, uint8_
 
 #ifdef QMENU_ENABLE
     #include "features/qkeys.h"
+#endif
+
+#ifdef QUANTUM_PAINTER_ENABLE
     #include "features/qhelper.h"
 #endif
 

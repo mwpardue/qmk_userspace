@@ -17,9 +17,11 @@
 #include "leader.h"
 #include "secrets.h"
 #include "features/rgb_matrix_custom.h"
-#ifdef HLC_TFT_DISPLAY
+
+#ifdef QUANTUM_PAINTER_ENABLE
     #include "features/qpainter.h"
 #endif
+
 #include "features/dynamic_macro.h"
 #include "caracarn_runtime.h"
 
@@ -76,7 +78,7 @@ void *adjust_layer(void) {
     #ifdef QMENU_ENABLE
         painter_menu.state.menu_selector = 1;
         painter_menu.state.submenu_selector = 1;
-        qp_clear(lcd_surface);
+        // qp_clear(lcd_surface);
     #endif
         layer_on(_ADJUST);
     return NULL;
@@ -332,8 +334,8 @@ void start_leading(void) {
     leader_display[3] = '-';
     leader_display_size = 3;
 #endif
-#ifdef HLC_TFT_DISPLAY
-    lcd_dirty = true;
+#ifdef QUANTUM_PAINTER_ENABLE
+    display_make_dirty(true);
     dprintln("leader lcd_dirty2");
 #endif
 }
@@ -350,8 +352,8 @@ void start_pass_leading(void) {
     leader_display[3] = '-';
     leader_display_size = 3;
 #endif
-#ifdef HLC_TFT_DISPLAY
-    lcd_dirty = true;
+#ifdef QUANTUM_PAINTER_ENABLE
+    display_make_dirty(true);
     dprintln("leader lcd_dirty3");
 #endif
 }
@@ -363,8 +365,8 @@ void stop_leading(void) {
 #ifdef LEADER_DISPLAY_STR
     leader_display[leader_display_size] = ' ';
 #endif
-#ifdef HLC_TFT_DISPLAY
-    lcd_dirty = true;
+#ifdef QUANTUM_PAINTER_ENABLE
+    display_make_dirty(true);
     dprintln("leader lcd_dirty1");
 #endif
 }

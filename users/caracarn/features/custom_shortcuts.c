@@ -5,6 +5,7 @@
 #include "caracarn_runtime.h"
 #include "definitions/keycodes.h"
 #include "features/taphold.h"
+
 #ifdef QMENU_ENABLE
 #include "features/qhelper.h"
 #include "features/qpainter.h"
@@ -276,7 +277,7 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
                 #ifdef QMENU_ENABLE
                     painter_menu.state.menu_selector = 1;
                     painter_menu.state.submenu_selector = 1;
-                    qp_clear(lcd_surface);
+                    // qp_clear(lcd_surface);
                 #endif
                 layer_on(_ADJUST);
                 return PROCESS_RECORD_RETURN_FALSE;
@@ -296,6 +297,7 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
     break;
 
     case MEH_ESC:
+    case SFT_ESC:
         if (record->event.pressed) {
             if (record->tap.count > 0) {
                 smart_escape();
@@ -319,7 +321,7 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
 
         case ADJ_EXT:
             if (record->event.pressed) {
-                #ifdef HLC_TFT_DISPLAY
+                #ifdef QMENU_ENABLE
                     if (user_runtime_state.kb.write_to_eeprom) {
                         painter_sethsv(painter_get_hue(true), painter_get_sat(true), painter_get_val(true), true);
                         painter_sethsv(painter_get_hue(false), painter_get_sat(false), painter_get_val(false), false);

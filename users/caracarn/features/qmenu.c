@@ -1,13 +1,17 @@
 #include QMK_KEYBOARD_H
 
 #include <ctype.h>
+#include <qp.h>
+#include <qp_surface.h>
 #include "caracarn.h"
+#include "caracarn_runtime.h"
 #include "features/qpainter.h"
 #include "features/qmenu.h"
 
 #ifdef ACHORDION_ENABLE
 extern uint16_t achordion_tapping_term;
 #endif
+// painter_menu_t painter_menu;
 
 __attribute__((unused)) int            start_index = 0;
 
@@ -147,7 +151,7 @@ void prerender_painter_item(const char *label, uint8_t property, uint8_t menu_it
 void qmenu_timer(void) {
     if ((dyn_display == true) && (timer_elapsed32(substring_timer) > scroll_time)) {
         dprintln("qmenu_timer expired");
-        lcd_dirty = true;
+        display_make_dirty(true);
     }
 }
 
@@ -214,6 +218,7 @@ void render_menu_heading(const char *heading) {
 }
 
 void render_menu_rgb(const char *heading, uint8_t sm_start, uint8_t sm_end) {
+    dprintln("Rendering RGB Menu");
     // render_menu_heading(heading);
     for (uint8_t i = (sm_start); i < sm_end; i++) {
         switch(i) {
@@ -262,6 +267,7 @@ void render_menu_rgb(const char *heading, uint8_t sm_start, uint8_t sm_end) {
 }
 
 void render_menu_modtap(const char *heading, uint8_t sm_start, uint8_t sm_end) {
+    dprintln("Rendering MODTAP Menu");
     // render_menu_heading(heading);
     for (uint8_t i = (sm_start); i < sm_end; i++) {
         switch(i) {
@@ -296,6 +302,7 @@ void render_menu_modtap(const char *heading, uint8_t sm_start, uint8_t sm_end) {
 }
 
 void render_menu_kb(const char *heading, uint8_t sm_start, uint8_t sm_end) {
+    dprintln("Rendering KB Menu");
     for (uint8_t i = (sm_start); i < sm_end; i++) {
         switch(i) {
             // case KB_HEADING:
@@ -359,6 +366,7 @@ void render_menu_kb(const char *heading, uint8_t sm_start, uint8_t sm_end) {
 }
 
 void render_menu_painter(const char *heading, uint8_t sm_start, uint8_t sm_end) {
+    dprintln("Rendering PAINTER Menu");
     for (uint8_t i = (sm_start); i < sm_end; i++) {
         switch(i) {
             // case PAINTER_HEADING:
@@ -388,7 +396,8 @@ void render_menu_painter(const char *heading, uint8_t sm_start, uint8_t sm_end) 
 }
 
 void render_menu(void) {
-    if (lcd_dirty) {
+    if (display_is_dirty()) {
+        dprintln("render_menu called");
         switch (painter_menu.state.submenu_selector) {
             case SUBMENU_LIGHTING:
                 render_menu_rgb("RGB", LIGHTING_HEADING, LIGHTING_END);
