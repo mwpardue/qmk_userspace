@@ -1,6 +1,9 @@
 {
-    "module_name": "casemode",
+    "module_name": "casemodes",
     "maintainer": "mwpardue",
+    "features": {
+        "caps_word": true
+    },
     "keycodes": [
         {
             "key": "COMMUNITY_MODULE_CASEMODES",

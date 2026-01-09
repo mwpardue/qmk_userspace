@@ -15,6 +15,10 @@
  */
 
 #include "casemodes.h"
+#ifdef QUANTUM_PAINTER_ENABLE
+// extern bool lcd_dirty;
+#include "features/qpainter.h"
+#endif
 
 ASSERT_COMMUNITY_MODULES_MIN_API_VERSION(0, 1, 0);
 #pragma message \
@@ -34,6 +38,9 @@ enum xcase_state xcase_state = XCASE_OFF;
 static uint16_t xcase_delimiter;
 static int8_t distance_to_last_delim = -1;
 static int8_t delimiters_count = 0;
+#ifdef QUANTUM_PAINTER_ENABLE
+// extern bool lcd_dirty;
+#endif
 
 // Get xcase state
 enum xcase_state get_xcase_state(void) {
@@ -53,8 +60,8 @@ bool is_xcase(void) {
 void enable_xcase(void) {
     xcase_state = XCASE_WAIT;
     dprintln("enabling xcase with default delimiter");
-#ifdef HLC_TFT_DISPLAY
-    lcd_dirty = true;
+#ifdef QUANTUM_PAINTER_ENABLE
+    display_make_dirty(true);
     dprintln("casemode lcd_dirty4");
 #endif
 }
@@ -62,8 +69,8 @@ void enable_xcase(void) {
 // Enable xcase with the specified delimiter
 void enable_xcase_with(uint16_t delimiter) {
     xcase_state = XCASE_ON;
-#ifdef HLC_TFT_DISPLAY
-    lcd_dirty = true;
+#ifdef QUANTUM_PAINTER_ENABLE
+    display_make_dirty(true);
     dprintln("casemode lcd_dirty5");
 #endif
     xcase_delimiter = delimiter;
@@ -76,8 +83,8 @@ void enable_xcase_with(uint16_t delimiter) {
 void disable_xcase(void) {
     xcase_state = XCASE_OFF;
     dprintln("disabling xcase");
-#ifdef HLC_TFT_DISPLAY
-    lcd_dirty = true;
+#ifdef QUANTUM_PAINTER_ENABLE
+    display_make_dirty(true);
     dprintln("casemode lcd_dirty1");
 #endif
 }
