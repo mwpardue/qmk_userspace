@@ -116,7 +116,7 @@ enum {
     #define CUOL_THM MON_R
     #define GLOL_THM LT(_NUMPAD, KC_ENTER)
     #define LOL_THM LSFT_T(KC_ENTER)
-    #define SLOL_THM LSFT_T(KC_TAB)
+    #define SLOL_THM LT(_NUMPAD, KC_TAB)
 
 // Right thumb keys
 
