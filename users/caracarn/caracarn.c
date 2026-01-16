@@ -18,7 +18,11 @@
 #endif
 
 user_config_t user_config;
+
+#ifdef QUANTUM_PAINTER_ENABLE
 painter_menu_t painter_menu;
+#endif // QUANTUM_PAINTER_ENABLE
+
 bool capslock_state = false;
 
 uint32_t eeconfig_update_user_datablock_handler(const void *data, uint8_t offset, uint8_t size) {

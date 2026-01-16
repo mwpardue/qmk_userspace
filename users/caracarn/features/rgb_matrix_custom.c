@@ -2,6 +2,7 @@
 #include "features/rgb_matrix_custom.h"
 #include "definitions/layers.h"
 #include "modules/mwpardue/casemodes/casemodes.h"
+#include "features/secrets.h"
 #ifdef SMART_CASE_ENABLE
     #include "features/smart_case.h"
 #endif
@@ -96,13 +97,19 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         case _HEX:
             set_layer_rgb_matrix(HEX_UNDERGLOW, led_min, led_max);
             break;
-        default:
-            set_layer_rgb_matrix(rgb_matrix_get_hue(), rgb_matrix_get_sat(), rgb_matrix_get_val(), led_min, led_max);
+        // case _VIM:
+        //     rgb_matrix_set_color_all(255, 0, 0);
+        //     break;
+        // default:
+        //     set_layer_rgb_matrix(rgb_matrix_get_hue(), rgb_matrix_get_sat(), rgb_matrix_get_val(), led_min, led_max);
 
  #endif
             break;
     }
 
+    if (is_typing_secrets()) {
+        rgb_matrix_set_color_all(255, 0, 0);
+    }
     if (is_caps_word_on()) {
         RGB_MATRIX_INDICATOR_SET_COLOR(6, 128, 0, 128);
     }

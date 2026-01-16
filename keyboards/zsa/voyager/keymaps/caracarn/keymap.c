@@ -169,38 +169,38 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_BASE] = LAYOUT(
   KC_GRV,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                                                KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL,
-  KC_TAB,  KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                                                KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
+  XCASE,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                                                KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
   KC_BSPC, LHM_A,  LQM_S,   LHM_D,   LHM_F,   KC_G,                                                KC_H,    RHM_J,   RHM_K,   RHM_L,   RHM_SCN, KC_QUOT,
-  MEH_XCS, NUM_Z,  VIM_X,   KC_C,    KC_V,    KC_B,                                                KC_N,    KC_M,    KC_COMM, VIM_DOT, SYM_QUE, MEH_BSL,
+  MEH_RET, SFT_Z,  VIM_X,   KC_C,    KC_V,    KC_B,                                                KC_N,    KC_M,    KC_COMM, VIM_DOT, SFT_QUE, MEH_BSL,
                                                        LIL_THM,   LOL_THM,          LOR_THM, LIR_THM
                                                     // NAV/SM_ESC LSHFT/ENTER       RSHFT/ENTER SYM/SPACE
 ),
 
 [_GAMING] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  SM_ESC,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, SFT_Z,   _______, _______, _______, _______,                                             _______, _______, _______, _______, SFT_QUE, _______,
-                                                        LIL_THM, GLOL_THM,      CLOR_THM,  _______
-                                                    // NAV/SM_ESC NUM/ENTER   VIM/ENTER SYM/SPACE
+                                                        CLIL_THM, GLOL_THM,      CLOR_THM,  _______
+                                                    // NAV/TAB    NUM/ENTER   VIM/ENTER SYM/SPACE
 ),
 
 [_GAMENUM] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  XCASE,   _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  SM_ESC,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  _______, SFT_Z,   _______, _______, _______, _______,                                             _______, _______, _______, _______, SFT_QUE, _______,
-                                                        GLIL_THM, GLOL_THM,      CLOR_THM,  _______
-                                                       // NAV/BSPC NUM/ENTER   VIM/ENTER SYM/SPACE
+  MEH_RET, SFT_Z,   _______, _______, _______, _______,                                             _______, _______, _______, _______, SFT_QUE, _______,
+                                                        CLIL_THM, SLOL_THM,      KC_ENTER,  _______
+                                                    // NAV/TAB    NUM/ESC       VIM/ENTER SYM/SPACE
 ),
 
 [_COLEMAK_DH] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  XCASE,   _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  _______, SFT_Z,   _______, _______, _______, _______,                                             _______, _______, _______, _______, SFT_QUE, _______,
+  XCASE,   KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                                                KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, _______,
+  _______, LHM_A,   LCM_R,   LCM_S,   LCM_T,   KC_G,                                                KC_M,    RCM_N,   RCM_E,   RCM_I,   RCM_O,   _______,
+  MEH_RET, SFT_Z,   VIM_X,   KC_C,    KC_D,    KC_V,                                                KC_K,    KC_H,    _______, _______, SFT_QUE, _______,
                                                         CLIL_THM, SLOL_THM,      KC_ENTER,  _______
-                                                    // NAV/TAB NUM/ESC   VIM/ENTER SYM/SPACE
+                                                    // NAV/TAB    NUM/ESC       VIM/ENTER SYM/SPACE
 ),
 
 [_NAVIGATION] = LAYOUT(
@@ -232,7 +232,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, SEC11,   SEC14,   _______, _______, SEC6,                                                SEC17,   SEC16,   SEC15,   SEC7,    SEC8,    _______,
   _______, SEC1,    SEC9,    SEC13,   _______, _______,                                             _______, SEC4,    _______, SEC10,   _______, _______,
   _______, _______, _______, _______, SEC19,   SEC3,                                                SEC12,   SEC2,    _______, _______, _______, _______,
-                                                        KC_BSPC, _______,         _______, _______
+                                                        _______, KC_ENTER,        _______, _______
 ),
 
 [_HEX] = LAYOUT(
@@ -244,7 +244,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_FUNCTION] = LAYOUT( \
-  TGFUN,   DF_LYR1, DF_LYR2, DF_LYR3, DF_LYR4, _______,                                             _______, _______, _______, _______, _______, _______,
+  TGFUN,   DF_LYR1, DF_LYR2, DF_LYR3, DF_LYR4, _______,                                             RGB_SLD, RGB_REC, _______, _______, _______, _______,
   _______, DF_LAYR, _______, EE_CLR,  _______, _______,                                             RM_NEXT, RM_HUEU, RM_SATU, RM_VALU, RM_SPDU, _______,
   _______, _______, _______, DB_TOGG, _______, _______,                                             RM_PREV, RM_HUED, RM_SATD, RM_VALD, RM_SPDD, _______,
   _______, MT_STTD, MT_DTTD, MT_MTTD, MT_GTTD, MT_SGTD,                                             MT_SGTI, MT_GTTI, MT_MTTI, MT_DTTI, MT_STTI, TT_CHEK,

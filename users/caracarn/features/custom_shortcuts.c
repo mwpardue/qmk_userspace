@@ -458,6 +458,22 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
             return PROCESS_RECORD_RETURN_FALSE;
             break;
 
+        case RGB_SLD:
+            if (record->event.pressed) {
+                    rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+                return PROCESS_RECORD_RETURN_FALSE;
+            }
+            return PROCESS_RECORD_RETURN_FALSE;
+        break;
+
+        case RGB_REC:
+            if (record->event.pressed) {
+                    rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_REACTIVE_SIMPLE);
+                return PROCESS_RECORD_RETURN_FALSE;
+            }
+            return PROCESS_RECORD_RETURN_FALSE;
+        break;
+
     }
     return PROCESS_RECORD_CONTINUE;
 }

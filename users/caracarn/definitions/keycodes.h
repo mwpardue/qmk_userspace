@@ -87,7 +87,7 @@ enum {
 #endif
 
 #ifdef RGB_MATRIX_ENABLE
-    RGB_CHG, RGB_MDT, TB_MENU, MENU_AD, MENU_MD, MENU_MU, MENU_AU,
+    RGB_CHG, RGB_MDT, TB_MENU, MENU_AD, MENU_MD, MENU_MU, MENU_AU, RGB_SLD, RGB_REC,
 #endif
 
 
@@ -104,19 +104,19 @@ enum {
     #define LUTHUM0 MON_L
     #define LUTHUM1 MON_R
     #define LUTHUM2 LT(_NUMPAD, KC_MINS)
-    #define LIL_THM LT(_NAVIGATION, KC_T)
+    #define LIL_THM LT(_NAVIGATION, KC_TAB)
     #define CLOL_THM LT(_NUMPAD, KC_ENTER)
 
     // Alt Base Thumb Keys
     /*#define CLUTHUM2 LT(_NUMPAD, KC_MINS)*/
     #define CLUTHUM2 LCTL_T(KC_UNDS)
     #define GLIL_THM LT(_NAVIGATION, KC_BSPC)
-    #define CLIL_THM LT(_NAVIGATION, KC_TAB)
+    #define CLIL_THM LT(_NAVIGATION, KC_T)
     #define CUIL_THM KC_F20
     #define CUOL_THM MON_R
     #define GLOL_THM LT(_NUMPAD, KC_ENTER)
-    #define LOL_THM LSFT_T(KC_ENTER)
-    #define SLOL_THM LT(_NUMPAD, KC_TAB)
+    #define SLOL_THM LSFT_T(KC_ENTER)
+    #define LOL_THM LT(_NUMPAD, KC_TAB)
 
 // Right thumb keys
 
@@ -133,7 +133,7 @@ enum {
 
     // Alt Base Thumb Keys
     #define CLIR_THM LT(_SYMBOL, KC_ENTER)
-    #define LOR_THM RSFT_T(KC_ENTER)
+    #define LOR_THM KC_ENTER
     #define CUIR_THM OSMHYPR
     #define CUOR_THM OSMMEH
     #define CRUTHUM2 RCTL_T(KC_DEL)
@@ -173,9 +173,9 @@ enum {
 #define LQM_S LALT_T(KC_S)
 #define LHM_D LSFT_T(KC_D)
 #define LHM_F LGUI_T(KC_F)
-#define LHM_R LALT_T(KC_R)
-#define LHM_S LSFT_T(KC_S)
-#define LHM_T LGUI_T(KC_T)
+#define LCM_R LALT_T(KC_R)
+#define LCM_S LSFT_T(KC_S)
+#define LCM_T LGUI_T(KC_T)
 #define CTL_D LCTL_T(KC_D)
 #define GUI_D LGUI_T(KC_D)
 #define GUI_K LGUI_T(KC_K)
@@ -221,10 +221,10 @@ enum {
 #define RHM_J   RGUI_T(KC_J)
 #define RHM_DOT RALT_T(KC_DOT)
 #define RHM_COM RSFT_T(KC_COMM)
-#define RHM_N   RGUI_T(KC_N)
-#define RHM_E   RSFT_T(KC_E)
-#define RHM_I   RALT_T(KC_I)
-#define RHM_O   RCTL_T(KC_O)
+#define RCM_N   RGUI_T(KC_N)
+#define RCM_E   RSFT_T(KC_E)
+#define RCM_I   RALT_T(KC_I)
+#define RCM_O   RCTL_T(KC_O)
 #define RSM_SCN LSFT_T(KC_SCLN)
 #define RSM_K LCTL_T(KC_K)
 #define GUI_4 RGUI_T(KC_4)

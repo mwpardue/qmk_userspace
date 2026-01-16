@@ -84,11 +84,11 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case LHM_A:
         case LQM_S:
         case LHM_F:
-        case LHM_R:
-        case LHM_T:
-        case RHM_N:
-        case RHM_I:
-        case RHM_O:
+        case LCM_R:
+        case LCM_T:
+        case RCM_N:
+        case RCM_I:
+        case RCM_O:
         case RHM_J:
         case RHM_L:
         case RHM_SCN:
@@ -116,8 +116,8 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case LHM_D:
         case LHM_C:
         case RHM_COM:
-        case LHM_S:
-        case RHM_E:
+        case LCM_S:
+        case RCM_E:
         case SFT_Z:
         case SFT_QUE:
         case SFT_QUO:
@@ -252,11 +252,11 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_
             case ALT_X:
             case CTL_QUE:
             case ALT_DOT:
-            case LHM_R:
-            case LHM_T:
-            case RHM_N:
-            case RHM_I:
-            case RHM_O:
+            case LCM_R:
+            case LCM_T:
+            case RCM_N:
+            case RCM_I:
+            case RCM_O:
             case GUI_4:
             case SFT_5:
             case ALT_6:
@@ -269,8 +269,8 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_
             case GUI_SCN:
                 dprintln("get_tap_flow triggered, gqt case");
                 return get_custom_tapping_term(user_config.tapping_term.gqt);
-            case LHM_S:
-            case RHM_E:
+            case LCM_S:
+            case RCM_E:
             case LHM_C:
             case RHM_COM:
                 dprintln("get_tap_flow triggered, shift gqt case");
