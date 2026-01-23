@@ -205,7 +205,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_NAVIGATION] = LAYOUT(
     _______, _______, _______, TD_SSFL, TD_SNIP, SS_WIN,                                            DM_REC1, DM_PLY1, DM_REC2, DM_PLY2, _______, KC_VOLU,
-    _______, MC_SWRI, MON_L,   MON_U,   MON_R,   _______,  		                                    WRD_BAK, SELWBAK, SELWORD, WRD_FWD, _______, KC_VOLD,
+    _______, UNDO,    MON_L,   MON_U,   MON_R,   REDO,     		                                    WRD_BAK, SELWBAK, SELWORD, WRD_FWD, _______, KC_VOLD,
     KC_BSPC, OSMLCTL, OSMLALT, OSMLSFT, OSMLGUI, _______,                                           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XCASE,   KC_MUTE,
     _______, TAB_DWN, TAB_UP,  TD_COPY, TD_PAST, _______,                                           KC_HOME, _______, _______, KC_END,  _______, _______,
                                                           _______, _______,      _______, KC_SPC
@@ -228,7 +228,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_VIM] = LAYOUT(
-  _______, SEC20,   _______, _______, SEC18,   SEC5,                                                _______, _______, _______, _______, _______, _______,
+  _______, SEC20,   _______, _______, SEC18,   SEC5,                                                DM_REC1, DM_PLY1, DM_REC2, DM_PLY2, _______, _______,
   _______, SEC11,   SEC14,   _______, _______, SEC6,                                                SEC17,   SEC16,   SEC15,   SEC7,    SEC8,    _______,
   _______, SEC1,    SEC9,    SEC13,   _______, _______,                                             _______, SEC4,    _______, SEC10,   _______, _______,
   _______, _______, _______, _______, SEC19,   SEC3,                                                SEC12,   SEC2,    _______, _______, _______, _______,

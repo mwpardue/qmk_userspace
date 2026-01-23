@@ -474,6 +474,28 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
             return PROCESS_RECORD_RETURN_FALSE;
         break;
 
+        case UNDO:
+            if (record->event.pressed) {
+                if (isMacOS) {
+                    tap_code16(G(KC_Z));
+                } else {
+                    tap_code16(C(KC_Z));
+                }
+                return PROCESS_RECORD_RETURN_FALSE;
+            }
+            return PROCESS_RECORD_RETURN_FALSE;
+
+        case REDO:
+            if (record->event.pressed) {
+                if (isMacOS) {
+                    tap_code16(G(S(KC_Z)));
+                } else {
+                    tap_code16(C(S(KC_Z)));
+                }
+                return PROCESS_RECORD_RETURN_FALSE;
+            }
+            return PROCESS_RECORD_RETURN_FALSE;
+
     }
     return PROCESS_RECORD_CONTINUE;
 }
