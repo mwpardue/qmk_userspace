@@ -16,7 +16,6 @@ extern enum xcase_state xcase_state;
 // extern bool caps_word_on;
 #endif
 
-
 extern led_config_t g_led_config;
 
 __attribute__((weak)) bool rgb_matrix_indicators_keymap(void) { return true; }
@@ -91,12 +90,34 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 #ifdef RGB_MATRIX_CUSTOM_ENABLED
 
     switch (get_highest_layer(layer_state | default_layer_state)) {
+        // case _FUNCTION:
+        //     set_layer_rgb_matrix(FUNCTION_UNDERGLOW, led_min, led_max);
+        //     break;
+        // case _HEX:
+        //     set_layer_rgb_matrix(HEX_UNDERGLOW, led_min, led_max);
+        //     break;
+        case _VIM:
+            RGB_MATRIX_INDICATOR_SET_COLOR(26, 255, 0, 0);
+            RGB_MATRIX_INDICATOR_SET_COLOR(27, 0, 0, 255);
+            RGB_MATRIX_INDICATOR_SET_COLOR(28, 255, 0, 0);
+            RGB_MATRIX_INDICATOR_SET_COLOR(29, 0, 0, 255);
+            break;
         case _FUNCTION:
-            set_layer_rgb_matrix(FUNCTION_UNDERGLOW, led_min, led_max);
-            break;
-        case _HEX:
-            set_layer_rgb_matrix(HEX_UNDERGLOW, led_min, led_max);
-            break;
+            switch (get_highest_layer(default_layer_state)) {
+                case _BASE:
+                    RGB_MATRIX_INDICATOR_SET_COLOR(1, 255, 0, 0);
+                    break;
+                case _GAMING:
+                    RGB_MATRIX_INDICATOR_SET_COLOR(2, 255, 0, 0);
+                    break;
+                case _COLEMAK_DH:
+                    RGB_MATRIX_INDICATOR_SET_COLOR(3, 255, 0, 0);
+                    break;
+                case _GAMENUM:
+                    RGB_MATRIX_INDICATOR_SET_COLOR(4, 255, 0, 0);
+                    break;
+                break;
+            };
         // case _VIM:
         //     rgb_matrix_set_color_all(255, 0, 0);
         //     break;
@@ -124,22 +145,22 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         RGB_MATRIX_INDICATOR_SET_COLOR(6, 0, 255, 0);
     }
 
-    if (get_highest_layer(layer_state) == _FUNCTION) {
-        switch (get_highest_layer(default_layer_state)) {
-            case _BASE:
-                RGB_MATRIX_INDICATOR_SET_COLOR(1, 255, 0, 0);
-                break;
-            case _GAMING:
-                RGB_MATRIX_INDICATOR_SET_COLOR(2, 255, 0, 0);
-                break;
-            case _COLEMAK_DH:
-                RGB_MATRIX_INDICATOR_SET_COLOR(3, 255, 0, 0);
-                break;
-            case _GAMENUM:
-                RGB_MATRIX_INDICATOR_SET_COLOR(4, 255, 0, 0);
-                break;
-        }
-    }
+    // if (get_highest_layer(layer_state) == _FUNCTION) {
+    //     switch (get_highest_layer(default_layer_state)) {
+    //         case _BASE:
+    //             RGB_MATRIX_INDICATOR_SET_COLOR(1, 255, 0, 0);
+    //             break;
+    //         case _GAMING:
+    //             RGB_MATRIX_INDICATOR_SET_COLOR(2, 255, 0, 0);
+    //             break;
+    //         case _COLEMAK_DH:
+    //             RGB_MATRIX_INDICATOR_SET_COLOR(3, 255, 0, 0);
+    //             break;
+    //         case _GAMENUM:
+    //             RGB_MATRIX_INDICATOR_SET_COLOR(4, 255, 0, 0);
+    //             break;
+    //     }
+    // }
 
   if (isOneShotShift) {
     RGB_MATRIX_INDICATOR_SET_COLOR(15, 255, 225, 0);
