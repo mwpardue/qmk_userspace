@@ -111,7 +111,7 @@ void matrix_scan_user(void) {
 }
 
 #ifdef QUANTUM_PAINTER_ENABLE
-    layer_state_t layer_state_set_kb(layer_state_t state) {
+    layer_state_t layer_state_set_user(layer_state_t state) {
         dprintln("lcd_dirty layer change");
         display_make_dirty(true);
         return state;
