@@ -128,9 +128,9 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             break;
     }
 
-    if (is_typing_secrets()) {
-        rgb_matrix_set_color_all(255, 0, 0);
-    }
+    // if (is_typing_secrets()) {
+    //     rgb_matrix_set_color_all(255, 0, 0);
+    // }
     if (is_caps_word_on()) {
         RGB_MATRIX_INDICATOR_SET_COLOR(6, 128, 0, 128);
     }

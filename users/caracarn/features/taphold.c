@@ -228,6 +228,8 @@ bool get_permissive_hold_result(uint16_t keycode) {
         case MEH_QUE:
         case SFT_QUO:
         case SFT_ESC:
+        case VIM_X:
+        case VIM_DOT:
             // Immediately select the hold action when another key is tapped.
             return true;
         default:
@@ -273,10 +275,10 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_
             case RCM_E:
             case LHM_C:
             case RHM_COM:
-                dprintln("get_tap_flow triggered, shift gqt case");
-                return get_custom_tapping_term(user_config.tapping_term.shift_gqt);
             case SFT_Z:
             case SFT_QUE:
+                dprintln("get_tap_flow triggered, shift gqt case");
+                return get_custom_tapping_term(user_config.tapping_term.shift_gqt);
             case NUM_Z:
             case LHM_D:
             case RHM_K:

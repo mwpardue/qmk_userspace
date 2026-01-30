@@ -126,7 +126,7 @@ enum {
     #define RUTHUM1 KC_LBRC
     #define RUTHUM2 LT(_VIM, KC_BSLS)
     #define LIR_THM LT(_SYMBOL, KC_SPACE)
-    #define CLOR_THM HYPR_T(KC_ENTER)
+    #define CLOR_THM RSFT_T(KC_ENTER)
 
     // Upper Right Thumb Keys
     #define UIR_THM LT(_FUNCTION, KC_F16)
