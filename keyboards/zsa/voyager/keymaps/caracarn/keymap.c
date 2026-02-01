@@ -221,10 +221,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_SYMBOL] = LAYOUT(
   KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                               KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-  KC_GRV,  KC_GRV,  KC_TILD, KC_LCBR, KC_RCBR, TIPS,                                                _______, KC_AMPR, KC_ASTR, KC_LPRN, _______, _______,
-  KC_DEL,  KC_AT,   KC_UNDS, KC_LPRN, KC_RPRN, KC_PIPE,                                             KC_MINS, KC_DLR,  KC_PERC, KC_CIRC, KC_COLN, KC_DQUO,
+  _______, KC_GRV,  KC_TILD, KC_LCBR, KC_RCBR, TIPS,                                                _______, KC_AMPR, KC_ASTR, KC_LPRN, _______, _______,
+  _______, KC_AT,   KC_UNDS, KC_LPRN, KC_RPRN, KC_PIPE,                                             KC_MINS, KC_DLR,  KC_PERC, KC_CIRC, KC_COLN, KC_DQUO,
   _______, KC_LT,   KC_GT,   KC_LBRC, KC_RBRC, M_ARROW,                                             KC_EQL,  KC_EXLM, KC_AT,   KC_HASH, _______, _______,
-                                                        KC_BSPC, _______,         _______, _______
+                                                        KC_SPC, _______,         _______, _______
 ),
 
 [_VIM] = LAYOUT(
