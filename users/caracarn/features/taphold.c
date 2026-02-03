@@ -10,45 +10,13 @@ uint16_t get_custom_tapping_term(uint16_t custom_tapping_term) {
     return custom_tapping_term;
 }
 
-void increase_custom_tapping_term(uint16_t custom_tapping_term) {
-    custom_tapping_term = custom_tapping_term + 5;
+void increase_custom_tapping_term(uint16_t *custom_tapping_term) {
+    *custom_tapping_term += 5;
 }
 
-void decrease_custom_tapping_term(uint16_t custom_tapping_term) {
-    custom_tapping_term = custom_tapping_term - 5;
+void decrease_custom_tapping_term(uint16_t *custom_tapping_term) {
+    *custom_tapping_term -= 5;
 }
-
-// void increase_modtap_tapping_term(void) {
-//     user_config.tapping_term.modtap = user_config.tapping_term.modtap + 5;
-// }
-//
-// void increase_shift_tapping_term(void) {
-//     user_config.tapping_term.shift = user_config.tapping_term.shift + 5;
-// }
-//
-// void increase_gqt_tapping_term(void) {
-//     user_config.tapping_term.gqt = user_config.tapping_term.gqt + 5;
-// }
-//
-// void increase_shift_gqt_tapping_term(void) {
-//     user_config.tapping_term.shift_gqt = user_config.tapping_term.shift_gqt + 5;
-// }
-//
-// void decrease_modtap_tapping_term(void) {
-//     user_config.tapping_term.modtap = user_config.tapping_term.modtap - 5;
-// }
-//
-// void decrease_shift_tapping_term(void) {
-//     user_config.tapping_term.shift = user_config.tapping_term.shift - 5;
-// }
-//
-// void decrease_gqt_tapping_term(void) {
-//     user_config.tapping_term.gqt = user_config.tapping_term.gqt - 5;
-// }
-//
-// void decrease_shift_gqt_tapping_term(void) {
-//     user_config.tapping_term.shift_gqt = user_config.tapping_term.shift_gqt - 5;
-// }
 
 uint16_t get_tapping_term_result(uint16_t keycode) {
     switch (keycode) {

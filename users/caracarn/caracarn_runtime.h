@@ -30,7 +30,7 @@ typedef union {
 
 extern user_runtime_state_t user_runtime_state;
 
-typedef struct PACKED {
+typedef struct {
     #ifdef QUANTUM_PAINTER_ENABLE
         struct {
             dual_hsv_t hsv;
@@ -40,10 +40,10 @@ typedef struct PACKED {
             uint8_t os :8;
         } system;
         struct {
-            uint16_t shift :16;
-            uint16_t modtap :16;
-            uint16_t gqt :16;
-            uint16_t shift_gqt :16;
+            uint16_t shift;
+            uint16_t modtap;
+            uint16_t gqt;
+            uint16_t shift_gqt;
         } tapping_term;
 } user_config_t;
 

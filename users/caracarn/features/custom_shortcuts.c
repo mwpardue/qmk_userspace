@@ -335,8 +335,7 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
 
         case MT_STTI:
             if (record->event.pressed) {
-                // increase_shift_tapping_term();
-                increase_custom_tapping_term(user_config.tapping_term.shift);
+                increase_custom_tapping_term(&user_config.tapping_term.shift);
                 dprintf("Shift Tapping Term = %d\n", user_config.tapping_term.shift);
             }
             return PROCESS_RECORD_RETURN_FALSE;
@@ -344,8 +343,7 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
 
         case MT_DTTI:
             if (record->event.pressed) {
-                // g_tapping_term = g_tapping_term + 5;
-                increase_custom_tapping_term(g_tapping_term);
+                increase_custom_tapping_term(&g_tapping_term);
                 dprintf("General Tapping Term = %d\n", g_tapping_term);
             }
             return PROCESS_RECORD_RETURN_FALSE;
@@ -353,8 +351,7 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
 
         case MT_MTTI:
             if (record->event.pressed) {
-                // increase_modtap_tapping_term();
-                increase_custom_tapping_term(user_config.tapping_term.modtap);
+                increase_custom_tapping_term(&user_config.tapping_term.modtap);
                 eeconfig_update_user_datablock_handler(&user_config, 0, EECONFIG_USER_DATA_SIZE);
                 dprintf("Mod-Tap Tapping Term = %d\n", user_config.tapping_term.modtap);
             }
@@ -363,8 +360,7 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
 
         case MT_GTTI:
             if (record->event.pressed) {
-                // increase_gqt_tapping_term();
-                increase_custom_tapping_term(user_config.tapping_term.gqt);
+                increase_custom_tapping_term(&user_config.tapping_term.gqt);
                 eeconfig_update_user_datablock_handler(&user_config, 0, EECONFIG_USER_DATA_SIZE);
                 dprintf("GQT Tapping Term = %d\n", user_config.tapping_term.gqt);
             }
@@ -373,8 +369,7 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
 
         case MT_SGTI:
             if (record->event.pressed) {
-                // increase_shift_gqt_tapping_term();
-                increase_custom_tapping_term(user_config.tapping_term.shift_gqt);
+                increase_custom_tapping_term(&user_config.tapping_term.shift_gqt);
                 eeconfig_update_user_datablock_handler(&user_config, 0, EECONFIG_USER_DATA_SIZE);
                 dprintf("SGQT Tapping Term = %d\n", user_config.tapping_term.shift_gqt);
             }
@@ -383,8 +378,7 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
 
         case MT_STTD:
             if (record->event.pressed) {
-                // decrease_shift_tapping_term();
-                decrease_custom_tapping_term(user_config.tapping_term.shift);
+                decrease_custom_tapping_term(&user_config.tapping_term.shift);
                 dprintf("Shift Tapping Term = %d\n", user_config.tapping_term.shift);
             }
             return PROCESS_RECORD_RETURN_FALSE;
@@ -392,8 +386,7 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
 
         case MT_DTTD:
             if (record->event.pressed) {
-                decrease_custom_tapping_term(g_tapping_term);
-                // g_tapping_term = g_tapping_term - 5;
+                decrease_custom_tapping_term(&g_tapping_term);
                 dprintf("General Tapping Term = %d\n", g_tapping_term);
             }
             return PROCESS_RECORD_RETURN_FALSE;
@@ -401,8 +394,7 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
 
         case MT_MTTD:
             if (record->event.pressed) {
-                // decrease_modtap_tapping_term();
-                decrease_custom_tapping_term(user_config.tapping_term.modtap);
+                decrease_custom_tapping_term(&user_config.tapping_term.modtap);
                 eeconfig_update_user_datablock_handler(&user_config, 0, EECONFIG_USER_DATA_SIZE);
                 dprintf("Mod-Tap Tapping Term = %d\n", user_config.tapping_term.modtap);
             }
@@ -411,8 +403,7 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
 
         case MT_GTTD:
             if (record->event.pressed) {
-                // decrease_gqt_tapping_term();
-                decrease_custom_tapping_term(user_config.tapping_term.gqt);
+                decrease_custom_tapping_term(&user_config.tapping_term.gqt);
                 eeconfig_update_user_datablock_handler(&user_config, 0, EECONFIG_USER_DATA_SIZE);
                 dprintf("GQT Tapping Term = %d\n", user_config.tapping_term.gqt);
             }
@@ -421,8 +412,7 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
 
         case MT_SGTD:
             if (record->event.pressed) {
-                // decrease_shift_gqt_tapping_term();
-                decrease_custom_tapping_term(user_config.tapping_term.shift_gqt);
+                decrease_custom_tapping_term(&user_config.tapping_term.shift_gqt);
                 eeconfig_update_user_datablock_handler(&user_config, 0, EECONFIG_USER_DATA_SIZE);
                 dprintf("SGQT Tapping Term = %d\n", user_config.tapping_term.shift_gqt);
             }
