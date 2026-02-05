@@ -171,6 +171,7 @@ bool process_record_casemodes(uint16_t keycode, keyrecord_t *record) {
 
         if (keycode >= QK_LAYER_TAP && keycode <= QK_ONE_SHOT_LAYER_MAX) {
             // let special keys and normal modifiers go through
+            dprintln("Bypassing casemode for QK_LAYER_TAP key");
             return true;
         }
 
@@ -198,16 +199,17 @@ bool process_record_casemodes(uint16_t keycode, keyrecord_t *record) {
                         return false;
                 }
             }
-            else {
-                if (IS_OSM(keycode)) {
-                    // this catches the OSM release if no other key was pressed
-                    set_oneshot_mods(0);
-                    enable_xcase_with(keycode);
-                    return false;
-                }
-                // let other special keys go through
-                return true;
-            }
+            // else {
+            //     if (IS_OSM(keycode)) {
+            //         // this catches the OSM release if no other key was pressed
+            //         dprintln("Setting OSM for Casemode");
+            //         set_oneshot_mods(0);
+            //         enable_xcase_with(keycode);
+            //         return false;
+            //     }
+            //     // let other special keys go through
+            //     return true;
+            // }
         }
 
         if (record->event.pressed) {
