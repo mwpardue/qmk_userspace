@@ -1,4 +1,4 @@
-/* Copyright 2019 Thomas Baart <thomas@splitkb.com>
+/* Copyright 2026 Matthew Pardue
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -167,33 +167,37 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
+//1
 [_BASE] = LAYOUT(
   KC_GRV,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                                                KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL,
   XCASE,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                                                KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
   KC_BSPC, LHM_A,  LQM_S,   LHM_D,   LHM_F,   KC_G,                                                KC_H,    RHM_J,   RHM_K,   RHM_L,   RHM_SCN, KC_QUOT,
   MEH_RET, SFT_Z,  VIM_X,   KC_C,    KC_V,    KC_B,                                                KC_N,    KC_M,    KC_COMM, VIM_DOT, SFT_QUE, MEH_BSL,
                                                        LIL_THM,   LOL_THM,          LOR_THM, LIR_THM
-                                                    // NAV/TAB LSHFT/SM_ESC       RSHFT/ENTER SYM/SPACE
+                                                    // NAV/TAB   NUM/SM_ESC          ENTER  SYM/SPACE
 ),
 
+//2
 [_GAMING] = LAYOUT(
   SM_ESC,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  KC_GRV,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  MEH_XCS, SFT_Z,   _______, _______, _______, _______,                                             _______, _______, _______, _______, SFT_QUE, _______,
-                                                        LIL_THM, GLOL_THM,      _______,  _______
-                                                    // NAV/TAB   NUM/ENTER   VIM/ENTER SYM/SPACE
+  _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+                                                        _______, GLOL_THM,      KC_ENTER, _______
+                                                    // NAV/TAB   NUM/ENTER     SFT/ENTER SYM/SPACE
 ),
 
+//4
 [_GAMENUM] = LAYOUT(
-  _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  KC_TAB,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   SM_ESC,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  MEH_XCS, KC_Z,    _______, _______, _______, _______,                                             _______, _______, _______, _______, KC_SLSH, _______,
-                                                        GLIL_THM, GLOL_THM,      _______,   _______
-                                                    // NAV/BSC    NUM/ENTER       ENTER    SYM/SPACE
+  _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  _______, NUM_Z,   _______, _______, _______, _______,                                             _______, _______, _______, _______, KC_SLSH, _______,
+                                                        _______, SLOL_THM,      CLOR_THM,   _______
+                                                    // NAV/ESC    SFT/ENTER     SFT/ENTER    SYM/SPACE
 ),
 
+//3
 [_COLEMAK_DH] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   XCASE,   KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                                                KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, _______,

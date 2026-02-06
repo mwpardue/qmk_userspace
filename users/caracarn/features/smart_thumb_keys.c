@@ -77,7 +77,8 @@ process_record_result_t process_smart_thumb_keys(uint16_t keycode, keyrecord_t *
     break;
 
     case LOL_THM:
-    case SLOL_THM:
+    case GLIL_THM:
+    case MEH_ESC:
         if (record->event.pressed) {
             if (record->tap.count > 0) {
                     smart_escape();
