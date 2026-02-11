@@ -20,32 +20,22 @@ void decrease_custom_tapping_term(uint16_t *custom_tapping_term) {
 
 uint16_t get_tapping_term_result(uint16_t keycode) {
     switch (keycode) {
-        // case SPC_HYP:
-        case LUTHUM1:
-        case LUTHUM2:
         case LOL_THM:
         case LOR_THM:
         case LIL_THM:
         case CLIL_THM:
         case GLIL_THM:
-        case RUTHUM2:
-        case RUTHUM1:
             return g_tapping_term + 40;
-        case UOR_THM:
-        case UOL_THM:
         case TD_PAST:
         case TD_COPY:
         case LIR_THM:
-        case CLUTHUM2:
         case CLOL_THM:
         case SLOR_THM:
         case SLOL_THM:
-        case CRUTHUM2:
         case CLIR_THM:
         case CLOR_THM:
         case NUM_Z:
         case NUM_J:
-        // case NUM_TAB:
         case GUI_4:
         case SFT_5:
         case ALT_6:
@@ -110,7 +100,6 @@ uint16_t get_quick_tap_term_result(uint16_t keycode) {
         case LQM_S:
         case LHM_F:
         case RHM_SCN:
-        // case LIL_THM:
         case LOL_THM:
         case LIR_THM:
         case LOR_THM:
@@ -140,20 +129,12 @@ uint16_t get_quick_tap_term_result(uint16_t keycode) {
 
 bool get_hold_on_other_key_press_result(uint16_t keycode) {
     switch (keycode) {
-        case LUTHUM1:
-        case LUTHUM2:
         case LOL_THM:
         case LOR_THM:
-        case RUTHUM2:
-        case RUTHUM1:
-        case CLUTHUM2:
-        case CRUTHUM2:
         case CLOR_THM:
         case CLOL_THM:
         case SLOR_THM:
         case SLOL_THM:
-        // case SFT_Z:
-        // case SFT_QUE:
             // Immediately select the hold action when another key is pressed.
             return true;
         default:
@@ -179,8 +160,6 @@ bool get_permissive_hold_result(uint16_t keycode) {
         case GUI_SCN:
         case SFT_F:
         case SFT_J:
-        case RUTHUM2:
-        case LUTHUM2:
         case CTL_Z:
         case ALT_X:
         case GUI_C:

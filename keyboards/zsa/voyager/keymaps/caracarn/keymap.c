@@ -98,7 +98,8 @@ enum combos {
     CM_NEXT,
     CM_HEX,
     CM_FUNC,
-    CM_BOOT
+    CM_BOOT,
+    CM_ESC
 };
 
 
@@ -109,7 +110,8 @@ const uint16_t PROGMEM play_combo[]         = {VIM_X,       KC_C,      KC_V,    
 const uint16_t PROGMEM mnext_combo[]        = {KC_C,        KC_V,                         COMBO_END};
 const uint16_t PROGMEM hex_combo[]          = {VIM_X,       VIM_DOT,                      COMBO_END};
 const uint16_t PROGMEM function_combo[]     = {KC_GRV,      KC_1,                         COMBO_END};
-const uint16_t PROGMEM boot_combo[]     = {KC_GRV,          KC_EQL,                       COMBO_END};
+const uint16_t PROGMEM boot_combo[]         = {KC_GRV,      KC_EQL,                       COMBO_END};
+const uint16_t PROGMEM escape_combo[]       = {LHM_D,       LHM_F,                        COMBO_END};
 
 combo_t key_combos[] = {
   [CM_CAPS] = COMBO(capsword_combo,     CW_TOGG),
@@ -119,7 +121,8 @@ combo_t key_combos[] = {
   [CM_NEXT] = COMBO(mnext_combo,        KC_MNXT),
   [CM_HEX]  = COMBO(hex_combo,          TOHEX),
   [CM_FUNC] = COMBO(function_combo,     TOFUN),
-  [CM_BOOT] = COMBO(boot_combo,         QK_BOOT)
+  [CM_BOOT] = COMBO(boot_combo,         QK_BOOT),
+  [CM_ESC]  = COMBO(escape_combo,       SM_ESC)
 };
 
 bool caps_word_press_user(uint16_t keycode) {
@@ -180,21 +183,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //2
 [_GAMING] = LAYOUT(
   SM_ESC,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  KC_GRV,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-                                                        _______, GLOL_THM,      KC_ENTER, _______
-                                                    // NAV/TAB   NUM/ENTER     SFT/ENTER SYM/SPACE
+  MEH_XCS, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+                                                       LIL_THM,  CLOL_THM,      KC_ENTER,   _______
+                                                    // NAV/TAB    NUM/ENTER        ENTER    SYM/SPACE
 ),
 
 //4
 [_GAMENUM] = LAYOUT(
-  SM_ESC,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  KC_TAB,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  _______, NUM_Z,   _______, _______, _______, _______,                                             _______, _______, _______, _______, KC_SLSH, _______,
-                                                        _______, SLOL_THM,      CLOR_THM,   _______
-                                                    // NAV/ESC    SFT/ENTER     SFT/ENTER    SYM/SPACE
+  MEH_XCS, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+                                                       CLIL_THM,  CLOL_THM,      KC_ENTER,   _______
+                                                    // NAV/ESC    NUM/ENTER        ENTER    SYM/SPACE
 ),
 
 //3
@@ -218,7 +221,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NUMPAD] = LAYOUT(
   KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                               KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
   _______, KC_GRV,  KC_TILD, KC_LCBR, KC_RCBR, TIPS,                                                KC_PLUS, KC_7,    KC_8,    KC_9,    KC_QUOT, KC_BSLS,
-  _______, OSMLCTL, OSMLALT, OSMLSFT, OSMLGUI, _______,                                             KC_MINS, KC_4,    KC_5,    KC_6,    KC_DOT,  KC_COLN,
+  _______, OSMLCTL, OSMLALT, OSMLSFT, OSMLGUI, _______,                                             KC_MINS, KC_4,    KC_5,    KC_6,    KC_DOT,  KC_SCLN,
   _______, KC_LT,   KC_GT,   KC_LBRC, KC_RBRC, _______,                                             KC_EQL,  KC_1,    KC_2,    KC_3,    KC_SLSH, _______,
                                                         _______, _______,       _______,  KC_0
 ),
@@ -236,7 +239,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, SEC11,   SEC14,   _______, _______, SEC6,                                                SEC17,   SEC16,   SEC15,   SEC7,    SEC8,    _______,
   _______, SEC1,    SEC9,    SEC13,   _______, _______,                                             _______, SEC4,    _______, SEC10,   _______, _______,
   _______, _______, _______, _______, SEC19,   SEC3,                                                SEC12,   SEC2,    _______, _______, _______, _______,
-                                                        _______, KC_ENTER,        _______, _______
+                                                        KC_SPACE, KC_ENTER,        _______, _______
 ),
 
 [_HEX] = LAYOUT(
