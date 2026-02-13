@@ -496,6 +496,13 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
             }
             return PROCESS_RECORD_RETURN_FALSE;
 
+        case HTTPS:
+            if (record->event.pressed) {
+                send_string_with_delay("https://", MACRO_TIMER);
+                return PROCESS_RECORD_RETURN_FALSE;
+            }
+            return PROCESS_RECORD_RETURN_FALSE;
+
     }
     return PROCESS_RECORD_CONTINUE;
 }
