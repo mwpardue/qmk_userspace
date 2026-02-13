@@ -119,23 +119,19 @@ process_record_result_t process_smart_thumb_keys(uint16_t keycode, keyrecord_t *
 
         case XCASE:
             if (record->event.pressed) {
-                if (isShift) {
-                    caps_word_on();
-                    dprintln("SHIFT caps_word_on");
-                }
-                if (isAlt) {
-                    enable_xcase();
-                    return PROCESS_RECORD_RETURN_FALSE;
-                }
-
                 if (isCtrl || host_keyboard_led_state().caps_lock) {
                     tap_code16(KC_CAPS);
                     dprintln("caps_lock");
                     return PROCESS_RECORD_RETURN_FALSE;
                 }
 
-                caps_word_on();
-                dprintln("enable caps_word");
+                if (isShift) {
+                    caps_word_on();
+                    dprintln("SHIFT caps_word_on");
+                }
+
+                enable_xcase();
+                dprintln("enable xcase");
                 return PROCESS_RECORD_RETURN_FALSE;
             }
             return PROCESS_RECORD_RETURN_FALSE;
