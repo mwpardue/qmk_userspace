@@ -196,8 +196,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   MEH_XCS, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-                                                       CLIL_THM,  CLOL_THM,      KC_ENTER,   _______
-                                                    // NAV/ESC    NUM/ESC          ENTER    SYM/SPACE
+                                                       CLIL_THM,  _______,       KC_ENTER,   _______
+                                                    // NAV/ESC    NUM/ENTER        ENTER    SYM/SPACE
 ),
 
 //3
@@ -214,7 +214,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, TD_SSFL, TD_SNIP, SS_WIN,                                            _______, _______, _______, _______, _______, KC_VOLU,
     _______, UNDO,    MON_L,   MON_U,   MON_R,   REDO,     		                                    _______, SELWBAK, SELWORD, _______, _______, KC_VOLD,
     KC_BSPC, OSMLCTL, OSMLALT, OSMLSFT, OSMLGUI, _______,                                           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XCASE,   KC_MUTE,
-    _______, TAB_DWN, TAB_UP,  TD_COPY, TD_PAST, _______,                                           KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, _______,
+    QK_LLCK, TAB_DWN, TAB_UP,  TD_COPY, TD_PAST, _______,                                           KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, _______,
                                                           _______, _______,      _______, KC_SPC
 ),
 
@@ -222,7 +222,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                               KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
   _______, KC_GRV,  KC_TILD, KC_LCBR, KC_RCBR, TIPS,                                                KC_PLUS, KC_7,    KC_8,    KC_9,    KC_QUOT, KC_BSLS,
   _______, OSMLCTL, OSMLALT, OSMLSFT, OSMLGUI, _______,                                             KC_MINS, KC_4,    KC_5,    KC_6,    KC_DOT,  KC_SCLN,
-  _______, KC_LT,   KC_GT,   KC_LBRC, KC_RBRC, _______,                                             KC_EQL,  KC_1,    KC_2,    KC_3,    KC_SLSH, _______,
+  QK_LLCK, KC_LT,   KC_GT,   KC_LBRC, KC_RBRC, _______,                                             KC_EQL,  KC_1,    KC_2,    KC_3,    KC_SLSH, _______,
                                                         _______, _______,       _______,  KC_0
 ),
 
@@ -230,7 +230,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                               KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
   _______, KC_GRV,  KC_TILD, KC_LCBR, KC_RCBR, TIPS,                                                _______, KC_AMPR, KC_ASTR, KC_LPRN, _______, _______,
   _______, KC_AT,   KC_UNDS, KC_LPRN, KC_RPRN, HTTPS,                                               KC_MINS, KC_DLR,  KC_PERC, KC_CIRC, KC_COLN, KC_DQUO,
-  _______, KC_LT,   KC_GT,   KC_LBRC, KC_RBRC, M_ARROW,                                             KC_EQL,  KC_EXLM, KC_AT,   KC_HASH, _______, _______,
+  QK_LLCK, KC_LT,   KC_GT,   KC_LBRC, KC_RBRC, M_ARROW,                                             KC_EQL,  KC_EXLM, KC_AT,   KC_HASH, _______, _______,
                                                         KC_SPC, _______,         _______, _______
 ),
 
