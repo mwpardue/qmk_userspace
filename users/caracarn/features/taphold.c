@@ -88,6 +88,7 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case SFT_QUE:
         case SFT_QUO:
         case SFT_ESC:
+        case SFT_TAB:
             return get_custom_tapping_term(user_config.tapping_term.shift);
         default:
             return g_tapping_term;
@@ -135,6 +136,7 @@ bool get_hold_on_other_key_press_result(uint16_t keycode) {
         case CLOL_THM:
         case SLOR_THM:
         case SLOL_THM:
+        case SFT_TAB:
             // Immediately select the hold action when another key is pressed.
             return true;
         default:
