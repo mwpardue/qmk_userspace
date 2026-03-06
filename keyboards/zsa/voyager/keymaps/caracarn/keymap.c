@@ -185,9 +185,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   SM_ESC,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   XCASE,   _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   SFT_TAB, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, SFT_QUO,
-  MEH_RET, NUM_Z,   _______, _______, _______, _______,                                             _______, _______, _______, _______, KC_SLSH, _______,
+  MEH_RET, KC_Z,    _______, _______, _______, _______,                                             _______, _______, _______, _______, KC_SLSH, _______,
                                                        GLIL_THM,   LOL_THM,       LOR_THM,  _______
-                                                    // NAV/BSC    NUM_ENTER        ENTER  SYM/SPACE
+                                                    // NAV/BSPC    NUM/ENTER        ENTER  SYM/SPACE
 ),
 
 //4
@@ -197,7 +197,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   SFT_TAB, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, SFT_QUO,
   MEH_RET, KC_Z,    _______, _______, _______, _______,                                             _______, _______, _______, _______, KC_SLSH, _______,
                                                        GLIL_THM,  GLOL_THM,       LOR_THM,  _______
-                                                    // NAV/BSC    NUM/ESC          ENTER  SYM/SPACE
+                                                    // NAV/BSPC    NUM/ESC          ENTER  SYM/SPACE
 ),
 
 //3
