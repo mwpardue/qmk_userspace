@@ -46,6 +46,10 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case VIM_X:
         case MEH_Z:
         case MEH_QUE:
+        case HYP_Z:
+        case HYP_QUE:
+        case HYP_QUO:
+        case HYP_TAB:
           return g_tapping_term + 100;
         case LHM_A:
         case LQM_S:
@@ -191,6 +195,8 @@ bool get_permissive_hold_result(uint16_t keycode) {
         case VIM_DOT:
         case SFT_Z:
         case SFT_QUE:
+        case HYP_Z:
+        case HYP_QUE:
             // Immediately select the hold action when another key is tapped.
             return true;
         default:

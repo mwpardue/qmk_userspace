@@ -184,8 +184,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_GAMING] = LAYOUT(
   SM_ESC,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   XCASE,   _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  NUM_TAB, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  MEH_GRV, KC_Z,    _______, _______, _______, _______,                                             _______, _______, _______, _______, KC_SLSH, _______,
+  HYP_TAB, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, HYP_QUO,
+  MEH_GRV, NUM_Z,   _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
                                                        GLIL_THM,  SLOL_THM,      CLOR_THM,  _______
                                                     // NAV/BSPC   SFT/ENTER      SFT/ENTER  SYM/SPACE
 ),
@@ -214,7 +214,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, TD_SSFL, TD_SNIP, SS_WIN,                                            _______, _______, _______, _______, _______, KC_VOLU,
     _______, UNDO,    MON_L,   MON_U,   MON_R,   REDO,     		                                    _______, SELWBAK, SELWORD, _______, _______, KC_VOLD,
     KC_BSPC, OSMLCTL, OSMLALT, OSMLSFT, OSMLGUI, _______,                                           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XCASE,   KC_MUTE,
-    QK_LLCK, TAB_DWN, TAB_UP,  TD_COPY, TD_PAST, _______,                                           KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, _______,
+    QK_LLCK, TAB_DWN, TAB_UP,  TD_COPY, TD_PAST, _______,                                           KC_END,  KC_PGDN, KC_PGUP, KC_HOME, _______, _______,
                                                           _______, _______,      _______, KC_SPC
 ),
 
