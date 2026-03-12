@@ -111,7 +111,7 @@ const uint16_t PROGMEM mnext_combo[]        = {KC_C,        KC_V,               
 const uint16_t PROGMEM hex_combo[]          = {VIM_X,       VIM_DOT,                      COMBO_END};
 const uint16_t PROGMEM function_combo[]     = {SM_ESC,      KC_1,                         COMBO_END};
 const uint16_t PROGMEM boot_combo[]         = {SM_ESC,      KC_EQL,                       COMBO_END};
-const uint16_t PROGMEM escape_combo[]       = {LHM_D,       LHM_F,                        COMBO_END};
+const uint16_t PROGMEM escape_combo[]       = {KC_Q,        KC_W,                         COMBO_END};
 
 combo_t key_combos[] = {
   [CM_CAPS] = COMBO(capsword_combo,     CW_TOGG),
@@ -183,11 +183,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //2
 [_GAMING] = LAYOUT(
   KC_GRV,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  KC_TAB,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  HYP_ESC, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, HYP_QUO,
-  MEH_XCS, KC_Z,    _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-                                                       LIL_THM,  SLOL_THM,      LOR_THM,  _______
-                                                    // NAV/BSPC  NUM/ENTER     SFT/ENTER SYM/SPACE
+  XCASE,   _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  HYP_TAB, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, HYP_QUO,
+  MEH_ESC, NUM_Z,   _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+                                                       LIL_THM,  LOL_THM,      LOR_THM,  _______
+                                                    // NAV/BSPC  SFT/ENTER     SFT/ENTER SYM/SPACE
 ),
 
 //4

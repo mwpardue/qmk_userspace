@@ -51,6 +51,7 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case HYP_QUO:
         case HYP_TAB:
         case HYP_ESC:
+        case MEH_ESC:
           return g_tapping_term + 100;
         case LHM_A:
         case LQM_S:
