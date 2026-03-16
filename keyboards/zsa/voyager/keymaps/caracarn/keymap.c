@@ -109,8 +109,8 @@ const uint16_t PROGMEM mprev_combo[]        = {VIM_X,       KC_C,               
 const uint16_t PROGMEM play_combo[]         = {VIM_X,       KC_C,      KC_V,              COMBO_END};
 const uint16_t PROGMEM mnext_combo[]        = {KC_C,        KC_V,                         COMBO_END};
 const uint16_t PROGMEM hex_combo[]          = {VIM_X,       VIM_DOT,                      COMBO_END};
-const uint16_t PROGMEM function_combo[]     = {SM_ESC,      KC_1,                         COMBO_END};
-const uint16_t PROGMEM boot_combo[]         = {SM_ESC,      KC_EQL,                       COMBO_END};
+const uint16_t PROGMEM function_combo[]     = {KC_GRV,      KC_1,                         COMBO_END};
+const uint16_t PROGMEM boot_combo[]         = {KC_GRV,      KC_EQL,                       COMBO_END};
 const uint16_t PROGMEM escape_combo[]       = {KC_Q,        KC_W,                         COMBO_END};
 
 combo_t key_combos[] = {
@@ -172,10 +172,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 //1
 [_BASE] = LAYOUT(
-  SM_ESC,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                                                KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL,
+  KC_GRV,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                                                KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL,
   XCASE,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                                                KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
   HYP_TAB, LHM_A,  LQM_S,   LHM_D,   LHM_F,   KC_G,                                                KC_H,    RHM_J,   RHM_K,   RHM_L,   RHM_SCN, HYP_QUO,
-  MEH_GRV, NUM_Z,  VIM_X,   KC_C,    KC_V,    KC_B,                                                KC_N,    KC_M,    KC_COMM, VIM_DOT, KC_SLSH, MEH_BSL,
+  MEH_ESC, NUM_Z,  VIM_X,   KC_C,    KC_V,    KC_B,                                                KC_N,    KC_M,    KC_COMM, VIM_DOT, KC_SLSH, MEH_BSL,
                                                        LIL_THM,   LOL_THM,          LOR_THM, LIR_THM
                                                     // NAV/BSPC  SFT/ENTER        SFT/ENTER SYM/SPACE
 ),
@@ -203,11 +203,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //3
 [_COLEMAK_DH] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  XCASE,   KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                                                KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, _______,
+  _______, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                                                KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, _______,
   _______, LHM_A,   LCM_R,   LCM_S,   LCM_T,   KC_G,                                                KC_M,    RCM_N,   RCM_E,   RCM_I,   RCM_O,   _______,
-  MEH_RET, SFT_Z,   VIM_X,   KC_C,    KC_D,    KC_V,                                                KC_K,    KC_H,    _______, _______, SFT_QUE, _______,
-                                                        CLIL_THM, SLOL_THM,      KC_ENTER,  _______
-                                                    // NAV/TAB    NUM/ESC       VIM/ENTER SYM/SPACE
+  _______, NUM_Z,   VIM_X,   KC_C,    KC_D,    KC_V,                                                KC_K,    KC_H,    _______, _______, _______, _______,
+                                                       _______,  _______,           _______,  _______
+                                                    // NAV/BSPC  SFT/ENTER         SFT/ENTER SYM/SPACE
 ),
 
 [_NAVIGATION] = LAYOUT(
