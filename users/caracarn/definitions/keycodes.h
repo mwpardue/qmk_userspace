@@ -273,6 +273,8 @@ enum {
 #define MEH_ESC MEH_T(KC_ESC)
 #define MEH_XCS MEH_T(KC_F22)
 #define VIM_X LT(_VIM, KC_X)
+#define VIM_ESC LT(_VIM, KC_ESC)
+#define VIM_BSL LT(_VIM, KC_BSLS)
 #define VIM_DOT LT(_VIM, KC_DOT)
 #define MEH_LBR MEH_T(KC_LBRC)
 #define MEH_RBR MEH_T(KC_RBRC)
