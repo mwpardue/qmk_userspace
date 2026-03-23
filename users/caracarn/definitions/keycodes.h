@@ -276,6 +276,8 @@ enum {
 #define VIM_ESC LT(_VIM, KC_ESC)
 #define VIM_BSL LT(_VIM, KC_BSLS)
 #define VIM_DOT LT(_VIM, KC_DOT)
+#define VIM_TAB LT(_VIM, KC_TAB)
+#define VIM_QUO LT(_VIM, KC_QUOT)
 #define MEH_LBR MEH_T(KC_LBRC)
 #define MEH_RBR MEH_T(KC_RBRC)
 #define MEH_BSL MEH_T(KC_BSLS)
