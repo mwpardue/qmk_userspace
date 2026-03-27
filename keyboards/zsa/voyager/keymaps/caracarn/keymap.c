@@ -105,10 +105,10 @@ enum combos {
 
 const uint16_t PROGMEM capsword_combo[]     = {LHM_D,       RHM_K,                        COMBO_END};
 const uint16_t PROGMEM mtlogin2_combo[]     = {LIL_THM,     LQM_S,     LHM_D,             COMBO_END};
-const uint16_t PROGMEM mprev_combo[]        = {VIM_X,       KC_C,                         COMBO_END};
-const uint16_t PROGMEM play_combo[]         = {VIM_X,       KC_C,      KC_V,              COMBO_END};
+const uint16_t PROGMEM mprev_combo[]        = {KC_X,        KC_C,                         COMBO_END};
+const uint16_t PROGMEM play_combo[]         = {KC_X,        KC_C,      KC_V,              COMBO_END};
 const uint16_t PROGMEM mnext_combo[]        = {KC_C,        KC_V,                         COMBO_END};
-const uint16_t PROGMEM hex_combo[]          = {VIM_X,       VIM_DOT,                      COMBO_END};
+const uint16_t PROGMEM hex_combo[]          = {KC_X,        KC_DOT,                       COMBO_END};
 const uint16_t PROGMEM function_combo[]     = {KC_GRV,      KC_1,                         COMBO_END};
 const uint16_t PROGMEM boot_combo[]         = {KC_GRV,      KC_EQL,                       COMBO_END};
 const uint16_t PROGMEM escape_combo[]       = {KC_Q,        KC_W,                         COMBO_END};
@@ -174,8 +174,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = LAYOUT(
   KC_GRV,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                                                KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL,
   XCASE,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                                                KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
-  HYP_TAB, LHM_A,  LQM_S,   LHM_D,   LHM_F,   KC_G,                                                KC_H,    RHM_J,   RHM_K,   RHM_L,   RHM_SCN, HYP_QUO,
-  MEH_ESC, NUM_Z,  VIM_X,   KC_C,    KC_V,    KC_B,                                                KC_N,    KC_M,    KC_COMM, VIM_DOT, KC_SLSH, MEH_BSL,
+  MEH_TAB, LHM_A,  LQM_S,   LHM_D,   LHM_F,   KC_G,                                                KC_H,    RHM_J,   RHM_K,   RHM_L,   RHM_SCN, MEH_QUO,
+  VIM_ESC, NUM_Z,  KC_X,    KC_C,    KC_V,    KC_B,                                                KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, VIM_BSL,
                                                        LIL_THM,   LOL_THM,          LOR_THM, LIR_THM
                                                     // NAV/BSPC  SFT/ENTER        SFT/ENTER SYM/SPACE
 ),
@@ -205,7 +205,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                                                KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, _______,
   _______, LHM_A,   LCM_R,   LCM_S,   LCM_T,   KC_G,                                                KC_M,    RCM_N,   RCM_E,   RCM_I,   RCM_O,   _______,
-  _______, NUM_Z,   VIM_X,   KC_C,    KC_D,    KC_V,                                                KC_K,    KC_H,    _______, _______, _______, _______,
+  _______, NUM_Z,   KC_X,    KC_C,    KC_D,    KC_V,                                                KC_K,    KC_H,    _______, _______, _______, _______,
                                                        _______,  _______,           _______,  _______
                                                     // NAV/BSPC  SFT/ENTER         SFT/ENTER SYM/SPACE
 ),
@@ -213,7 +213,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAVIGATION] = LAYOUT(
     _______, _______, _______, TD_SSFL, TD_SNIP, SS_WIN,                                            _______, _______, _______, _______, _______, KC_VOLU,
     _______, UNDO,    MON_L,   MON_U,   MON_R,   REDO,     		                                    _______, SELWBAK, SELWORD, _______, _______, KC_VOLD,
-    KC_BSPC, OSMLCTL, OSMLALT, OSMLSFT, OSMLGUI, _______,                                           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XCASE,   KC_MUTE,
+    KC_TAB,  OSMLCTL, OSMLALT, OSMLSFT, OSMLGUI, _______,                                           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XCASE,   KC_MUTE,
     QK_LLCK, TAB_DWN, TAB_UP,  TD_COPY, TD_PAST, _______,                                           KC_END,  KC_PGDN, KC_PGUP, KC_HOME, _______, _______,
                                                           _______, _______,      _______, KC_SPC
 ),
