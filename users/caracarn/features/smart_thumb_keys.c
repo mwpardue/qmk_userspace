@@ -100,6 +100,7 @@ process_record_result_t process_smart_thumb_keys(uint16_t keycode, keyrecord_t *
             break;
 
         case MEH_XCS:
+        case VIM_XCS:
             if (record->event.pressed) {
                 if (record->tap.count > 0) {
                     if (isCtrl || host_keyboard_led_state().caps_lock) {

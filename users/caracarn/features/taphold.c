@@ -58,6 +58,7 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case VIM_BSL:
         case VIM_QUO:
         case VIM_TAB:
+        case VIM_RET:
           return g_tapping_term + 100;
         case LHM_A:
         case LQM_S:
