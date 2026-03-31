@@ -103,10 +103,10 @@ enum {
     #define CLIL_THM LT(_NAVIGATION, KC_T)
 
     // Left Outer Thumb Keys
-    #define SLOL_THM LT(_NUMPAD, KC_ENTER)
+    #define CLOL_THM LT(_NUMPAD, KC_ENTER)
     #define GLOL_THM LT(_NUMPAD, KC_E)
     #define LOL_THM LSFT_T(KC_ENTER)
-    #define CLOL_THM LSFT_T(KC_T)
+    #define SLOL_THM LSFT_T(KC_T)
 
 // Right thumb keys
 
@@ -115,7 +115,7 @@ enum {
     #define CLIR_THM LT(_SYMBOL, KC_E)
 
     // Right Outer Thumb Keys
-    #define CLOR_THM KC_ENTER
+    #define CLOR_THM LT(_VIM, KC_ENTER)
     #define SLOR_THM RSFT_T(KC_F16)
     #define LOR_THM RSFT_T(KC_ENTER)
 
@@ -275,7 +275,6 @@ enum {
 #define VIM_XCS LT(_VIM, KC_F23)
 #define VIM_X LT(_VIM, KC_X)
 #define VIM_ESC LT(_VIM, KC_ESC)
-#define VIM_RET LT(_VIM, KC_ENTER)
 #define VIM_BSL LT(_VIM, KC_BSLS)
 #define VIM_DOT LT(_VIM, KC_DOT)
 #define VIM_TAB LT(_VIM, KC_TAB)
