@@ -185,6 +185,7 @@ enum {
 #define HYP_QUO HYPR_T(KC_QUOT)
 #define HYP_TAB HYPR_T(KC_TAB)
 #define HYP_ESC HYPR_T(KC_ESC)
+#define HYP_BSL HYPR_T(KC_BSLS)
 #define NUM_PP LT(_NUMPAD, KC_F14)
 #define VIM_PP LT(_VIM, KC_F14)
 #define MEH_Z MEH_T(KC_Z)
