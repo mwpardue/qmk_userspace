@@ -116,7 +116,7 @@ enum {
 
     // Right Outer Thumb Keys
     #define CLOR_THM LT(_VIM, KC_ENTER)
-    #define SLOR_THM RSFT_T(KC_F16)
+    #define SLOR_THM HYPR_T(KC_ENTER)
     #define LOR_THM RSFT_T(KC_ENTER)
 
 // Typing Layer Keys
