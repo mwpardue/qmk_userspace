@@ -112,16 +112,6 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
         return PROCESS_RECORD_RETURN_FALSE;
         break;
 
-        // case RHM_SCN:
-        //     if (record->event.pressed) {
-        //         if (record->tap.count > 0) {
-        //                 tap_code16(KC_COLN);
-        //                 return PROCESS_RECORD_RETURN_FALSE;
-        //         }
-        //     return PROCESS_RECORD_CONTINUE;
-        //     }
-        //     break;
-
         case QWERTY:
             if (record->event.pressed) {
                 dprintf("Base layer changed to QWERTY\n");
@@ -228,20 +218,6 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
         case SM_ESC:
             if (record->event.pressed) {
                 smart_escape();
-                // if (kbFeature) {
-                //     if (host_keyboard_led_state().caps_lock) {
-                //         tap_code16(KC_CAPS);
-                //     }
-                //     disable_caps_word();
-                //     disable_xcase();
-                //     clear_locked_and_oneshot_mods();
-                //     stop_leading();
-                //     return PROCESS_RECORD_RETURN_FALSE;
-                // } else {
-                //     tap_code16(KC_ESC);
-                //     dprintln("SM_ESC default");
-                //     return PROCESS_RECORD_RETURN_FALSE;
-                // }
             }
             return PROCESS_RECORD_RETURN_FALSE;
         break;
@@ -297,7 +273,6 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
     break;
 
     case MEH_ESC:
-    case SFT_ESC:
         if (record->event.pressed) {
             if (record->tap.count > 0) {
                 smart_escape();
@@ -308,8 +283,6 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
     break;
 
     case MEH_PP:
-    case LSFT_PP:
-    case RSFT_PP:
         if (record->event.pressed) {
         if (record->tap.count > 0) {
             start_pass_leading();

@@ -38,9 +38,6 @@ process_record_result_t process_smart_thumb_keys(uint16_t keycode, keyrecord_t *
         case GLOL_THM:
         case CLIL_THM:
         case MEH_ESC:
-        case SFT_ESC:
-        case NUM_ESC:
-        case HYP_ESC:
         case VIM_ESC:
             if (record->event.pressed) {
                 if (record->tap.count > 0) {
@@ -98,7 +95,6 @@ process_record_result_t process_smart_thumb_keys(uint16_t keycode, keyrecord_t *
             }
             break;
 
-        case MEH_XCS:
         case VIM_XCS:
             if (record->event.pressed) {
                 if (record->tap.count > 0) {

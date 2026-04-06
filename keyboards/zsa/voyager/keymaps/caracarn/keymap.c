@@ -61,8 +61,6 @@ bool terminate_case_modes(uint16_t keycode, const keyrecord_t *record) {
             case KC_RSFT:
             case LHM_D:
             case RHM_K:
-            case SFT_F:
-            case SFT_J:
             case SM_ESC:
             case SLOR_THM:
             case SLOL_THM:
