@@ -107,8 +107,8 @@ const uint16_t PROGMEM mprev_combo[]        = {KC_X,        KC_C,               
 const uint16_t PROGMEM play_combo[]         = {KC_X,        KC_C,      KC_V,              COMBO_END};
 const uint16_t PROGMEM mnext_combo[]        = {KC_C,        KC_V,                         COMBO_END};
 const uint16_t PROGMEM hex_combo[]          = {KC_X,        KC_DOT,                       COMBO_END};
-const uint16_t PROGMEM function_combo[]     = {KC_GRV,      KC_1,                         COMBO_END};
-const uint16_t PROGMEM boot_combo[]         = {KC_GRV,      KC_EQL,                       COMBO_END};
+const uint16_t PROGMEM function_combo[]     = {SM_ESC,      KC_1,                         COMBO_END};
+const uint16_t PROGMEM boot_combo[]         = {SM_ESC,      KC_EQL,                       COMBO_END};
 const uint16_t PROGMEM escape_combo[]       = {KC_Q,        KC_W,                         COMBO_END};
 
 combo_t key_combos[] = {
@@ -170,22 +170,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 //1
 [_BASE] = LAYOUT(
-  KC_GRV,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                                                KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL,
-  XCASE,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                                                KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
+  SM_ESC,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                                                KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL,
+  KC_GRV,  KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                                                KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
   MEH_TAB, LHM_A,  LQM_S,   LHM_D,   LHM_F,   KC_G,                                                KC_H,    RHM_J,   RHM_K,   RHM_L,   RHM_SCN, MEH_QUO,
-  VIM_ESC, NUM_Z,  KC_X,    KC_C,    KC_V,    KC_B,                                                KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, VIM_BSL,
+  VIM_XCS, SFT_Z,  KC_X,    KC_C,    KC_V,    KC_B,                                                KC_N,    KC_M,    KC_COMM, KC_DOT,  SFT_QUE, VIM_BSL,
                                                        LIL_THM,   LOL_THM,          LOR_THM, LIR_THM
-                                                    // NAV/BSPC  SFT/ENTER        SFT/ENTER SYM/SPACE
+                                                    // NAV/BSPC  NUM/ENTER        HYP/ENTER SYM/SPACE
 ),
 
 //2
 [_GAMING] = LAYOUT(
-  SM_ESC,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  KC_GRV,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  MEH_TAB, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, MEH_QUO,
-  VIM_XCS, SFT_Z,   _______, _______, _______, _______,                                             _______, _______, _______, _______, SFT_QUE, _______,
-                                                       LIL_THM,  CLOL_THM,          SLOR_THM,  _______
-                                                    // NAV/BSP   NUM/ENTER        HYP/ENTER SYM/SPACE
+  _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  KC_BSPC, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, MEH_QUO,
+  _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+                                                       GLIL_THM, LOL_THM,          LOR_THM,  _______
+                                                    // NAV/TAB   NUM/ENTER        HYP/ENTER SYM/SPACE
 ),
 
 //4
