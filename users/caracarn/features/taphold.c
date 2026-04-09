@@ -132,6 +132,12 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_
     dprintln("[TAP_FLOW_CUSTOM] get_flow_tap_term.");
     if (is_flow_tap_key(keycode) && is_flow_tap_key(prev_keycode)) {
         dprintln("[TAP_FLOW_CUSTOM] get_flow_tap_term->is_flow_tap_key.");
+        switch(prev_keycode) {
+            case SFT_Z:
+            case SFT_QUE:
+                dprintln("get_tap_flow, prev_keycode shift case");
+                return 1;
+        }
         switch(keycode) {
             case LHM_A:
             case LQM_S:
