@@ -136,7 +136,7 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_
             case SFT_Z:
             case SFT_QUE:
                 dprintln("get_tap_flow, prev_keycode shift case");
-                return 1;
+                return 0;
         }
         switch(keycode) {
             case LHM_A:
