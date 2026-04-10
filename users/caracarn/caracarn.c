@@ -79,10 +79,10 @@ void                       eeconfig_init_user(void) {
         };
     #endif
     user_config.system.os = MACOS;
-    user_config.tapping_term.shift = 175;
+    user_config.tapping_term.shift = 150;
     user_config.tapping_term.modtap = 200;
     user_config.tapping_term.gqt = 125;
-    user_config.tapping_term.shift_gqt = 100;
+    user_config.tapping_term.shift_gqt = 50;
     eeconfig_init_keymap();
     eeconfig_update_user_datablock_handler(&user_config, 0, EECONFIG_USER_DATA_SIZE);
 }
