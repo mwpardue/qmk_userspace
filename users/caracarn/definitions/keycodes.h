@@ -190,3 +190,4 @@ enum {
 #define VIM_ESC LT(_VIM, KC_ESC)
 #define VIM_BSL LT(_VIM, KC_BSLS)
 #define MEH_BSL MEH_T(KC_BSLS)
+#define MEH_XCS MEH_T(KC_F23)
