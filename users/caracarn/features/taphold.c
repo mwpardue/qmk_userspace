@@ -35,6 +35,7 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case CLIR_THM:
         case CLOR_THM:
         case MEH_ESC:
+        case MEH_XCS:
         case MEH_TAB:
         case MEH_QUO:
         case VIM_ESC:

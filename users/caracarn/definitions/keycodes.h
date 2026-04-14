@@ -135,6 +135,7 @@ enum {
 #define LCM_T LGUI_T(KC_T)
 #define MEH_PP MEH_T(KC_F14)
 #define MEH_TAB MEH_T(KC_TAB)
+#define MEH_ESC MEH_T(KC_ESC)
 #define MEH_QUO MEH_T(KC_QUOT)
 #define NUM_PP LT(_NUMPAD, KC_F14)
 #define VIM_PP LT(_VIM, KC_F14)
