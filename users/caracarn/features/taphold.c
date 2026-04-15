@@ -38,8 +38,15 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case MEH_XCS:
         case MEH_TAB:
         case MEH_QUO:
+        case MEH_Z:
+        case MEH_QUE:
+        case SFT_XCS:
+        case SFT_BSL:
+        case SFT_ESC:
+        case SFT_QUO:
         case VIM_ESC:
         case VIM_BSL:
+        case NUM_ESC:
           return g_tapping_term + 100;
         case LHM_A:
         case LQM_S:
@@ -100,6 +107,11 @@ bool get_hold_on_other_key_press_result(uint16_t keycode) {
         case CLOL_THM:
         case SLOR_THM:
         case SLOL_THM:
+        case SFT_XCS:
+        case SFT_BSL:
+        case SFT_ESC:
+        case SFT_QUO:
+        case NUM_ESC:
             // Immediately select the hold action when another key is pressed.
             return true;
         default:
@@ -120,6 +132,8 @@ bool get_permissive_hold_result(uint16_t keycode) {
         case RHM_K:
         case SFT_Z:
         case SFT_QUE:
+        case MEH_Z:
+        case MEH_QUE:
             // Immediately select the hold action when another key is tapped.
             return true;
         default:

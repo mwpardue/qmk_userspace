@@ -115,9 +115,9 @@ enum {
     #define CLIR_THM LT(_SYMBOL, KC_E)
 
     // Right Outer Thumb Keys
-    #define CLOR_THM LT(_VIM, KC_ENTER)
+    #define SLOR_THM LT(_VIM, KC_ENTER)
     #define LOR_THM HYPR_T(KC_ENTER)
-    #define SLOR_THM RSFT_T(KC_ENTER)
+    #define CLOR_THM RSFT_T(KC_ENTER)
 
 // Typing Layer Keys
 #define SFT_Z LSFT_T(KC_Z)
@@ -190,5 +190,12 @@ enum {
 #define VIM_XCS LT(_VIM, KC_F23)
 #define VIM_ESC LT(_VIM, KC_ESC)
 #define VIM_BSL LT(_VIM, KC_BSLS)
+#define MEH_Z MEH_T(KC_Z)
+#define MEH_QUE MEH_T(KC_SLSH)
 #define MEH_BSL MEH_T(KC_BSLS)
 #define MEH_XCS MEH_T(KC_F23)
+#define SFT_BSL RSFT_T(KC_BSLS)
+#define SFT_XCS LSFT_T(KC_F23)
+#define SFT_ESC RSFT_T(KC_ESC)
+#define SFT_QUO LSFT_T(KC_QUOT)
+#define NUM_ESC LT(_NUMPAD, KC_ESC)

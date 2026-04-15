@@ -39,6 +39,7 @@ process_record_result_t process_smart_thumb_keys(uint16_t keycode, keyrecord_t *
         case CLIL_THM:
         case MEH_ESC:
         case VIM_ESC:
+        case SFT_ESC:
             if (record->event.pressed) {
                 if (record->tap.count > 0) {
                         smart_escape();
@@ -97,6 +98,7 @@ process_record_result_t process_smart_thumb_keys(uint16_t keycode, keyrecord_t *
 
         case VIM_XCS:
         case MEH_XCS:
+        case SFT_XCS:
             if (record->event.pressed) {
                 if (record->tap.count > 0) {
                     if (isCtrl || host_keyboard_led_state().caps_lock) {
