@@ -60,14 +60,14 @@
 // Mouse key speed and acceleration.
 #ifdef MOUSEKEY_ENABLE
     #define MK_3_SPEED
-    #define MK_W_OFFSET_UNMOD 5
-    #define MK_W_INTERVAL_UNMOD 1
-    #define MK_W_OFFSET_0 10
-    #define MK_W_INTERVAL_0 120
-    #define MK_W_OFFSET_1 5
-    #define MK_W_INTERVAL_1 1
-    #define MK_W_OFFSET_2 10
-    #define MK_W_INTERVAL_2 20
+    // #define MK_W_OFFSET_UNMOD 5
+    // #define MK_W_INTERVAL_UNMOD 1
+    // #define MK_W_OFFSET_0 10
+    // #define MK_W_INTERVAL_0 120
+    // #define MK_W_OFFSET_1 5
+    // #define MK_W_INTERVAL_1 1
+    // #define MK_W_OFFSET_2 10
+    // #define MK_W_INTERVAL_2 20
 #endif
 
 #ifdef LAYER_LOCK_ENABLE

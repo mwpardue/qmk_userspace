@@ -476,6 +476,14 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
             }
             return PROCESS_RECORD_RETURN_FALSE;
 
+        case SM_BRK:
+            if (record->event.pressed) {
+                tap_code16(KC_ENT);
+                tap_code16(S(KC_GRV));
+                tap_code16(KC_DOT);
+                return PROCESS_RECORD_RETURN_FALSE;
+            }
+            return PROCESS_RECORD_RETURN_FALSE;
     }
     return PROCESS_RECORD_CONTINUE;
 }
