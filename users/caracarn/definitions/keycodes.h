@@ -143,6 +143,7 @@ enum {
 #define HYP_QUO HYPR_T(KC_QUOT)
 #define NUM_PP LT(_NUMPAD, KC_F14)
 #define VIM_PP LT(_VIM, KC_F14)
+#define VIM_X LT(_VIM, KC_X)
 
 // Right Hand
 #define RHM_SCN RCTL_T(KC_SCLN)
@@ -153,6 +154,7 @@ enum {
 #define RCM_E   RSFT_T(KC_E)
 #define RCM_I   RALT_T(KC_I)
 #define RCM_O   RCTL_T(KC_O)
+#define VIM_DOT LT(_VIM, KC_DOT)
 
 // One-shot mods
 

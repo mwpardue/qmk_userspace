@@ -61,6 +61,8 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case HYP_QUO:
         case VIM_TAB:
         case VIM_QUO:
+        case VIM_DOT:
+        case VIM_X:
           return g_tapping_term + 100;
         case LHM_A:
         case LQM_S:
