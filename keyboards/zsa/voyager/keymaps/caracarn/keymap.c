@@ -192,10 +192,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_GAMENUM] = LAYOUT(
   KC_GRV,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   XCASE,   _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  HYP_TAB, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, HYP_QUO,
-  MEH_ESC, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, MEH_BSL,
-                                                       LIL_THM,  LOL_THM,        SLOR_THM,  _______
-                                                    // NAV/BSPC  NUM/ENTER       VIM/ENTER SYM/SPACE
+  KC_BSPC, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, KC_QUOT,
+  MEH_ESC, _______, VIM_X,   _______, _______, _______,                                             _______, _______, _______, VIM_DOT, _______, MEH_BSL,
+                                                       GLIL_THM,  LOL_THM,         LOR_THM,  _______
+                                                    // NAV/TAB   NUM/ENTER       HYP/ENTER SYM/SPACE
 ),
 
 //3
@@ -211,7 +211,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAVIGATION] = LAYOUT(
     _______, _______, _______, TD_SSFL, TD_SNIP, SS_WIN,                                            _______, _______, _______, _______, _______, KC_VOLU,
     _______, UNDO,    MON_L,   MON_U,   MON_R,   REDO,     		                                    _______, SELWBAK, SELWORD, _______, _______, KC_VOLD,
-    KC_TAB,  OSMLCTL, OSMLALT, OSMLSFT, OSMLGUI, _______,                                           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XCASE,   KC_MUTE,
+    KC_BSPC, OSMLCTL, OSMLALT, OSMLSFT, OSMLGUI, _______,                                           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XCASE,   KC_MUTE,
     QK_LLCK, TAB_DWN, TAB_UP,  TD_COPY, TD_PAST, _______,                                           KC_END,  KC_PGDN, KC_PGUP, KC_HOME, _______, _______,
                                                           _______, _______,      _______, KC_SPC
 ),
