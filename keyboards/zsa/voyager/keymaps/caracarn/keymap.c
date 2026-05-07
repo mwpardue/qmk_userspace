@@ -90,6 +90,7 @@ bool terminate_case_modes(uint16_t keycode, const keyrecord_t *record) {
 
 enum combos {
     CM_CAPS,
+    CM_CPS2,
     CM_MLG2,
     CM_PREV,
     CM_PLAY,
@@ -102,6 +103,7 @@ enum combos {
 
 
 const uint16_t PROGMEM capsword_combo[]     = {LHM_D,       RHM_K,                        COMBO_END};
+const uint16_t PROGMEM capsword2_combo[]    = {SFT_Z,       SFT_QUE,                      COMBO_END};
 const uint16_t PROGMEM mtlogin2_combo[]     = {LIL_THM,     LQM_S,     LHM_D,             COMBO_END};
 const uint16_t PROGMEM mprev_combo[]        = {KC_X,        KC_C,                         COMBO_END};
 const uint16_t PROGMEM play_combo[]         = {KC_X,        KC_C,      KC_V,              COMBO_END};
@@ -113,6 +115,7 @@ const uint16_t PROGMEM escape_combo[]       = {KC_Q,        KC_W,               
 
 combo_t key_combos[] = {
   [CM_CAPS] = COMBO(capsword_combo,     CW_TOGG),
+  [CM_CPS2] = COMBO(capsword2_combo,    CW_TOGG),
   [CM_MLG2] = COMBO(mtlogin2_combo,     SM_LOGN),
   [CM_PREV] = COMBO(mprev_combo,        KC_MPRV),
   [CM_PLAY] = COMBO(play_combo,         KC_MPLY),
@@ -180,12 +183,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 //2
 [_GAMING] = LAYOUT(
+  SM_ESC,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   KC_GRV,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  XCASE,   _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  KC_TAB,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, KC_QUOT,
-  MEH_ESC, _______, VIM_X,   _______, _______, _______,                                             _______, _______, _______, VIM_DOT, _______, MEH_BSL,
-                                                       LIL_THM,  LOL_THM,         LOR_THM,  _______
-                                                    // NAV/BSPC  NUM/ENTER       HYP/ENTER SYM/SPACE
+  KC_BSPC, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, KC_QUOT,
+  MEH_XCS, _______, VIM_X,   _______, _______, _______,                                             _______, _______, _______, VIM_DOT, _______, MEH_BSL,
+                                                       GLIL_THM,  LOL_THM,         LOR_THM,  _______
+                                                    // NAV/TAB   NUM/ENTER       HYP/ENTER SYM/SPACE
 ),
 
 //4
@@ -210,7 +213,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_NAVIGATION] = LAYOUT(
     _______, _______, _______, TD_SSFL, TD_SNIP, SS_WIN,                                            _______, _______, _______, _______, _______, KC_VOLU,
-    _______, UNDO,    MON_L,   MON_U,   MON_R,   REDO,     		                                    _______, SELWBAK, SELWORD, _______, _______, KC_VOLD,
+    _______, APP_L,   MON_L,   MON_U,   MON_R,   APP_R,    		                                    _______, SELWBAK, SELWORD, _______, _______, KC_VOLD,
     KC_BSPC, OSMLCTL, OSMLALT, OSMLSFT, OSMLGUI, _______,                                           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XCASE,   KC_MUTE,
     QK_LLCK, TAB_DWN, TAB_UP,  TD_COPY, TD_PAST, _______,                                           KC_END,  KC_PGDN, KC_PGUP, KC_HOME, _______, _______,
                                                           _______, _______,      _______, KC_SPC

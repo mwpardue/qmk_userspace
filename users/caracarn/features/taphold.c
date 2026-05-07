@@ -207,11 +207,11 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
                       uint16_t other_keycode, keyrecord_t* other_record) {
     // Exceptionally allow some one-handed chords for hotkeys.
     switch (tap_hold_keycode) {
-        // case MEH_Z:
-        //     if (other_keycode == LHM_F) {
-        //         return true;
-        //     }
-        //     break;
+        case SFT_Z:
+            if (other_keycode == LHM_F) {
+                return true;
+            }
+            break;
         // case VIM_X:
         //     if ((other_keycode == KC_B) || (other_keycode == KC_V)) {
         //         return true;
