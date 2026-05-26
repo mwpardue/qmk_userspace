@@ -17,7 +17,7 @@
 #include "caracarn.h"
 
 const custom_shift_key_t custom_shift_keys[] = {
-  {LIL_THM, KC_DEL},
+  // {LIL_THM, KC_DEL},
 };
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 //
