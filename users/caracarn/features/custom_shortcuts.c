@@ -412,6 +412,15 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
             return PROCESS_RECORD_RETURN_FALSE;
             break;
 
+        case SM_ANON:
+            if(record->event.pressed) {
+                clear_mods();
+                clear_weak_mods();
+                SEND_STRING("caracarn.anonaddy.com");
+            }
+            return PROCESS_RECORD_RETURN_FALSE;
+            break;
+
         case M_EXIT:
             if(record->event.pressed) {
                 clear_mods();

@@ -8,7 +8,7 @@ enum {
     CUSTOM_KEYCODE_START = QK_USER,
 
 #ifdef MACRO_ENABLE
-    TIPS,
+    TIPS, SM_ANON,
 #endif
 
 #ifdef SECRETS_ENABLE
