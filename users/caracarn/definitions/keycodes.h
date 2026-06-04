@@ -186,6 +186,8 @@ enum {
 #define TAB_RGT LGUI(KC_L)
 #define TAB_UP LGUI(KC_K)
 #define TAB_DWN LGUI(KC_J)
+#define SFT_TUP LSFT_T(KC_F22)
+#define GUI_TDN LGUI_T(KC_F24)
 #define TOBAS TO(_BASE)
 #define TOHEX TO(_HEX)
 #define TOFUN TO(_FUNCTION)

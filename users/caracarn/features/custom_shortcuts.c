@@ -493,6 +493,27 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
                 return PROCESS_RECORD_RETURN_FALSE;
             }
             return PROCESS_RECORD_RETURN_FALSE;
+
+        case SFT_TUP:
+            if (record->event.pressed) {
+                if (record->tap.count > 0) {
+                    tap_code16(G(KC_K));
+                return PROCESS_RECORD_RETURN_FALSE;
+                }
+            return PROCESS_RECORD_CONTINUE;
+            }
+            break;
+
+        case GUI_TDN:
+            if (record->event.pressed) {
+                if (record->tap.count > 0) {
+                    tap_code16(G(KC_J));
+                return PROCESS_RECORD_RETURN_FALSE;
+                }
+            return PROCESS_RECORD_CONTINUE;
+            }
+            break;
+
     }
     return PROCESS_RECORD_CONTINUE;
 }

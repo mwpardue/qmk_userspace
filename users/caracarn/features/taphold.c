@@ -63,6 +63,8 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case VIM_QUO:
         case VIM_DOT:
         case VIM_X:
+        case SFT_TUP:
+        case GUI_TDN:
           return g_tapping_term + 100;
         case LHM_A:
         case LQM_S:
@@ -109,6 +111,8 @@ uint16_t get_quick_tap_term_result(uint16_t keycode) {
         case OSMRALT:
         case OSMLGUI:
         case OSMRGUI:
+        case SFT_TUP:
+        case GUI_TDN:
             return 175;
         default:
             return 0;

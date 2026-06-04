@@ -17,7 +17,7 @@
 #include "caracarn.h"
 
 const custom_shift_key_t custom_shift_keys[] = {
-  // {LIL_THM, KC_DEL},
+  {GLIL_THM, KC_DEL},
 };
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 //
@@ -183,10 +183,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 //2
 [_GAMING] = LAYOUT(
-  SM_ESC,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   KC_GRV,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  KC_BSPC, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, KC_QUOT,
-  MEH_XCS, _______, VIM_X,   _______, _______, _______,                                             _______, _______, _______, VIM_DOT, _______, MEH_BSL,
+  XCASE,   _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  KC_TAB,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  MEH_ESC, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
                                                        GLIL_THM,  LOL_THM,         LOR_THM,  _______
                                                     // NAV/BSPC  NUM/ENTER       HYP/ENTER SYM/SPACE
 ),
@@ -195,9 +195,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_GAMENUM] = LAYOUT(
   KC_GRV,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   XCASE,   _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  KC_BSPC, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, KC_QUOT,
-  MEH_ESC, _______, VIM_X,   _______, _______, _______,                                             _______, _______, _______, VIM_DOT, _______, MEH_BSL,
-                                                       GLIL_THM,  LOL_THM,         LOR_THM,  _______
+  KC_BSPC, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  MEH_ESC, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+                                                       LIL_THM,  LOL_THM,         LOR_THM,  _______
                                                     // NAV/TAB   NUM/ENTER       HYP/ENTER SYM/SPACE
 ),
 
@@ -213,8 +213,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_NAVIGATION] = LAYOUT(
     _______, _______, _______, TD_SSFL, TD_SNIP, SS_WIN,                                            _______, _______, _______, _______, _______, KC_VOLU,
-    _______, APP_L,   MON_L,   MON_U,   MON_R,   APP_R,    		                                    _______, SELWBAK, SELWORD, _______, _______, KC_VOLD,
-    KC_BSPC, OSMLCTL, OSMLALT, OSMLSFT, OSMLGUI, _______,                                           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XCASE,   KC_MUTE,
+    KC_TAB,  APP_L,   MON_L,   MON_U,   MON_R,   APP_R,    		                                    _______, SELWBAK, SELWORD, _______, _______, KC_VOLD,
+    KC_BSPC, OSMLCTL, OSMLALT, SFT_TUP, GUI_TDN, _______,                                           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XCASE,   KC_MUTE,
     QK_LLCK, TAB_DWN, TAB_UP,  TD_COPY, TD_PAST, _______,                                           KC_END,  KC_PGDN, KC_PGUP, KC_HOME, _______, _______,
                                                           _______, _______,      _______, KC_SPC
 ),
