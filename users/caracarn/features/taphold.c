@@ -111,8 +111,6 @@ uint16_t get_quick_tap_term_result(uint16_t keycode) {
         case OSMRALT:
         case OSMLGUI:
         case OSMRGUI:
-        case SFT_TUP:
-        case GUI_TDN:
             return 175;
         default:
             return 0;
