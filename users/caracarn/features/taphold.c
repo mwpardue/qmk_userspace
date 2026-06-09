@@ -25,6 +25,7 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case LIL_THM:
         case CLIL_THM:
         case GLIL_THM:
+        case GLOL_THM:
             return g_tapping_term + 40;
         case OSMLSFT:
         case OSMRSFT:
@@ -65,6 +66,7 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case VIM_X:
         case SFT_TUP:
         case GUI_TDN:
+        case MEH_RET:
           return g_tapping_term + 100;
         case LHM_A:
         case LQM_S:

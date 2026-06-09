@@ -104,7 +104,7 @@ enum {
 
     // Left Outer Thumb Keys
     #define LOL_THM LT(_NUMPAD, KC_ENTER)
-    #define GLOL_THM LT(_NUMPAD, KC_E)
+    #define GLOL_THM LT(_NUMPAD, KC_TAB)
     #define CLOL_THM LSFT_T(KC_ENTER)
     #define SLOL_THM LSFT_T(KC_T)
 
@@ -204,6 +204,7 @@ enum {
 #define MEH_QUE MEH_T(KC_SLSH)
 #define MEH_BSL MEH_T(KC_BSLS)
 #define MEH_XCS MEH_T(KC_F23)
+#define MEH_RET MEH_T(KC_ENTER)
 #define SFT_BSL RSFT_T(KC_BSLS)
 #define SFT_XCS LSFT_T(KC_F23)
 #define SFT_ESC RSFT_T(KC_ESC)
