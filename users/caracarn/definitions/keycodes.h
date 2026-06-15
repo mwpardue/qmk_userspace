@@ -98,8 +98,8 @@ enum {
 // Left thumb keys
 
     // Left Inner Thumb Keys
-    #define LIL_THM LT(_NAVIGATION, KC_TAB)
-    #define GLIL_THM LT(_NAVIGATION, KC_BSPC)
+    #define LIL_THM LT(_NAVIGATION, KC_BSPC)
+    #define GLIL_THM LT(_NAVIGATION, KC_TAB)
     #define CLIL_THM LT(_NAVIGATION, KC_T)
 
     // Left Outer Thumb Keys
@@ -210,3 +210,4 @@ enum {
 #define SFT_ESC RSFT_T(KC_ESC)
 #define SFT_QUO LSFT_T(KC_QUOT)
 #define NUM_ESC LT(_NUMPAD, KC_ESC)
+#define SM_GRV LSFT(KC_GRV)

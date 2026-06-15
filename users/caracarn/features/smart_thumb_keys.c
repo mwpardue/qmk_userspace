@@ -35,7 +35,7 @@ process_record_result_t process_smart_thumb_keys(uint16_t keycode, keyrecord_t *
 
 
     switch (keycode) {
-        case GLOL_THM:
+        case LOL_THM:
         case CLIL_THM:
         case MEH_ESC:
         case VIM_ESC:
