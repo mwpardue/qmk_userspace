@@ -142,9 +142,9 @@ process_record_result_t process_window_swapper(uint16_t keycode, keyrecord_t *re
         case TABBING_CONTINUE:
             switch (keycode) {
                 case MC_MODM:
+                case MC_SWLE:
                     register_mods(MOD_LSFT);
                     break;
-                case MC_SWLE:
                 case MC_SWRI:
                 case MC_MODP:
                 case KC_LEFT:

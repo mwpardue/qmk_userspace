@@ -216,7 +216,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, TD_SSFL, TD_SNIP, SS_WIN,                                            _______, _______, _______, _______, _______, KC_VOLU,
     KC_TAB,  APP_L,   MON_L,   MON_U,   MON_R,   APP_R,    		                                    _______, SELWBAK, SELWORD, _______, _______, KC_VOLD,
     KC_BSPC, OSMLCTL, OSMLALT, SFT_TUP, GUI_TDN, _______,                                           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XCASE,   KC_MUTE,
-    QK_LLCK, TAB_DWN, TAB_UP,  TD_COPY, TD_PAST, _______,                                           KC_END,  KC_PGDN, KC_PGUP, KC_HOME, _______, _______,
+    QK_LLCK, MC_SWLE, MC_SWRI, TD_COPY, TD_PAST, _______,                                           KC_END,  KC_PGDN, KC_PGUP, KC_HOME, _______, _______,
                                                           _______, _______,      _______, KC_SPC
 ),
 
