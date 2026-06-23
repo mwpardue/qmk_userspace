@@ -196,6 +196,7 @@ enum {
 #define TOADJ ADJ_LYR
 #define CAD LCTL(LALT(KC_DELETE))
 #define VIM_XCS LT(_VIM, KC_F23)
+#define APP_XCS LT(_APPSWITCH, KC_F23)
 #define VIM_ESC LT(_VIM, KC_ESC)
 #define VIM_BSL LT(_VIM, KC_BSLS)
 #define VIM_TAB LT(_VIM, KC_TAB)
