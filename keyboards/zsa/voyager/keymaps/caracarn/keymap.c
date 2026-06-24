@@ -207,7 +207,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                                                KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, _______,
   _______, LHM_A,   LCM_R,   LCM_S,   LCM_T,   KC_G,                                                KC_M,    RCM_N,   RCM_E,   RCM_I,   RCM_O,   _______,
-  _______, NUM_Z,   KC_X,    KC_C,    KC_D,    KC_V,                                                KC_K,    KC_H,    _______, _______, _______, _______,
+  _______, SFT_Z,   VIM_X,   KC_C,    KC_D,    KC_V,                                                KC_K,    KC_H,    _______, _______, _______, _______,
                                                        _______,  _______,           _______,  _______
                                                     // NAV/BSPC  SFT/ENTER         SFT/ENTER SYM/SPACE
 ),
