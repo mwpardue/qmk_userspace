@@ -126,6 +126,8 @@ enum {
 // Mod-taps (QWERTY)
 
 // Left Hand
+#define LSM_A LSFT_T(KC_A)
+#define LSM_D LCTL_T(KC_D)
 #define LHM_A LCTL_T(KC_A)
 #define LQM_S LALT_T(KC_S)
 #define LHM_D LSFT_T(KC_D)
@@ -146,6 +148,8 @@ enum {
 #define VIM_X LT(_VIM, KC_X)
 
 // Right Hand
+#define RSM_SCN RSFT_T(KC_SCLN)
+#define RSM_K   RCTL_T(KC_K)
 #define RHM_SCN RCTL_T(KC_SCLN)
 #define RHM_L   RALT_T(KC_L)
 #define RHM_K   RSFT_T(KC_K)

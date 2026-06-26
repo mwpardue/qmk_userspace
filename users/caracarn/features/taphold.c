@@ -69,6 +69,8 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case MEH_RET:
           return g_tapping_term + 100;
         case LHM_A:
+        case LSM_D:
+        case RSM_K:
         case LQM_S:
         case LHM_F:
         case LCM_R:
@@ -82,6 +84,8 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
           return get_custom_tapping_term(user_config.tapping_term.modtap);
         case RHM_K:
         case LHM_D:
+        case LSM_A:
+        case RSM_SCN:
         case SFT_Z:
         case SFT_QUE:
             return get_custom_tapping_term(user_config.tapping_term.shift);
@@ -93,6 +97,8 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
 uint16_t get_quick_tap_term_result(uint16_t keycode) {
     switch (keycode) {
         case LHM_A:
+        case LSM_D:
+        case RSM_K:
         case LQM_S:
         case LHM_F:
         case RHM_SCN:
@@ -142,6 +148,8 @@ bool get_hold_on_other_key_press_result(uint16_t keycode) {
 bool get_permissive_hold_result(uint16_t keycode) {
     switch (keycode) {
         case LHM_A:
+        case LSM_D:
+        case RSM_K:
         case LHM_F:
         case RHM_J:
         case RHM_L:
@@ -150,6 +158,8 @@ bool get_permissive_hold_result(uint16_t keycode) {
         case NUM_Z:
         case LHM_D:
         case RHM_K:
+        case LSM_A:
+        case RSM_SCN:
         case SFT_Z:
         case SFT_QUE:
         case MEH_Z:
@@ -184,6 +194,8 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_
                     return 0;
                 }
             case LHM_A:
+            case LSM_D:
+            case RSM_K:
             case LQM_S:
             case LHM_F:
             case RHM_J:
@@ -200,6 +212,8 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_
             case RCM_E:
                 dprintln("get_tap_flow triggered, shift gqt case");
                 return get_custom_tapping_term(user_config.tapping_term.shift_gqt);
+            case LSM_A:
+            case RSM_SCN:
             case SFT_Z:
             case SFT_QUE:
             case NUM_Z:
