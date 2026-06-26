@@ -105,7 +105,7 @@ enum {
     // Left Outer Thumb Keys
     #define LOL_THM LT(_NUMPAD, KC_ENTER)
     #define GLOL_THM LT(_NUMPAD, KC_TAB)
-    #define CLOL_THM LSFT_T(KC_ENTER)
+    #define CLOL_THM LSFT_T(KC_TAB)
     #define SLOL_THM LSFT_T(KC_T)
 
 // Right thumb keys
