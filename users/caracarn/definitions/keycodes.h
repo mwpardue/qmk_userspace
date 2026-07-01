@@ -103,8 +103,8 @@ enum {
     #define CLIL_THM LT(_NAVIGATION, KC_T)
 
     // Left Outer Thumb Keys
-    #define LOL_THM LT(_NUMPAD, KC_ENTER)
-    #define GLOL_THM LT(_NUMPAD, KC_TAB)
+    #define LOL_THM LT(_NUMPAD, KC_E)
+    #define GLOL_THM LT(_NUMPAD, KC_ENTER)
     #define CLOL_THM LSFT_T(KC_TAB)
     #define SLOL_THM LSFT_T(KC_T)
 
