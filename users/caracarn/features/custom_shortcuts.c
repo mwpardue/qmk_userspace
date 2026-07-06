@@ -497,7 +497,7 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
         case SFT_TUP:
             if (record->event.pressed) {
                 if (record->tap.count > 0) {
-                    tap_code16(G(KC_K));
+                    tap_code16(A(KC_UP));
                 return PROCESS_RECORD_RETURN_FALSE;
                 }
             return PROCESS_RECORD_CONTINUE;
@@ -507,7 +507,7 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
         case GUI_TDN:
             if (record->event.pressed) {
                 if (record->tap.count > 0) {
-                    tap_code16(G(KC_J));
+                    tap_code16(A(KC_DOWN));
                 return PROCESS_RECORD_RETURN_FALSE;
                 }
             return PROCESS_RECORD_CONTINUE;
