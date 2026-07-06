@@ -200,7 +200,7 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_
             case LHM_F:
             case RHM_J:
             case RHM_L:
-            case RHM_SCN:
+            //case RHM_SCN:
             case LCM_R:
             case LCM_T:
             case RCM_N:
@@ -222,6 +222,7 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_
             case CLIL_THM:
             case GLIL_THM:
             case VIM_DOT:
+            case RHM_SCN:
                 return 1;
             default:
                 dprintln("get_tap_flow triggered, default case");
