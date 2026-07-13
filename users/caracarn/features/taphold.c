@@ -58,6 +58,7 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case NUM_ESC:
         case APP_ESC:
         case APP_TAB:
+        case APP_MIN:
         case HYP_TAB:
         case HYP_QUO:
         case VIM_TAB:

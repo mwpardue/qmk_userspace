@@ -110,8 +110,8 @@ const uint16_t PROGMEM mprev_combo[]        = {VIM_X,       KC_C,               
 const uint16_t PROGMEM play_combo[]         = {VIM_X,       KC_C,      KC_V,              COMBO_END};
 const uint16_t PROGMEM mnext_combo[]        = {KC_C,        KC_V,                         COMBO_END};
 const uint16_t PROGMEM hex_combo[]          = {VIM_X,       VIM_DOT,                      COMBO_END};
-const uint16_t PROGMEM function_combo[]     = {SM_GRV,      KC_1,                         COMBO_END};
-const uint16_t PROGMEM boot_combo[]         = {SM_GRV,      KC_EQL,                       COMBO_END};
+const uint16_t PROGMEM function_combo[]     = {KC_GRV,      KC_1,                         COMBO_END};
+const uint16_t PROGMEM boot_combo[]         = {KC_GRV,      KC_EQL,                       COMBO_END};
 const uint16_t PROGMEM escape_combo[]       = {KC_Q,        KC_W,                         COMBO_END};
 
 combo_t key_combos[] = {
@@ -174,12 +174,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 //1
 [_BASE] = LAYOUT(
-  SM_GRV,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                                                KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL,
-  APP_XCS, KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                                                KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
-  KC_TAB,  LHM_A,  LQM_S,   LHM_D,   LHM_F,   KC_G,                                                KC_H,    RHM_J,   RHM_K,   RHM_L,   RHM_SCN, KC_QUOT,
-  MEH_RET, SFT_Z,  VIM_X,   KC_C,    KC_V,    KC_B,                                                KC_N,    KC_M,    KC_COMM, VIM_DOT, SFT_QUE, MEH_BSL,
+  KC_GRV,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                                                KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL,
+  APP_TAB, KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                                                KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    APP_MIN,
+  SM_ESC,  LHM_A,  LQM_S,   LHM_D,   LHM_F,   KC_G,                                                KC_H,    RHM_J,   RHM_K,   RHM_L,   RHM_SCN, KC_QUOT,
+  MEH_XCS, SFT_Z,  VIM_X,   KC_C,    KC_V,    KC_B,                                                KC_N,    KC_M,    KC_COMM, VIM_DOT, SFT_QUE, MEH_BSL,
                                                        LIL_THM,   LOL_THM,          LOR_THM, LIR_THM
-                                                    // NAV/BSPC  NUM/SM_ESC          ENTER  SYM/SPACE
+                                                    // NAV/BSPC  NUM/ENTER           ENTER  SYM/SPACE
 ),
 
 //2
