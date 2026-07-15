@@ -5,6 +5,7 @@
 #include "caracarn_runtime.h"
 #include "definitions/keycodes.h"
 #include "features/taphold.h"
+#include "features/secrets.h"
 
 #ifdef QMENU_ENABLE
 #include "features/qhelper.h"
@@ -513,6 +514,17 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
             return PROCESS_RECORD_CONTINUE;
             }
             break;
+
+        case SM_OPUL:
+            if (record->event.pressed) {
+                tap_code16(MEH(KC_SPACE));
+                wait_ms(500);
+                send_string_with_delay(secrets[2], MACRO_TIMER);
+                tap_code16(KC_ENTER);
+                tap_code16(KC_ESC);
+                return PROCESS_RECORD_RETURN_FALSE;
+            }
+            return PROCESS_RECORD_RETURN_FALSE;
 
     }
     return PROCESS_RECORD_CONTINUE;
