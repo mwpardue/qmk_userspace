@@ -87,8 +87,6 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case LHM_D:
         case LSM_A:
         case RSM_SCN:
-        case SFT_Z:
-        case SFT_QUE:
             return get_custom_tapping_term(user_config.tapping_term.shift);
         default:
             return g_tapping_term;
