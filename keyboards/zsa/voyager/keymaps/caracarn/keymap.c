@@ -175,7 +175,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //1
 [_BASE] = LAYOUT(
   KC_GRV,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                                                KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL,
-  APP_TAB, KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                                                KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    APP_MIN,
+  KC_TAB,  KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                                                KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
   SM_ESC,  LHM_A,  LQM_S,   LHM_D,   LHM_F,   KC_G,                                                KC_H,    RHM_J,   RHM_K,   RHM_L,   RHM_SCN, KC_QUOT,
   MEH_XCS, SFT_Z,  VIM_X,   KC_C,    KC_V,    KC_B,                                                KC_N,    KC_M,    KC_COMM, VIM_DOT, SFT_QUE, MEH_BSL,
                                                        LIL_THM,   LOL_THM,          LOR_THM, LIR_THM
@@ -184,12 +184,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 //2
 [_GAMING] = LAYOUT(
-  SM_ESC,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   KC_GRV,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  KC_TAB,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   KC_BSPC, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   MEH_XCS, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-                                                       GLIL_THM, _______,         _______,  _______
-                                                    // NAV/TAB   NUM/ENTER         ENTER   SYM/SPACE
+                                                       CLIL_THM, _______,         _______,  _______
+                                                    // NAV/ESC   NUM/ENTER         ENTER   SYM/SPACE
 ),
 
 //4

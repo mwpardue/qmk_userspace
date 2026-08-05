@@ -52,6 +52,7 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case SFT_XCS:
         case SFT_BSL:
         case SFT_ESC:
+        case SFT_TAB:
         case SFT_QUO:
         case VIM_ESC:
         case VIM_BSL:
@@ -135,7 +136,6 @@ bool get_hold_on_other_key_press_result(uint16_t keycode) {
         case SFT_XCS:
         case SFT_BSL:
         case SFT_ESC:
-        case SFT_QUO:
         case NUM_ESC:
             // Immediately select the hold action when another key is pressed.
             return true;
@@ -163,6 +163,8 @@ bool get_permissive_hold_result(uint16_t keycode) {
         case SFT_QUE:
         case MEH_Z:
         case MEH_QUE:
+        case SFT_TAB:
+        case SFT_QUO:
             // Immediately select the hold action when another key is tapped.
             return true;
         default:
@@ -176,12 +178,12 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_
     dprintln("[TAP_FLOW_CUSTOM] get_flow_tap_term.");
     if (is_flow_tap_key(keycode) && is_flow_tap_key(prev_keycode)) {
         dprintln("[TAP_FLOW_CUSTOM] get_flow_tap_term->is_flow_tap_key.");
-        switch(prev_keycode) {
-            case SFT_Z:
-            case SFT_QUE:
-                dprintln("get_tap_flow, prev_keycode shift case");
-                return 0;
-        }
+        // switch(prev_keycode) {
+        //     case SFT_Z:
+        //     case SFT_QUE:
+        //         dprintln("get_tap_flow, prev_keycode shift case");
+        //         return 0;
+        // }
         switch(keycode) {
             case LIR_THM:
                 dprintln("get_tap_flow triggered, LIR_THM case");
@@ -211,6 +213,8 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_
             case RCM_E:
             case LHM_D:
             case RHM_K:
+            case SFT_TAB:
+            case SFT_QUO:
                 dprintln("get_tap_flow triggered, shift gqt case");
                 return get_custom_tapping_term(user_config.tapping_term.shift_gqt);
             case LSM_A:
