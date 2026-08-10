@@ -1,1 +1,2 @@
-SEQ_KEY(v, (KC_V), KC_V)
+SEQ_KEY(fan_toggle, (KC_F), C(S(A(KC_T))))
+SEQ_KEY(qk_boot, (KC_Q), QK_BOOT)

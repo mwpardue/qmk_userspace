@@ -116,7 +116,7 @@ const uint16_t PROGMEM hex_combo[]          = {VIM_X,       VIM_DOT,            
 const uint16_t PROGMEM function_combo[]     = {KC_GRV,      KC_1,                         COMBO_END};
 const uint16_t PROGMEM boot_combo[]         = {KC_GRV,      KC_EQL,                       COMBO_END};
 const uint16_t PROGMEM escape_combo[]       = {KC_Q,        KC_W,                         COMBO_END};
-const uint16_t PROGMEM leader_combo[]       = {KC_COMMA,    KC_DOT,                       COMBO_END};
+const uint16_t PROGMEM leader_combo[]       = {KC_COMMA,    VIM_DOT,                       COMBO_END};
 
 combo_t key_combos[] = {
   [CM_CAPS] = COMBO(capsword_combo,     CW_TOGG),
