@@ -1,6 +1,8 @@
 {
     "module_name": "Select Word",
     "maintainer": "getreuer",
+    "license": "Apache-2.0",
+    "url": "https://getreuer.info/posts/keyboards/select-word",
     "keycodes": [
         {
             "key": "SELECT_WORD",
@@ -18,6 +20,12 @@
             "key": "SELECT_LINE",
             "aliases": [
               "SELLINE"
+            ]
+        },
+        {
+            "key": "SELECT_LINE_UP",
+            "aliases": [
+              "SELLUP"
             ]
         }
     ]

@@ -1,4 +1,4 @@
-// Copyright 2023-2025 Google LLC
+// Copyright 2023-2026 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -34,9 +34,28 @@
 #ifndef ORBITAL_MOUSE_WHEEL_SPEED
 #define ORBITAL_MOUSE_WHEEL_SPEED 0.2
 #endif  // ORBITAL_MOUSE_WHEEL_SPEED
+#ifndef ORBITAL_MOUSE_FAST_MOVE_FACTOR
+#define ORBITAL_MOUSE_FAST_MOVE_FACTOR 3.0
+#endif  // ORBITAL_MOUSE_SLOW_MOVE_FACTOR
+#ifndef ORBITAL_MOUSE_FAST_TURN_FACTOR
+#define ORBITAL_MOUSE_FAST_TURN_FACTOR 2.0
+#endif  // ORBITAL_MOUSE_SLOW_TURN_FACTOR
 #ifndef ORBITAL_MOUSE_DBL_DELAY_MS
 #define ORBITAL_MOUSE_DBL_DELAY_MS 50
 #endif  // ORBITAL_MOUSE_DBL_DELAY_MS
+#ifdef ORBITAL_MOUSE_FLAT_SPEED
+
+#ifdef ORBITAL_MOUSE_SPEED_CURVE
+#warning "Ignoring ORBITAL_MOUSE_SPEED_CURVE, since ORBITAL_MOUSE_FLAT_SPEED is also defined."
+#undef ORBITAL_MOUSE_SPEED_CURVE
+#endif // ORBITAL_MOUSE_SPEED_CURVE
+
+#define ORBITAL_MOUSE_SPEED_CURVE \
+      {ORBITAL_MOUSE_FLAT_SPEED, ORBITAL_MOUSE_FLAT_SPEED, ORBITAL_MOUSE_FLAT_SPEED, ORBITAL_MOUSE_FLAT_SPEED, \
+       ORBITAL_MOUSE_FLAT_SPEED, ORBITAL_MOUSE_FLAT_SPEED, ORBITAL_MOUSE_FLAT_SPEED, ORBITAL_MOUSE_FLAT_SPEED, \
+       ORBITAL_MOUSE_FLAT_SPEED, ORBITAL_MOUSE_FLAT_SPEED, ORBITAL_MOUSE_FLAT_SPEED, ORBITAL_MOUSE_FLAT_SPEED, \
+       ORBITAL_MOUSE_FLAT_SPEED, ORBITAL_MOUSE_FLAT_SPEED, ORBITAL_MOUSE_FLAT_SPEED, ORBITAL_MOUSE_FLAT_SPEED}
+#endif  // ORBITAL_MOUSE_FLAT_SPEED
 #ifndef ORBITAL_MOUSE_SPEED_CURVE
 #define ORBITAL_MOUSE_SPEED_CURVE \
       {24, 24, 24, 32, 58, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66}
@@ -64,6 +83,12 @@ enum {
   /** Slow mode turn speed factor as a Q.8 value. */
   SLOW_TURN_FACTOR_Q_8 = (ORBITAL_MOUSE_SLOW_TURN_FACTOR) < 0.99
       ? ((uint8_t)((ORBITAL_MOUSE_SLOW_TURN_FACTOR) * 256 + 0.5)) : 255,
+  /** Fast mode movement speed factor as a Q4.4 value. */
+  FAST_MOVE_FACTOR_Q4_4 = (ORBITAL_MOUSE_FAST_MOVE_FACTOR) < 15.999
+      ? ((uint8_t)((ORBITAL_MOUSE_FAST_MOVE_FACTOR) * 16 + 0.5)) : 255,
+  /** Fast mode turn speed factor as a Q4.4 value. */
+  FAST_TURN_FACTOR_Q4_4 = (ORBITAL_MOUSE_FAST_TURN_FACTOR) < 15.99
+      ? ((uint8_t)((ORBITAL_MOUSE_FAST_TURN_FACTOR) * 16 + 0.5)) : 255,
   /** Wheel speed in steps/frame as a Q2.6 value. */
   WHEEL_SPEED_Q2_6 = (ORBITAL_MOUSE_WHEEL_SPEED) < 3.99
       ? ((uint8_t)((ORBITAL_MOUSE_WHEEL_SPEED) * 64 + 0.5)) : 255,
@@ -102,6 +127,8 @@ static struct {
   int16_t speed;
   // Bitfield tracking which movement keys are currently held.
   uint8_t held_keys;
+  // Bitfield tracking which cardinal movement keys are held.
+  uint8_t held_card_keys;
   // Cursor movement time, counted in number of intervals.
   uint8_t move_t;
   // Cursor movement direction, 1 => forward, -1 => backward.
@@ -119,6 +146,9 @@ static struct {
   uint8_t double_click_frame;
   // When true, movement and turning are slower.
   bool slow;
+  // When true, movement and turning are faster.
+  bool fast;
+  // if slow and fast are both true then fast is ignored.
 } state = {.speed_curve = init_speed_curve};
 
 /**
@@ -195,6 +225,21 @@ static int8_t get_dir_from_held_keys(uint8_t bit_shift) {
   return dir[(state.held_keys >> bit_shift) & 3];
 }
 
+static uint8_t get_card_angle_from_held_keys(void) {
+  static const uint8_t card_angles[16] PROGMEM = {
+    // Zero values in this array represent "no movement."
+    [HELD_U]          = 0x80, // Up. Set high bit to distinguish from zero.
+    [HELD_U | HELD_L] = 1 * (NUM_ANGLES / 8), // Up+Left.
+    [HELD_L]          = 2 * (NUM_ANGLES / 8), // Left.
+    [HELD_D | HELD_L] = 3 * (NUM_ANGLES / 8), // Down+Left.
+    [HELD_D]          = 4 * (NUM_ANGLES / 8), // Down.
+    [HELD_D | HELD_R] = 5 * (NUM_ANGLES / 8), // Down+Right.
+    [HELD_R]          = 6 * (NUM_ANGLES / 8), // Right.
+    [HELD_U | HELD_R] = 7 * (NUM_ANGLES / 8), // Up+Right.
+  };
+  return pgm_read_byte(card_angles + state.held_card_keys);
+}
+
 void set_orbital_mouse_speed_curve(const uint8_t* speed_curve) {
   state.speed_curve = (speed_curve != NULL) ? speed_curve : init_speed_curve;
 }
@@ -218,7 +263,7 @@ void set_orbital_mouse_angle(uint8_t angle) {
 
 bool process_record_orbital_mouse(uint16_t keycode, keyrecord_t* record) {
   if (!(IS_MOUSE_KEYCODE(keycode) ||
-        (OM_SLOW <= keycode && keycode <= OM_SEL8))) {
+        (OM_CS_U <= keycode && keycode <= OM_SEL8))) {
     return true;
   }
 
@@ -230,24 +275,31 @@ bool process_record_orbital_mouse(uint16_t keycode, keyrecord_t* record) {
     } else {
       state.held_keys &= ~held_mask;
     }
+  } else if (OM_CS_U <= keycode && keycode <= OM_CS_R) {
+    const uint8_t card_mask = 1 << (keycode - OM_CS_U);
+    if (record->event.pressed) {
+      state.held_card_keys |= card_mask;
+    } else {
+      state.held_card_keys &= ~card_mask;
+    }
   } else {
     switch (keycode) {
       case OM_BTN1 ... OM_BTN8:
         press_mouse_button(keycode - OM_BTN1, record->event.pressed);
-        return false;
+        return true;
       case OM_BTNS:
         press_mouse_button(255, record->event.pressed);
-        return false;
+        return true;
       case OM_HLDS:
         if (record->event.pressed) {
           press_mouse_button(255, true);
         }
-        return false;
+        return true;
       case OM_RELS:
         if (record->event.pressed) {
           press_mouse_button(255, false);
         }
-        return false;
+        return true;
       case OM_DBLS:
         if (record->event.pressed) {
           state.double_click_frame = 1;
@@ -255,29 +307,70 @@ bool process_record_orbital_mouse(uint16_t keycode, keyrecord_t* record) {
         break;
       case OM_SLOW:
         state.slow = record->event.pressed;
-        return false;
+        return true;
+      case OM_FAST:
+       state.fast = record->event.pressed;
+        return true;
       case OM_SEL1 ... OM_SEL8:
         if (record->event.pressed) {
           select_mouse_button(keycode - OM_SEL1);
         }
-        return false;
+        return true;
+      // Check if cardinal snapping is desired
+      case OM_CS_U:
+        if (record->event.pressed) {
+          state.angle = 0 << 8; //16*0
+          state.steer_dir = 0;
+          return true;
+        }
+      case OM_CS_L:
+        if (record->event.pressed) {
+          state.angle = 16 << 8; //16*1
+          state.steer_dir = 0;
+          return true;
+        }
+      case OM_CS_D:
+        if (record->event.pressed) {
+          state.angle = 32 << 8; //16*2
+          state.steer_dir = 0;
+          return true;
+        }
+      case OM_CS_R:
+        if (record->event.pressed) {
+          state.angle = 48 << 8; //16*3
+          state.steer_dir = 0;
+          return true;
+        }
     }
   }
 
+  int8_t move_dir = 0;
+
   // Update cursor movement direction.
-  const int8_t dir = get_dir_from_held_keys(0);
-  if (state.move_dir != dir) {
-    state.move_dir = dir;
+  if (state.held_card_keys) {  // If any cardinal key is held.
+    const uint8_t angle = get_card_angle_from_held_keys();  // Map to angle.
+    if (angle) {  // If the held keys combination is valid.
+      state.angle = (uint16_t)angle << 8;
+      move_dir = 1;
+    }
+    state.steer_dir = 0;  // Freeze steering.
+  } else {  // Otherwise, the default polar controls apply.
+    move_dir = get_dir_from_held_keys(0);
+    // Update steering direction.
+    state.steer_dir = get_dir_from_held_keys(2);
+  }
+
+  if (state.move_dir != move_dir) {
+    state.move_dir = move_dir;
     state.move_t = 0;
   }
-  // Update steering direction.
-  state.steer_dir = get_dir_from_held_keys(2);
+
   // Update wheel movement.
   state.wheel_y_dir = get_dir_from_held_keys(4);
   state.wheel_x_dir = get_dir_from_held_keys(6);
   wake_orbital_mouse_task();
 
-  return false;
+  return true;
 }
 
 void housekeeping_task_orbital_mouse(void) {
@@ -307,15 +400,19 @@ void housekeeping_task_orbital_mouse(void) {
     if (state.slow) {
       speed = ((uint16_t)speed) * (1 + (uint16_t)SLOW_MOVE_FACTOR_Q_8) >> 8;
     }
+    else if (state.fast) {
+      speed = ((uint16_t)speed) * (1 + (uint16_t)FAST_MOVE_FACTOR_Q4_4) >> 4;
+    }
 
     state.x -= state.move_dir * scaled_sin(speed, state.angle >> 8);
     state.y -= state.move_dir * scaled_cos(speed, state.angle >> 8);
     active = true;
   }
-
   // Update heading angle if steering.
   if (state.steer_dir) {
-    int16_t angle_step = state.slow ? SLOW_TURN_FACTOR_Q_8 : 256;
+    int16_t angle_step = state.slow
+      ? SLOW_TURN_FACTOR_Q_8
+      : (state.fast ? FAST_TURN_FACTOR_Q4_4 << 4: 256);
     if (state.steer_dir == -1) {
       angle_step = -angle_step;
     }
@@ -361,4 +458,3 @@ void housekeeping_task_orbital_mouse(void) {
   state.wheel_y -= (int16_t)state.report.v * 64;
   host_mouse_send(&state.report);
 }
-

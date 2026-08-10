@@ -1,4 +1,4 @@
-// Copyright 2025-2026 Google LLC
+// Copyright 2026 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,6 +12,32 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#pragma once
-#include "orbital_mouse.h"
+/**
+ * @file cyclotab.h
+ * @brief Cyclotab community module
+ *
+ *
+ * For full documentation, see
+ * <https://getreuer.info/posts/keyboards/cyclotab>
+ */
 
+#pragma once
+
+#include "quantum.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/** Returns the currently active hotkey, or KC_NO if inactive. */
+uint16_t cyclotab_active_key(void);
+
+/** Releases held mods and clears Cyclotab to initial state. */
+void cyclotab_clear(void);
+
+/** Optional user callback for setting the timeout. */ 
+uint16_t cyclotab_timeout(uint16_t keycode);
+
+#ifdef __cplusplus
+}
+#endif

@@ -2,7 +2,7 @@
 
 <table>
 <tr><td><b>Module</b></td><td><tt>getreuer/select_word</tt></td></tr>
-<tr><td><b>Version</b></td><td>2025-03-07</td></tr>
+<tr><td><b>Version</b></td><td>2026-02-04</td></tr>
 <tr><td><b>Maintainer</b></td><td>Pascal Getreuer (@getreuer)</td></tr>
 <tr><td><b>License</b></td><td><a href="../LICENSE.txt">Apache 2.0</a></td></tr>
 <tr><td><b>Documentation</b></td><td>
@@ -30,7 +30,8 @@ Then use one or more of the following keycodes in your layout:
 |--------------------|-------------|--------------------------------------------------------|
 | `SELECT_WORD`      | `SELWORD`   | Forward word selection. Or with Shift, line selection. |
 | `SELECT_WORD_BACK` | `SELWBAK`   | Backward word selection.                               |
-| `SELECT_WORD_LINE` | `SELLINE`   | Line selection.                                        |
+| `SELECT_LINE`      | `SELLINE`   | Downward line selection.                               |
+| `SELECT_LINE_UP`   | `SELLUP`    | Upward line selection.                                 |
 
 Press `SELWORD` to select the current word. Press it again to extend the
 selection to the following word. The effect is similar to word selection (`W`)
@@ -46,18 +47,18 @@ hotkeys:
 
 * To hardcode to Mac hotkeys, define in your `config.h` file:
 
-  ~~~{.c}
+  ```c
   #define SELECT_WORD_OS_MAC
-  ~~~
+  ```
 
 * If [OS Detection](https://docs.qmk.fm/features/os_detection) is enabled,
   Select Word uses it determine which kind of hotkeys to send. 
 
 * For direct control, define in `config.h`:
 
-  ~~~{.c}
+  ```c
   #define SELECT_WORD_OS_DYNAMIC
-  ~~~
+  ```
 
   Then in `keymap.c`, define the callback `select_word_host_is_mac()`. Return
   true for Mac hotkeys, false for Windows/Linux.

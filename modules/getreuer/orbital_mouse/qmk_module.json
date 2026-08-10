@@ -1,10 +1,18 @@
 {
     "module_name": "Orbital Mouse",
     "maintainer": "getreuer",
+    "license": "Apache-2.0",
+    "url": "https://getreuer.info/posts/keyboards/orbital-mouse",
     "features": {
-        "mouse": true
+        "mouse": true,
+        "mousekey": false
     },
     "keycodes": [
+        {"key": "OM_CS_U"},
+        {"key": "OM_CS_D"},
+        {"key": "OM_CS_L"},
+        {"key": "OM_CS_R"},
+        {"key": "OM_FAST"},
         {"key": "OM_SLOW"},
         {"key": "OM_BTNS"},
         {"key": "OM_DBLS"},
