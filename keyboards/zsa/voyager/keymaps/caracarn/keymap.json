@@ -2,6 +2,7 @@
     "modules": [
         "mwpardue/casemodes",
         "mwpardue/custom_shift_keys",
+        "getreuer/super_leader",
         "mwpardue/select_word"
     ]
 }

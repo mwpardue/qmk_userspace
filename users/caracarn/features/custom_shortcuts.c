@@ -18,6 +18,7 @@
 
 // #ifdef CASEMODE_ENABLE
     #include "modules/mwpardue/casemodes/casemodes.h"
+    #include "modules/getreuer/super_leader/super_leader.h"
 // #endif
 
 // extern enum xcase_state xcase_state;
@@ -31,10 +32,8 @@ void smart_escape(void) {
     // bool isXcase = (xcase_state == XCASE_WAIT) && (xcase_state == XCASE_ON);
     bool kbFeature = is_caps_word_on() || \
         isAnyOneShotLockedMod || \
-        is_leading() || \
         host_keyboard_led_state().caps_lock || \
-        is_xcase() || \
-        is_passing();
+        is_xcase();
 
     if (kbFeature) {
         if (host_keyboard_led_state().caps_lock) {
@@ -45,7 +44,7 @@ void smart_escape(void) {
         dprintln("Disabling keyboard feature");
         disable_xcase();
         clear_locked_and_oneshot_mods();
-        stop_leading();
+        super_leader_cancel();
         return;
     } else if (IS_LAYER_ON(_FUNCTION) || IS_LAYER_ON(_ADJUST) || IS_LAYER_ON(_HEX)) {
         layer_off(_FUNCTION);
@@ -174,12 +173,14 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
             }
             return PROCESS_RECORD_RETURN_FALSE;
 
+#ifdef CUSTOM_LEADER_ENABLE
        case PASSPAL:
             if (record->event.pressed) {
                   start_pass_leading();
                 }
             return PROCESS_RECORD_RETURN_FALSE;
             break;
+#endif
 
          case SEL_WRD:
             if (record->event.pressed) {
@@ -262,21 +263,12 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
         return PROCESS_RECORD_RETURN_TRUE;
 
 
+#ifdef CUSTOM_LEADER_ENABLE
     case NUM_PP:
     case VIM_PP:
         if (record->event.pressed) {
             if (record->tap.count > 0) {
                 start_pass_leading();
-                return PROCESS_RECORD_RETURN_FALSE;
-            }
-        return PROCESS_RECORD_CONTINUE;
-        }
-    break;
-
-    case MEH_ESC:
-        if (record->event.pressed) {
-            if (record->tap.count > 0) {
-                smart_escape();
                 return PROCESS_RECORD_RETURN_FALSE;
             }
         return PROCESS_RECORD_CONTINUE;
@@ -289,6 +281,18 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
             start_pass_leading();
             return PROCESS_RECORD_RETURN_FALSE;
         }
+        return PROCESS_RECORD_CONTINUE;
+        }
+    break;
+
+#endif
+
+    case MEH_ESC:
+        if (record->event.pressed) {
+            if (record->tap.count > 0) {
+                smart_escape();
+                return PROCESS_RECORD_RETURN_FALSE;
+            }
         return PROCESS_RECORD_CONTINUE;
         }
     break;

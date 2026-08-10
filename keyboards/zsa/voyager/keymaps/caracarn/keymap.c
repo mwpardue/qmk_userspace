@@ -101,7 +101,8 @@ enum combos {
     CM_HEX,
     CM_FUNC,
     CM_BOOT,
-    CM_ESC
+    CM_ESC,
+    CM_LEAD
 };
 
 
@@ -115,6 +116,7 @@ const uint16_t PROGMEM hex_combo[]          = {VIM_X,       VIM_DOT,            
 const uint16_t PROGMEM function_combo[]     = {KC_GRV,      KC_1,                         COMBO_END};
 const uint16_t PROGMEM boot_combo[]         = {KC_GRV,      KC_EQL,                       COMBO_END};
 const uint16_t PROGMEM escape_combo[]       = {KC_Q,        KC_W,                         COMBO_END};
+const uint16_t PROGMEM leader_combo[]       = {KC_COMMA,    KC_DOT,                       COMBO_END};
 
 combo_t key_combos[] = {
   [CM_CAPS] = COMBO(capsword_combo,     CW_TOGG),
@@ -126,7 +128,8 @@ combo_t key_combos[] = {
   [CM_HEX]  = COMBO(hex_combo,          TOHEX),
   [CM_FUNC] = COMBO(function_combo,     TOFUN),
   [CM_BOOT] = COMBO(boot_combo,         QK_BOOT),
-  [CM_ESC]  = COMBO(escape_combo,       SM_ESC)
+  [CM_ESC]  = COMBO(escape_combo,       SM_ESC),
+  [CM_LEAD] = COMBO(leader_combo,       LEADER)
 };
 
 bool caps_word_press_user(uint16_t keycode) {

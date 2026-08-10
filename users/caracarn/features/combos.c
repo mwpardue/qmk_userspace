@@ -109,11 +109,13 @@ uint8_t combo_ref_from_layer(uint8_t layer) {
             }
             break;
 
+#ifdef CUSTOM_LEADER_ENABLE
         case LEADER:
         if (record->event.pressed) {
                 start_leading();
         }
         break;
+#endif
 
 }
 
