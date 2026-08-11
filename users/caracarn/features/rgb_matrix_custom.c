@@ -2,6 +2,7 @@
 #include "features/rgb_matrix_custom.h"
 #include "definitions/layers.h"
 #include "modules/mwpardue/casemodes/casemodes.h"
+#include "modules/mwpardue/super_leader/super_leader.h"
 #include "features/secrets.h"
 #ifdef SMART_CASE_ENABLE
     #include "features/smart_case.h"
@@ -137,10 +138,10 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     if (host_keyboard_led_state().caps_lock) {
         RGB_MATRIX_INDICATOR_SET_COLOR(6, 255, 0, 0);
     }
-    // if (super_leader_sequence_active()) {
-    //     RGB_MATRIX_INDICATOR_SET_COLOR(18, 252, 107, 3 );
-    //     RGB_MATRIX_INDICATOR_SET_COLOR(49, 252, 107, 3 );
-    // }
+    if (super_leader_sequence_active()) {
+        RGB_MATRIX_INDICATOR_SET_COLOR(18, 252, 107, 3 );
+        RGB_MATRIX_INDICATOR_SET_COLOR(49, 252, 107, 3 );
+    }
     if (xcase_state == XCASE_ON || xcase_state == XCASE_WAIT) {
         RGB_MATRIX_INDICATOR_SET_COLOR(6, 0, 255, 0);
     }

@@ -211,6 +211,7 @@ enum {
 #define MEH_BSL MEH_T(KC_BSLS)
 #define MEH_XCS MEH_T(KC_F23)
 #define MEH_RET MEH_T(KC_ENTER)
+#define MEH_LDR MEH_T(KC_F14)
 #define SFT_BSL RSFT_T(KC_BSLS)
 #define SFT_XCS LSFT_T(KC_F23)
 #define SFT_ESC LSFT_T(KC_ESC)

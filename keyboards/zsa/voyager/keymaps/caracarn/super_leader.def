@@ -1,2 +1,6 @@
 SEQ_KEY(fan_toggle, (KC_F), C(S(A(KC_T))))
 SEQ_KEY(qk_boot, (KC_Q), QK_BOOT)
+SEQ_KEY(one_pass_unlock, (KC_O, KC_P), SM_OPUL)
+SEQ_STR(attrueipsolutionsdotcom, (KC_A, KC_T), "@trueipsolutions.com")
+SEQ_STR(trueipsolutionsdotcom, (KC_T), "trueipsolutions.com")
+SEQ_STR(atcaracarnanonaddy, (KC_A, KC_C), "@caracarn.anonaddy.com")

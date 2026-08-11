@@ -18,7 +18,7 @@
 
 // #ifdef CASEMODE_ENABLE
     #include "modules/mwpardue/casemodes/casemodes.h"
-    #include "modules/getreuer/super_leader/super_leader.h"
+    #include "modules/mwpardue/super_leader/super_leader.h"
 // #endif
 
 // extern enum xcase_state xcase_state;
@@ -33,6 +33,7 @@ void smart_escape(void) {
     bool kbFeature = is_caps_word_on() || \
         isAnyOneShotLockedMod || \
         host_keyboard_led_state().caps_lock || \
+        super_leader_sequence_active() || \
         is_xcase();
 
     if (kbFeature) {
@@ -529,6 +530,16 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
                 return PROCESS_RECORD_RETURN_FALSE;
             }
             return PROCESS_RECORD_RETURN_FALSE;
+
+        case MEH_LDR:
+            if (record->event.pressed) {
+                if (record->tap.count > 0) {
+                    super_leader_start();
+                return PROCESS_RECORD_RETURN_FALSE;
+                }
+            return PROCESS_RECORD_CONTINUE;
+            }
+            break;
 
     }
     return PROCESS_RECORD_CONTINUE;
