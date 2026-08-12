@@ -69,6 +69,8 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case VIM_X:
         case SFT_TUP:
         case GUI_TDN:
+        case CTL_BAK:
+        case ALT_FWD:
         case MEH_RET:
           return g_tapping_term + 100;
         case LHM_A:
