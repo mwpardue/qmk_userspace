@@ -195,6 +195,20 @@ static void dlog_record(uint16_t keycode, keyrecord_t* record) {
 #define dlog_record(keycode, record)
 #endif  // !defined(NO_DEBUG) && defined(COMMUNITY_MODULE_KEYCODE_STRING_ENABLE)
 
+// Super Leader Callbacks
+void super_leader_start_user(void) {
+    dprintln("super_leader_start_user");
+    STATUS_LED_1(true);
+    STATUS_LED_2(true);
+}
+
+void super_leader_end_user(bool successful_match) {
+    dprintln("super_leader_end_user");
+    STATUS_LED_1(false);
+    STATUS_LED_2(false);
+}
+// End Super Leader Callbacks
+
 //
 // Begin main user loop
 //
