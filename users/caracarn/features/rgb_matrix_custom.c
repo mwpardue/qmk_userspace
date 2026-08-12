@@ -142,6 +142,11 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         RGB_MATRIX_INDICATOR_SET_COLOR(6, 0, 255, 0);
     }
 
+    if (user_runtime_state.kb.secrets_typing) {
+        STATUS_LED_2(true);
+        STATUS_LED_4(true);
+    }
+
     // if (get_highest_layer(layer_state) == _FUNCTION) {
     //     switch (get_highest_layer(default_layer_state)) {
     //         case _BASE:
