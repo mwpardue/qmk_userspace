@@ -55,7 +55,9 @@
     #define COMBO_MUST_TAP_PER_COMBO
 #endif
 
-    #define MACRO_TIMER 10
+#define SUPER_LEADER_NO_INIT_TIMEOUT
+
+#define MACRO_TIMER 10
 
 // Mouse key speed and acceleration.
 #ifdef MOUSEKEY_ENABLE

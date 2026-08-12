@@ -246,7 +246,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, SEC11,   SEC14,   _______, _______, SEC6,                                                SEC17,   SEC16,   SEC15,   SEC7,    SEC8,    _______,
   _______, SEC1,    SEC9,    SEC13,   _______, _______,                                             _______, SEC4,    _______, SEC10,   _______, _______,
   _______, _______, M_EXIT,  _______, SEC19,   SEC3,                                                SEC12,   SEC2,    _______, _______, _______, _______,
-                                                        KC_SPACE, KC_ENTER,        KC_TAB,  KC_BSPC
+                                                        KC_SPACE, KC_ENTER,        _______, LEADER
 ),
 
 [_HEX] = LAYOUT(
