@@ -541,6 +541,46 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
             }
             break;
 
+        case CTL_AT:
+            if (record->event.pressed) {
+                if (record->tap.count > 0) {
+                    tap_code16(KC_AT);
+                return PROCESS_RECORD_RETURN_FALSE;
+                }
+            return PROCESS_RECORD_CONTINUE;
+            }
+            break;
+
+        case ALT_BSL:
+            if (record->event.pressed) {
+                if (record->tap.count > 0) {
+                    tap_code16(KC_BSLS);
+                return PROCESS_RECORD_RETURN_FALSE;
+                }
+            return PROCESS_RECORD_CONTINUE;
+            }
+            break;
+
+        case SFT_LPR:
+            if (record->event.pressed) {
+                if (record->tap.count > 0) {
+                    tap_code16(KC_LPRN);
+                return PROCESS_RECORD_RETURN_FALSE;
+                }
+            return PROCESS_RECORD_CONTINUE;
+            }
+            break;
+
+        case GUI_RPR:
+            if (record->event.pressed) {
+                if (record->tap.count > 0) {
+                    tap_code16(KC_RPRN);
+                return PROCESS_RECORD_RETURN_FALSE;
+                }
+            return PROCESS_RECORD_CONTINUE;
+            }
+            break;
+
     }
     return PROCESS_RECORD_CONTINUE;
 }
