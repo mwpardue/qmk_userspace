@@ -155,16 +155,6 @@ bool caps_word_press_user(uint16_t keycode) {
     }
 }
 
-// uint8_t combo_ref_from_layer(uint8_t_layer) {
-//     switch (get_highest_layer(layer_state)) {
-//         case _NAVIGATION:
-//             return _NAVIGATION;
-//         default:
-//             return _BASE;
-//     }
-//     return layer;
-// }
-
 const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
     LAYOUT(
   '*', '*', '*', '*', '*', '*',                              '*', '*', '*', '*', '*', '*',

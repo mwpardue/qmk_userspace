@@ -50,9 +50,10 @@ bool get_combo_must_tap(uint16_t index, combo_t *combo) {
 
 uint8_t combo_ref_from_layer(uint8_t layer) {
     switch (get_highest_layer(layer_state)) {
-        case _NAVIGATION:
-            return _NAVIGATION;
-        default:
+        case _BASE:
+        case _GAMING:
+        case _GAMENUM:
+        case _COLEMAK_DH:
             return _BASE;
     }
     return layer;
