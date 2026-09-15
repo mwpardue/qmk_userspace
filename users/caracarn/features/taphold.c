@@ -37,6 +37,8 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case OSMRGUI:
         case TD_PAST:
         case TD_COPY:
+        case TD_SSFL:
+        case TD_SNIP:
         case LIR_THM:
         case CLOL_THM:
         case SLOR_THM:
