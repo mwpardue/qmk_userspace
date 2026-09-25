@@ -63,7 +63,7 @@ process_record_result_t process_smart_thumb_keys(uint16_t keycode, keyrecord_t *
             }
             break;
 
-        case GMG_CW:
+        case GLIL_THM:
             if (record->event.pressed) {
                 if (record->tap.count > 0) {
                         if (isAlt) {

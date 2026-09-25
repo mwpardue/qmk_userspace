@@ -194,15 +194,15 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_
         //         return 0;
         // }
         switch(keycode) {
-            case LIR_THM:
-                dprintln("get_tap_flow triggered, LIR_THM case");
-                if  (prev_keycode == LQM_S || prev_keycode == LHM_F) {
-                    dprintln("returning get_custom_tapping_term for LIR_THM case");
-                    return get_custom_tapping_term(user_config.tapping_term.gqt);
-                } else {
-                    dprintln("returning 0 TT");
-                    return 0;
-                }
+            // case LIR_THM:
+            //     dprintln("get_tap_flow triggered, LIR_THM case");
+            //     if  (prev_keycode == LQM_S || prev_keycode == LHM_F) {
+            //         dprintln("returning get_custom_tapping_term for LIR_THM case");
+            //         return get_custom_tapping_term(user_config.tapping_term.gqt);
+            //     } else {
+            //         dprintln("returning 0 TT");
+            //         return 0;
+            //     }
             case LHM_A:
             case LSM_D:
             case RSM_K:
