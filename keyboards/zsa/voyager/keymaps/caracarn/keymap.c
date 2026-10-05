@@ -100,8 +100,6 @@ enum combos {
     CM_NEXT,
     CM_HEX,
     CM_FUNC,
-    CM_BOOT,
-    CM_ESC,
     CM_LEAD
 };
 
@@ -113,9 +111,7 @@ const uint16_t PROGMEM mprev_combo[]        = {VIM_X,       KC_C,               
 const uint16_t PROGMEM play_combo[]         = {VIM_X,       KC_C,      KC_V,              COMBO_END};
 const uint16_t PROGMEM mnext_combo[]        = {KC_C,        KC_V,                         COMBO_END};
 const uint16_t PROGMEM hex_combo[]          = {VIM_X,       VIM_DOT,                      COMBO_END};
-const uint16_t PROGMEM function_combo[]     = {KC_GRV,      KC_1,                         COMBO_END};
-const uint16_t PROGMEM boot_combo[]         = {KC_GRV,      KC_EQL,                       COMBO_END};
-const uint16_t PROGMEM escape_combo[]       = {KC_Q,        KC_W,                         COMBO_END};
+const uint16_t PROGMEM function_combo[]     = {KC_GRV,      KC_EQL,                       COMBO_END};
 const uint16_t PROGMEM leader_combo[]       = {KC_COMMA,    VIM_DOT,                       COMBO_END};
 
 combo_t key_combos[] = {
@@ -127,8 +123,6 @@ combo_t key_combos[] = {
   [CM_NEXT] = COMBO(mnext_combo,        KC_MNXT),
   [CM_HEX]  = COMBO(hex_combo,          TOHEX),
   [CM_FUNC] = COMBO(function_combo,     TOFUN),
-  [CM_BOOT] = COMBO(boot_combo,         QK_BOOT),
-  [CM_ESC]  = COMBO(escape_combo,       SM_ESC),
   [CM_LEAD] = COMBO(leader_combo,       LEADER)
 };
 
@@ -171,10 +165,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = LAYOUT(
   KC_GRV,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                                                KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL,
   KC_TAB,  KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                                                KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
-  SM_ESC,  LHM_A,  LQM_S,   LHM_D,   LHM_F,   KC_G,                                                KC_H,    RHM_J,   RHM_K,   RHM_L,   RHM_SCN, KC_QUOT,
+  KC_BSPC, LHM_A,  LQM_S,   LHM_D,   LHM_F,   KC_G,                                                KC_H,    RHM_J,   RHM_K,   RHM_L,   RHM_SCN, KC_QUOT,
   MEH_XCS, SFT_Z,  VIM_X,   KC_C,    KC_V,    KC_B,                                                KC_N,    KC_M,    KC_COMM, VIM_DOT, SFT_QUE, MEH_BSL,
                                                        LIL_THM,   LOL_THM,          LOR_THM, LIR_THM
-                                                    // NAV/BSPC  NUM/ENTER           ENTER  SYM/SPACE
+                                                    // NAV/ESC   NUM/ENTER           ENTER  SYM/SPACE
 ),
 
 //2
@@ -194,7 +188,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_BSPC, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   MEH_XCS, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
                                                        CLIL_THM, _______,         _______,  _______
-                                                    // NAV/ESC   NUM/ENTER         ENTER   SYM/SPACE
+                                                    // NAV/BSPC  NUM/ENTER         ENTER   SYM/SPACE
 ),
 
 //3
@@ -219,7 +213,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, KC_GRV,  KC_TILD, KC_LCBR, KC_RCBR, TIPS,                                                KC_EQL,  KC_7,    KC_8,    KC_9,    KC_QUOT, KC_BSLS,
   _______, CTL_AT,  ALT_BSL, SFT_LPR, GUI_RPR, HTTPS,                                               KC_MINS, KC_4,    KC_5,    KC_6,    KC_DOT,  KC_COLN,
-  QK_LLCK, KC_LT,   KC_GT,   KC_LBRC, KC_RBRC, _______,                                             KC_UNDS, KC_1,    KC_2,    KC_3,    KC_SLSH, _______,
+  QK_LLCK, KC_LT,   KC_GT,   KC_LBRC, KC_RBRC, _______,                                             KC_HASH, KC_1,    KC_2,    KC_3,    KC_SLSH, _______,
                                                         _______, _______,       _______,  KC_0
 ),
 
