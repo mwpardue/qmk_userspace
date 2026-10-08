@@ -221,6 +221,7 @@ enum {
 #define SFT_QUO RSFT_T(KC_QUOT)
 #define NUM_ESC LT(_NUMPAD, KC_ESC)
 #define SM_GRV LSFT(KC_GRV)
+#define MEH_GRV MEH_T(KC_GRV)
 #define CTL_AT LCTL_T(KC_AT)
 #define ALT_BSL LALT_T(KC_BSLS)
 #define SFT_LPR LSFT_T(KC_LPRN)

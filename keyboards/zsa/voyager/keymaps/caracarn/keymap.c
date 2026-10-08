@@ -17,7 +17,7 @@
 #include "caracarn.h"
 
 const custom_shift_key_t custom_shift_keys[] = {
-  {LIL_THM, KC_DEL},
+  {CLIL_THM, KC_DEL},
   {SM_GRV,  KC_GRV},
 };
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
@@ -183,12 +183,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 //4
 [_GAMENUM] = LAYOUT(
-  KC_GRV,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  SM_ESC,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   KC_TAB,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   KC_BSPC, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  MEH_XCS, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-                                                       CLIL_THM, _______,         _______,  _______
-                                                    // NAV/BSPC  NUM/ENTER         ENTER   SYM/SPACE
+  MEH_GRV, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+                                                       GLIL_THM, _______,         _______,  _______
+                                                    // NAV/OSSFT NUM/ENTER         ENTER   SYM/SPACE
 ),
 
 //3
