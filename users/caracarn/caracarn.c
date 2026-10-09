@@ -1,5 +1,6 @@
 #include "caracarn.h"
 #include "features/tapdance.h"
+#include "modules/mwpardue/casemodes/casemodes.h"
 
 #ifdef QUANTUM_PAINTER_ENABLE
     #include "features/qpainter.h"
@@ -24,6 +25,7 @@ painter_menu_t painter_menu;
 #endif // QUANTUM_PAINTER_ENABLE
 
 bool capslock_state = false;
+extern bool is_launching;
 
 uint32_t eeconfig_update_user_datablock_handler(const void *data, uint8_t offset, uint8_t size) {
     eeconfig_update_user_datablock(data, offset, size);
@@ -209,6 +211,19 @@ void super_leader_end_user(bool successful_match) {
 }
 // End Super Leader Callbacks
 
+static void status_leds_task(void) {
+    if (is_launching) {
+        return;
+    }
+    STATUS_LED_4(is_caps_word_on() || host_keyboard_led_state().caps_lock);
+    #ifdef DYNAMIC_MACRO_ENABLE
+        if (user_runtime_state.kb.dyn_recording) {
+            return;
+        }
+    #endif
+    STATUS_LED_3(is_xcase());
+}
+
 //
 // Begin main user loop
 //
@@ -377,5 +392,6 @@ void housekeeping_task_user(void) {
     #ifdef QUANTUM_PAINTER_ENABLE
         display_module_housekeeping_task_keymap();
     #endif
+        status_leds_task();
         housekeeping_task_keymap();
 }

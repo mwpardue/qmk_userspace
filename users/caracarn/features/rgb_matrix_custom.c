@@ -119,19 +119,14 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                     break;
                 break;
             };
-        // case _VIM:
-        //     rgb_matrix_set_color_all(255, 0, 0);
-        //     break;
-        // default:
-        //     set_layer_rgb_matrix(rgb_matrix_get_hue(), rgb_matrix_get_sat(), rgb_matrix_get_val(), led_min, led_max);
 
  #endif
             break;
     }
 
-    // if (is_typing_secrets()) {
-    //     rgb_matrix_set_color_all(255, 0, 0);
-    // }
+    if (is_typing_secrets()) {
+        rgb_matrix_set_color_all(255, 0, 0);
+    }
     if (is_caps_word_on()) {
         RGB_MATRIX_INDICATOR_SET_COLOR(6, 128, 0, 128);
     }
@@ -141,28 +136,6 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     if (xcase_state == XCASE_ON || xcase_state == XCASE_WAIT) {
         RGB_MATRIX_INDICATOR_SET_COLOR(6, 0, 255, 0);
     }
-
-    if (user_runtime_state.kb.secrets_typing) {
-        STATUS_LED_2(true);
-        STATUS_LED_4(true);
-    }
-
-    // if (get_highest_layer(layer_state) == _FUNCTION) {
-    //     switch (get_highest_layer(default_layer_state)) {
-    //         case _BASE:
-    //             RGB_MATRIX_INDICATOR_SET_COLOR(1, 255, 0, 0);
-    //             break;
-    //         case _GAMING:
-    //             RGB_MATRIX_INDICATOR_SET_COLOR(2, 255, 0, 0);
-    //             break;
-    //         case _COLEMAK_DH:
-    //             RGB_MATRIX_INDICATOR_SET_COLOR(3, 255, 0, 0);
-    //             break;
-    //         case _GAMENUM:
-    //             RGB_MATRIX_INDICATOR_SET_COLOR(4, 255, 0, 0);
-    //             break;
-    //     }
-    // }
 
   if (isOneShotShift) {
     RGB_MATRIX_INDICATOR_SET_COLOR(15, 255, 225, 0);
