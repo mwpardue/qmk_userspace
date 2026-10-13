@@ -113,17 +113,18 @@ process_record_result_t process_smart_thumb_keys(uint16_t keycode, keyrecord_t *
 
 
                     if (isAlt) {
-                        enable_xcase();
-                        dprintln("enable xcase");
-                        if (isShift) {
-                            caps_word_on();
-                            dprintln("toggle caps_word_on");
-                        }
+                        caps_word_on();
+                        dprintln("ALT caps_word_on");
                         return PROCESS_RECORD_RETURN_FALSE;
                     }
 
-                    caps_word_on();
-                    dprintln("toggle caps_word_on");
+                    if (isShift) {
+                        caps_word_on();
+                        dprintln("caps_word_on");
+                    }
+
+                    enable_xcase();
+                    dprintln("enable_xcase");
                     return PROCESS_RECORD_RETURN_FALSE;
                 }
             return PROCESS_RECORD_CONTINUE;
