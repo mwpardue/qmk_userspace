@@ -217,6 +217,7 @@ enum {
 #define SFT_BSL RSFT_T(KC_BSLS)
 #define SFT_XCS LSFT_T(KC_F23)
 #define SFT_ESC LSFT_T(KC_ESC)
+#define SFT_BSP LSFT_T(KC_BSPC)
 #define SFT_TAB LSFT_T(KC_TAB)
 #define SFT_QUO RSFT_T(KC_QUOT)
 #define NUM_ESC LT(_NUMPAD, KC_ESC)

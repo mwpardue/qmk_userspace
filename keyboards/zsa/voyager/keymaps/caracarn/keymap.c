@@ -21,6 +21,14 @@ const custom_shift_key_t custom_shift_keys[] = {
   {SM_GRV,  KC_GRV},
 };
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+// const key_override_t delete_key_override = {
+//     .trigger_mods               = MOD_MASK_SHIFT,                       //
+//     .layers                     = ~0,                                          //
+//     .suppressed_mods            = MOD_BIT(KC_RSFT),                       //
+//     .options                    = ko_option_no_unregister_on_other_key_down,                 //
+//     .trigger                    = SFT_BSP,                                                     //
+//     .replacement                = KC_DEL,                                                     //
+//     .enabled                    = NULL};
 //
 // const key_override_t colon_override = {
 //     .trigger_mods               = MOD_BIT(KC_LSFT),                       //
@@ -185,9 +193,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_GAMENUM] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  _______, NUM_Z,   _______, _______, _______, _______,                                             _______, _______, _______, _______, KC_SLSH, _______,
-                                                       _______, CLOL_THM,        CLOR_THM, _______
+  SFT_BSP, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, SFT_QUO,
+  _______, KC_Z,    _______, _______, _______, _______,                                             _______, _______, _______, _______, KC_SLSH, _______,
+                                                       _______, _______,         _______,  _______
                                                     // NAV/ESC  NUM/ENTER         ENTER   SYM/SPACE
 ),
 
@@ -212,7 +220,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NUMPAD] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, KC_GRV,  KC_TILD, KC_LCBR, KC_RCBR, TIPS,                                                KC_EQL,  KC_7,    KC_8,    KC_9,    KC_QUOT, KC_BSLS,
-  _______, CTL_AT,  ALT_BSL, SFT_LPR, GUI_RPR, HTTPS,                                               KC_MINS, KC_4,    KC_5,    KC_6,    KC_DOT,  KC_COLN,
+  _______, CTL_AT,  ALT_BSL, SFT_LPR, GUI_RPR, HTTPS,                                               KC_MINS, KC_4,    KC_5,    KC_6,    KC_COLN, KC_DOT,
   QK_LLCK, KC_LT,   KC_GT,   KC_LBRC, KC_RBRC, _______,                                             KC_HASH, KC_1,    KC_2,    KC_3,    KC_SLSH, _______,
                                                         _______, _______,       _______,  KC_0
 ),

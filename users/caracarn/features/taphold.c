@@ -90,12 +90,13 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case RHM_J:
         case RHM_L:
         case RHM_SCN:
-          return get_custom_tapping_term(user_config.tapping_term.modtap);
         case RHM_K:
         case LHM_D:
+          return get_custom_tapping_term(user_config.tapping_term.modtap);
         case LSM_A:
         case RSM_SCN:
         case SFT_ESC:
+        case SFT_BSP:
         case SFT_QUO:
             return get_custom_tapping_term(user_config.tapping_term.shift);
         default:
@@ -145,6 +146,7 @@ bool get_hold_on_other_key_press_result(uint16_t keycode) {
         case SFT_XCS:
         case SFT_BSL:
         case SFT_ESC:
+        case SFT_BSP:
         case NUM_ESC:
             // Immediately select the hold action when another key is pressed.
             return true;
