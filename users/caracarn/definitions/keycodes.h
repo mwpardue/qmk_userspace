@@ -122,6 +122,8 @@ enum {
 // Typing Layer Keys
 #define SFT_Z LSFT_T(KC_Z)
 #define SFT_QUE RSFT_T(KC_SLSH)
+#define CA_Z LCA_T(KC_Z)
+#define CA_SLSH LCA_T(KC_SLSH)
 
 // Mod-taps (QWERTY)
 
@@ -178,10 +180,10 @@ enum {
 
 #define NUM_Z LT(_NUMPAD, KC_Z)
 #define VIM_QUE LT(_VIM, KC_SLSH)
-#define MON_L LALT(KC_H)
-#define MON_R LALT(KC_L)
-#define MON_U LALT(KC_K)
-#define MON_D LALT(KC_J)
+#define MON_L LCTL(LALT(KC_H))
+#define MON_R LCTL(LALT(KC_L))
+#define MON_U LCTL(LALT(KC_K))
+#define MON_D LCTL(LALT(KC_J))
 #define SS_WIN LCMD(LSFT(KC_5))
 #define APP_L LGUI(LALT(KC_H))
 #define APP_R LGUI(LALT(KC_L))
