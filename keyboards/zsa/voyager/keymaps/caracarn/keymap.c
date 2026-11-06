@@ -21,14 +21,14 @@ const custom_shift_key_t custom_shift_keys[] = {
   {SM_GRV,  KC_GRV},
 };
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
-// const key_override_t delete_key_override = {
-//     .trigger_mods               = MOD_MASK_SHIFT,                       //
-//     .layers                     = ~0,                                          //
-//     .suppressed_mods            = MOD_BIT(KC_RSFT),                       //
-//     .options                    = ko_option_no_unregister_on_other_key_down,                 //
-//     .trigger                    = SFT_BSP,                                                     //
-//     .replacement                = KC_DEL,                                                     //
-//     .enabled                    = NULL};
+const key_override_t alternate_delete_key_override = {
+    .trigger_mods               = MOD_MASK_SHIFT,                       //
+    .layers                     = ~0,                                          //
+    .suppressed_mods            = MOD_BIT(KC_RSFT),                       //
+    .options                    = ko_option_no_unregister_on_other_key_down,                 //
+    .trigger                    = SFT_BSP,                                                     //
+    .replacement                = KC_DEL,                                                     //
+    .enabled                    = NULL};
 //
 // const key_override_t colon_override = {
 //     .trigger_mods               = MOD_BIT(KC_LSFT),                       //
@@ -41,7 +41,8 @@ const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC
 //
 // // // This globally defines all key overrides to be used
 const key_override_t *key_overrides[] = {
-	&delete_key_override
+	&delete_key_override,
+    &alternate_delete_key_override
 };
 
 bool terminate_case_modes(uint16_t keycode, const keyrecord_t *record) {
@@ -193,18 +194,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_GAMENUM] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  SM_ESC,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  SFT_XCS, KC_Z,    _______, _______, _______, _______,                                             _______, _______, _______, _______, KC_SLSH, SFT_BSL,
-                                                      CLIL_THM, _______,         _______,  _______
-                                                    // NAV/ESC  NUM/ENTER         ENTER   SYM/SPACE
+  SFT_BSP, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, SFT_QUO,
+  _______, CA_Z,    _______, _______, _______, _______,                                             _______, _______, _______, _______, CA_SLSH, _______,
+                                                       LIL_THM,  _______,         _______,  _______
+                                                    // NAV/BSPC  NUM/ENTER         ENTER   SYM/SPACE
 ),
 
 //3
 [_COLEMAK_DH] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                                                KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, _______,
-  _______, LHM_A,   LCM_R,   LCM_S,   LCM_T,   KC_G,                                                KC_M,    RCM_N,   RCM_E,   RCM_I,   RCM_O,   _______,
-  _______, SFT_Z,   VIM_X,   KC_C,    KC_D,    KC_V,                                                KC_K,    KC_H,    _______, _______, _______, _______,
+  SFT_ESC, LHM_A,   LCM_R,   LCM_S,   LCM_T,   KC_G,                                                KC_M,    RCM_N,   RCM_E,   RCM_I,   RCM_O,   SFT_QUO,
+  _______, CA_Z,    VIM_X,   KC_C,    KC_D,    KC_V,                                                KC_K,    KC_H,    _______, _______, CA_SLSH, _______,
                                                        _______,  _______,           _______,  _______
                                                     // NAV/BSPC  SFT/ENTER         SFT/ENTER SYM/SPACE
 ),
