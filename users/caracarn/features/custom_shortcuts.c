@@ -520,17 +520,6 @@ process_record_result_t process_custom_shortcuts(uint16_t keycode, keyrecord_t *
             }
             break;
 
-        case SM_OPUL:
-            if (record->event.pressed) {
-                tap_code16(MEH(KC_SPACE));
-                wait_ms(500);
-                send_string_with_delay(secrets[2], MACRO_TIMER);
-                tap_code16(KC_ENTER);
-                tap_code16(KC_ESC);
-                return PROCESS_RECORD_RETURN_FALSE;
-            }
-            return PROCESS_RECORD_RETURN_FALSE;
-
         case MEH_LDR:
             if (record->event.pressed) {
                 if (record->tap.count > 0) {
