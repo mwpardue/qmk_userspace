@@ -98,8 +98,8 @@ enum {
 // Left thumb keys
 
     // Left Inner Thumb Keys
-    #define LIL_THM LT(_NAVIGATION, KC_SPACE)
-    #define CLIL_THM LT(_NAVIGATION, KC_BSPC)
+    #define CLIL_THM LT(_NAVIGATION, KC_SPACE)
+    #define LIL_THM LT(_NAVIGATION, KC_BSPC)
     #define GLIL_THM LT(_NAVIGATION, KC_TAB)
 
     // Left Outer Thumb Keys

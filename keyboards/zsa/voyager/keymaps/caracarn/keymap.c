@@ -17,7 +17,7 @@
 #include "caracarn.h"
 
 const custom_shift_key_t custom_shift_keys[] = {
-  {CLIL_THM, KC_DEL},
+  {LIL_THM, KC_DEL},
   {SM_GRV,  KC_GRV},
 };
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
@@ -114,7 +114,7 @@ enum combos {
 
 
 const uint16_t PROGMEM capsword_combo[]     = {LHM_D,       RHM_K,                        COMBO_END};
-const uint16_t PROGMEM capsword2_combo[]    = {SFT_Z,       SFT_QUE,                      COMBO_END};
+const uint16_t PROGMEM capsword2_combo[]    = {CA_Z,        CA_SLSH,                      COMBO_END};
 const uint16_t PROGMEM mtlogin2_combo[]     = {LIL_THM,     LQM_S,     LHM_D,             COMBO_END};
 const uint16_t PROGMEM mprev_combo[]        = {VIM_X,       KC_C,                         COMBO_END};
 const uint16_t PROGMEM play_combo[]         = {VIM_X,       KC_C,      KC_V,              COMBO_END};
@@ -174,20 +174,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = LAYOUT(
   KC_GRV,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                                                KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL,
   KC_TAB,  KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                                                KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
-  KC_BSPC, LHM_A,  LQM_S,   LHM_D,   LHM_F,   KC_G,                                                KC_H,    RHM_J,   RHM_K,   RHM_L,   RHM_SCN, KC_QUOT,
-  MEH_XCS, SFT_Z,  VIM_X,   KC_C,    KC_V,    KC_B,                                                KC_N,    KC_M,    KC_COMM, VIM_DOT, SFT_QUE, MEH_BSL,
+  SFT_ESC, LHM_A,  LQM_S,   LHM_D,   LHM_F,   KC_G,                                                KC_H,    RHM_J,   RHM_K,   RHM_L,   RHM_SCN, SFT_QUO,
+  MEH_XCS, CA_Z,   VIM_X,   KC_C,    KC_V,    KC_B,                                                KC_N,    KC_M,    KC_COMM, VIM_DOT, CA_SLSH, MEH_BSL,
                                                        LIL_THM,   LOL_THM,          LOR_THM, LIR_THM
-                                                    // NAV/ESC   NUM/ENTER           ENTER  SYM/SPACE
+                                                    // NAV/BSPC  NUM/ENTER           ENTER  SYM/SPACE
 ),
 
 //2
 [_GAMING] = LAYOUT(
+  SM_ESC,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  KC_GRV,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  SFT_TAB, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  SFT_ESC, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, SFT_QUO,
-  _______, CA_Z,    _______, _______, _______, _______,                                             _______, _______, _______, _______, CA_SLSH, _______,
-                                                       CLIL_THM, _______,         _______,  _______
-                                                    // NAV/BSPC  NUM/ENTER         ENTER   SYM/SPACE
+                                                       _______, _______,         _______,  _______
+                                                    // NAV/ESC   NUM/ENTER         ENTER   SYM/SPACE
 ),
 
 //4
@@ -204,8 +204,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_COLEMAK_DH] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                                                KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, _______,
-  SFT_ESC, LHM_A,   LCM_R,   LCM_S,   LCM_T,   KC_G,                                                KC_M,    RCM_N,   RCM_E,   RCM_I,   RCM_O,   SFT_QUO,
-  _______, CA_Z,    VIM_X,   KC_C,    KC_D,    KC_V,                                                KC_K,    KC_H,    _______, _______, CA_SLSH, _______,
+  _______, LHM_A,   LCM_R,   LCM_S,   LCM_T,   KC_G,                                                KC_M,    RCM_N,   RCM_E,   RCM_I,   RCM_O,   _______,
+  _______, CA_Z,    VIM_X,   KC_C,    KC_D,    KC_V,                                                KC_K,    KC_H,    _______, _______, _______, _______,
                                                        _______,  _______,           _______,  _______
                                                     // NAV/BSPC  SFT/ENTER         SFT/ENTER SYM/SPACE
 ),
