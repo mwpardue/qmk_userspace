@@ -65,6 +65,23 @@ void suspend_wakeup_init_user(void) {
     #endif
 }
 
+bool layer_lock_set_user(layer_state_t locked_layers) {
+
+    if (locked_layers != 0) {
+        STATUS_LED_1(true);
+        STATUS_LED_2(true);
+        STATUS_LED_3(true);
+        STATUS_LED_4(true);
+    } else {
+        STATUS_LED_1(false);
+        STATUS_LED_2(false);
+        STATUS_LED_3(false);
+        STATUS_LED_4(false);
+    }
+
+    return true;
+}
+
 __attribute__((weak)) void eeconfig_init_keymap(void) {}
 void                       eeconfig_init_user(void) {
     memset(&user_config, 0, sizeof(user_config_t));
