@@ -93,6 +93,8 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case LHM_D:
         case CA_Z:
         case CA_SLSH:
+        case CA_DOT:
+        case CA_X:
           return get_custom_tapping_term(user_config.tapping_term.modtap);
         case LSM_A:
         case RSM_SCN:
@@ -232,8 +234,8 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_
                     return 0;
                 }
             case LHM_A:
-            case LSM_D:
-            case RSM_K:
+            //case LSM_D:
+            //case RSM_K:
             case LQM_S:
             case LHM_F:
             // case RHM_J:
@@ -256,6 +258,8 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_
                 return get_custom_tapping_term(user_config.tapping_term.shift_gqt);
             case SFT_Z:
             case SFT_QUE:
+            case LSM_D:
+            case RSM_K:
                 if (prev_keycode == LIR_THM) {
                     dprintln("get_tap_flow triggered, SFT_Z or SFT_QUE case with LIR_THM prev_keycode");
                     return 0;
