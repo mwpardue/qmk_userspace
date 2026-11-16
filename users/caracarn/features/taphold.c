@@ -75,6 +75,9 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case ALT_BSL:
         case SFT_LPR:
         case GUI_RPR:
+        case NUM_TAB:
+        case GUI_XCS:
+        case GUI_BSL:
           return g_tapping_term + 100;
         case LHM_A:
         case LSM_D:

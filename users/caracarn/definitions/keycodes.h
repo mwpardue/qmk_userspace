@@ -105,7 +105,7 @@ enum {
     // Left Outer Thumb Keys
     #define LOL_THM LT(_NUMPAD, KC_ENTER)
     #define GLOL_THM LT(_NUMPAD, KC_E)
-    #define CLOL_THM LSFT_T(KC_ENTER)
+    #define CLOL_THM LCTL_T(KC_ENTER)
     #define SLOL_THM LSFT_T(KC_T)
 
 // Right thumb keys
@@ -117,7 +117,7 @@ enum {
     // Right Outer Thumb Keys
     #define SLOR_THM LT(_VIM, KC_ENTER)
     #define LOR_THM KC_ENTER
-    #define CLOR_THM RSFT_T(KC_ENTER)
+    #define CLOR_THM RCTL_T(KC_ENTER)
 
 // Typing Layer Keys
 #define SFT_Z LSFT_T(KC_Z)
@@ -181,6 +181,7 @@ enum {
 // Layer-taps
 
 #define NUM_Z LT(_NUMPAD, KC_Z)
+#define NUM_TAB LT(_NUMPAD, KC_TAB)
 #define VIM_QUE LT(_VIM, KC_SLSH)
 #define MON_L LCTL(LALT(KC_H))
 #define MON_R LCTL(LALT(KC_L))
@@ -220,6 +221,7 @@ enum {
 #define MEH_LDR MEH_T(KC_F14)
 #define SFT_BSL RSFT_T(KC_BSLS)
 #define SFT_XCS LSFT_T(KC_F23)
+#define GUI_XCS LGUI_T(KC_F23)
 #define SFT_ESC LSFT_T(KC_ESC)
 #define SFT_BSP LSFT_T(KC_BSPC)
 #define SFT_TAB LSFT_T(KC_TAB)
@@ -229,6 +231,7 @@ enum {
 #define MEH_GRV MEH_T(KC_GRV)
 #define CTL_AT LCTL_T(KC_AT)
 #define ALT_BSL LALT_T(KC_BSLS)
+#define GUI_BSL LGUI_T(KC_BSLS)
 #define SFT_LPR LSFT_T(KC_LPRN)
 #define GUI_RPR LGUI_T(KC_RPRN)
 
