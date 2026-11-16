@@ -78,6 +78,8 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case NUM_TAB:
         case GUI_XCS:
         case GUI_BSL:
+        case CTL_ESC:
+        case CTL_QUO:
           return g_tapping_term + 100;
         case LHM_A:
         case LSM_D:
