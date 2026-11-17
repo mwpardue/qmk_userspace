@@ -211,6 +211,7 @@ enum {
 #define TOADJ ADJ_LYR
 #define CAD LCTL(LALT(KC_DELETE))
 #define VIM_XCS LT(_VIM, KC_F23)
+#define NUM_XCS LT(_NUMPAD, KC_F23)
 #define APP_XCS LT(_APPSWITCH, KC_F23)
 #define VIM_ESC LT(_VIM, KC_ESC)
 #define VIM_BSL LT(_VIM, KC_BSLS)
@@ -227,7 +228,6 @@ enum {
 #define GUI_XCS LGUI_T(KC_F23)
 #define SFT_ESC LSFT_T(KC_ESC)
 #define SFT_BSP LSFT_T(KC_BSPC)
-#define SFT_TAB LSFT_T(KC_TAB)
 #define SFT_QUO RSFT_T(KC_QUOT)
 #define CTL_ESC LCTL_T(KC_ESC)
 #define CTL_QUO RCTL_T(KC_QUOT)
