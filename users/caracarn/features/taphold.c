@@ -98,8 +98,11 @@ uint16_t get_tapping_term_result(uint16_t keycode) {
         case LHM_D:
         case CA_Z:
         case CA_SLSH:
+        case ALT_SLS:
         case CA_DOT:
         case CA_X:
+        case CA_ESC:
+        case CA_QUOT:
           return get_custom_tapping_term(user_config.tapping_term.modtap);
         case LSM_A:
         case RSM_SCN:
@@ -189,6 +192,8 @@ bool get_permissive_hold_result(uint16_t keycode) {
         case SFT_QUO:
         case CA_Z:
         case CA_SLSH:
+        case CA_QUOT:
+        case CA_ESC:
             // Immediately select the hold action when another key is tapped.
             return true;
         default:
@@ -219,16 +224,14 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_
                     dprintln("[TAP_FLOW_CUSTOM] get_flow_tap_term->prev_keycode not CA_Z case");
                     return get_custom_tapping_term(user_config.tapping_term.gqt);
                 }
-                break;
+
+            case LHM_D:
             case RHM_K:
-                if (prev_keycode == CA_Z) {
-                    dprintln("[TAP_FLOW_CUSTOM] get_flow_tap_term->prev_keycode CA_Z case");
-                    return 0;
-                } else {
-                    dprintln("[TAP_FLOW_CUSTOM] get_flow_tap_term->prev_keycode not CA_Z case");
-                    return get_custom_tapping_term(user_config.tapping_term.shift_gqt);
-                }
-                break;
+            case SFT_Z:
+            case SFT_QUE:
+                if (prev_keycode == CA_Z || prev_keycode == LIR_THM) return 0;
+                return get_custom_tapping_term(user_config.tapping_term.shift_gqt);
+
             case LIR_THM:
                 dprintln("get_tap_flow triggered, LIR_THM case");
                 if  (prev_keycode == LQM_S || prev_keycode == LHM_F) {
@@ -238,6 +241,7 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_
                     dprintln("returning 0 TT");
                     return 0;
                 }
+
             case LHM_A:
             //case LSM_D:
             //case RSM_K:
@@ -253,25 +257,18 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_
             case RCM_O:
                 dprintln("get_tap_flow triggered, gqt case");
                 return get_custom_tapping_term(user_config.tapping_term.gqt);
+
             case LCM_S:
             case RCM_E:
-            case LHM_D:
+            // case LHM_D:
             // case RHM_K:
             case SFT_TAB:
             case SFT_QUO:
                 dprintln("get_tap_flow triggered, shift gqt case");
                 return get_custom_tapping_term(user_config.tapping_term.shift_gqt);
-            case SFT_Z:
-            case SFT_QUE:
-            case LSM_D:
-            case RSM_K:
-                if (prev_keycode == LIR_THM) {
-                    dprintln("get_tap_flow triggered, SFT_Z or SFT_QUE case with LIR_THM prev_keycode");
-                    return 0;
-                } else {
-                    dprintln("get_tap_flow triggered, SFT_Z or SFT_QUE case with non-LIR_THM prev_keycode");
-                    return 100;
-                }
+
+            // case SFT_Z:
+            // case SFT_QUE:
             case LSM_A:
             case RSM_SCN:
             case NUM_Z:
@@ -279,7 +276,10 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_
             case GLIL_THM:
             case VIM_DOT:
             case RHM_SCN:
+            case CA_ESC:
+            case CA_QUOT:
                 return 1;
+
             default:
                 dprintln("get_tap_flow triggered, default case");
                 return 0;

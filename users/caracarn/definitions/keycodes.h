@@ -126,6 +126,9 @@ enum {
 #define CA_X LCA_T(KC_X)
 #define CA_DOT LCA_T(KC_DOT)
 #define CA_SLSH LCA_T(KC_SLSH)
+#define CA_ESC LCA_T(KC_ESC)
+#define CA_QUOT RCA_T(KC_QUOT)
+#define ALT_SLS LALT_T(KC_SLSH)
 
 // Mod-taps (QWERTY)
 
