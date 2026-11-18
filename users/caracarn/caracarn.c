@@ -1,6 +1,7 @@
 #include "caracarn.h"
 #include "features/tapdance.h"
 #include "modules/mwpardue/casemodes/casemodes.h"
+#include "modules/Kawamashi/layer_word/layer_word.h"
 
 #ifdef QUANTUM_PAINTER_ENABLE
     #include "features/qpainter.h"
@@ -239,6 +240,40 @@ static void status_leds_task(void) {
         }
     #endif
     STATUS_LED_3(is_xcase());
+}
+
+// Layer Word (Kawamashi/layer_word)
+
+uint8_t get_layerword_layer_from_trigger(uint16_t keycode) {
+    switch (keycode) {
+        case MEH_NUM: return _NUMPAD;
+        default:       return 0;
+    }
+}
+
+bool should_continue_layerword(uint8_t layer, uint16_t keycode, keyrecord_t *record) {
+    switch (layer) {
+        case _NUMPAD:
+            switch (keycode) {
+                case KC_1 ... KC_0:
+                case KC_DOT:
+                case KC_MINS:
+                case KC_SLSH:
+                case KC_EQL:
+                case KC_HASH:
+                case KC_LPRN:
+                case KC_RPRN:
+                case KC_LBRC:
+                case KC_RBRC:
+                case KC_LCBR:
+                case KC_RCBR:
+                case KC_BSPC:
+                    return true;
+                default:
+                    return false;
+            }
+    }
+    return false;
 }
 
 //

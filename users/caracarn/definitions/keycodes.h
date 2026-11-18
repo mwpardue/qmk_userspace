@@ -105,7 +105,7 @@ enum {
     // Left Outer Thumb Keys
     #define LOL_THM LT(_NUMPAD, KC_ENTER)
     #define GLOL_THM LT(_NUMPAD, KC_E)
-    #define CLOL_THM LCTL_T(KC_ENTER)
+    #define CLOL_THM LSFT_T(KC_T)
     #define SLOL_THM LSFT_T(KC_ENTER)
 
 // Right thumb keys
@@ -117,7 +117,7 @@ enum {
     // Right Outer Thumb Keys
     #define SLOR_THM RSFT_T(KC_ENTER)
     #define LOR_THM KC_ENTER
-    #define CLOR_THM RCTL_T(KC_ENTER)
+    #define CLOR_THM RSFT_T(KC_F13)
 
 // Typing Layer Keys
 #define SFT_Z LSFT_T(KC_Z)
@@ -145,6 +145,7 @@ enum {
 #define MEH_PP MEH_T(KC_F14)
 #define MEH_TAB MEH_T(KC_TAB)
 #define MEH_ESC MEH_T(KC_ESC)
+#define MEH_NUM MEH_T(KC_F15)
 #define APP_ESC LT(_APPSWITCH, KC_ESC)
 #define APP_TAB LT(_APPSWITCH, KC_TAB)
 #define APP_MIN LT(_APPSWITCH, KC_MINS)

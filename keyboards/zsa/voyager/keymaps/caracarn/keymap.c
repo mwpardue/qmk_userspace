@@ -183,21 +183,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //2
 [_GAMING] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  NUM_XCS, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  NUM_TAB, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  CTL_ESC, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, CTL_QUO,
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  KC_BSLS, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, KC_ENT,
-                                                       _______,  SLOL_THM,          KC_RSFT, _______
-                                                    // NAV/BSPC  SFT/TAB             ENTER  SYM/SPACE
+                                                       _______,  SLOL_THM,         SLOR_THM,  _______
+                                                    // NAV/BSPC  NUM/ENTER         SFT/ENTER  SYM/SPACE
 ),
 
 //4
 [_GAMENUM] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  NUM_TAB, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
-  CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    _______,                                             _______, KC_J,    KC_K,    KC_L,    KC_SCLN, CTL_QUO,
-  GUI_XCS, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, GUI_BSL,
-                                                       _______,  SLOL_THM,         SLOR_THM,  _______
-                                                    // NAV/BSPC  NUM/ENTER         SFT/ENTER  SYM/SPACE
+  XCASE,   _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+  KC_TAB,  _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, KC_QUOT,
+  MEH_NUM, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
+                                                       _______,  SFT_ESC,          SLOR_THM,  _______
+                                                    // NAV/BSPC   SFT/ESC          SFT/ENT  SYM/SPACE
 ),
 
 //3
@@ -211,22 +211,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_NAVIGATION] = LAYOUT(
-    _______, _______, _______, TD_SSFL, TD_SNIP, SS_WIN,                                            _______, _______, _______, _______, _______, KC_VOLU,
-    KC_TAB,  APP_L,   MON_L,   MON_U,   MON_R,   APP_R,    		                                    _______, SELWBAK, SELWORD, _______, _______, KC_VOLD,
-    KC_BSPC, OSMLCTL, OSMLALT, OSMLSFT, OSMLGUI, _______,                                           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XCASE,   KC_MUTE,
-    QK_LLCK, TAB_UP,  TAB_DWN, TD_COPY, TD_PAST, _______,                                           KC_END,  KC_PGDN, KC_PGUP, KC_HOME, _______, _______,
-                                                          _______, _______,      _______, KC_SPC
     // _______, _______, _______, TD_SSFL, TD_SNIP, SS_WIN,                                            _______, _______, _______, _______, _______, KC_VOLU,
     // KC_TAB,  APP_L,   MON_L,   MON_U,   MON_R,   APP_R,    		                                    _______, SELWBAK, SELWORD, _______, _______, KC_VOLD,
-    // KC_BSPC, CTL_BAK, ALT_FWD, SFT_TUP, GUI_TDN, _______,                                           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XCASE,   KC_MUTE,
-    // QK_LLCK, UNDO,    _______, TD_COPY, TD_PAST, _______,                                           KC_END,  KC_PGDN, KC_PGUP, KC_HOME, _______, _______,
+    // KC_BSPC, OSMLCTL, OSMLALT, OSMLSFT, OSMLGUI, _______,                                           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XCASE,   KC_MUTE,
+    // QK_LLCK, TAB_UP,  TAB_DWN, TD_COPY, TD_PAST, _______,                                           KC_END,  KC_PGDN, KC_PGUP, KC_HOME, _______, _______,
     //                                                       _______, _______,      _______, KC_SPC
+    _______, _______, _______, TD_SSFL, TD_SNIP, SS_WIN,                                            _______, _______, _______, _______, _______, KC_VOLU,
+    KC_TAB,  APP_L,   MON_L,   MON_U,   MON_R,   APP_R,    		                                    _______, SELWBAK, SELWORD, _______, _______, KC_VOLD,
+    KC_BSPC, CTL_BAK, ALT_FWD, SFT_TUP, GUI_TDN, _______,                                           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XCASE,   KC_MUTE,
+    QK_LLCK, UNDO,    _______, TD_COPY, TD_PAST, _______,                                           KC_END,  KC_PGDN, KC_PGUP, KC_HOME, _______, _______,
+                                                          _______, _______,      _______, KC_SPC
 ),
 
 [_NUMPAD] = LAYOUT(
   _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
   _______, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, TIPS,                                                KC_EQL,  KC_7,    KC_8,    KC_9,    KC_QUOT, KC_BSLS,
-  _______, OSMLCTL, OSMLALT, OSMLSFT, OSMLGUI, HTTPS,                                               KC_MINS, KC_4,    KC_5,    KC_6,    KC_DOT,  KC_SLSH,
+  _______, OSMLCTL, OSMLALT, OSMLSFT, OSMLGUI, HTTPS,                                               KC_MINS, KC_4,    KC_5,    KC_6,    KC_DOT,  KC_COLN,
   QK_LLCK, _______, _______, KC_LPRN, KC_RPRN, _______,                                             KC_HASH, KC_1,    KC_2,    KC_3,    KC_SLSH, _______,
                                                         _______, _______,       _______,  KC_0
   // _______, _______, _______, _______, _______, _______,                                             _______, _______, _______, _______, _______, _______,
@@ -237,16 +237,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_SYMBOL] = LAYOUT(
-  KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                               KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-  _______, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, TIPS,                                                _______, KC_AMPR, KC_ASTR, KC_LPRN, _______, _______,
-  _______, KC_AT,   _______, KC_LPRN, KC_RPRN, HTTPS,                                               KC_MINS, OSMRGUI, OSMRSFT, OSMRALT, OSMRCTL, KC_DQUO,
-  QK_LLCK, _______, _______, KC_LBRC, KC_RBRC, M_ARROW,                                             KC_EQL,  KC_CIRC, KC_AT,   KC_HASH, KC_DLR,  SM_ANON,
-                                                        KC_SPC, _______,         _______, _______
   // KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                               KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
   // _______, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, TIPS,                                                _______, KC_AMPR, KC_ASTR, KC_LPRN, _______, _______,
-  // _______, _______, _______, KC_LPRN, KC_RPRN, HTTPS,                                               KC_MINS, KC_DLR,  KC_PERC, KC_CIRC, KC_COLN, KC_DQUO,
-  // QK_LLCK, _______, _______, KC_LBRC, KC_RBRC, M_ARROW,                                             KC_EQL,  KC_EXLM, KC_AT,   KC_HASH, _______, SM_ANON,
+  // _______, KC_AT,   _______, KC_LPRN, KC_RPRN, HTTPS,                                               KC_MINS, OSMRGUI, OSMRSFT, OSMRALT, OSMRCTL, KC_DQUO,
+  // QK_LLCK, _______, _______, KC_LBRC, KC_RBRC, M_ARROW,                                             KC_EQL,  KC_CIRC, KC_AT,   KC_HASH, KC_DLR,  SM_ANON,
   //                                                       KC_SPC, _______,         _______, _______
+  KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                               KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
+  _______, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, TIPS,                                                _______, KC_AMPR, KC_ASTR, KC_LPRN, _______, _______,
+  _______, _______, _______, KC_LPRN, KC_RPRN, HTTPS,                                               KC_MINS, KC_DLR,  KC_PERC, KC_CIRC, KC_COLN, KC_DQUO,
+  QK_LLCK, _______, _______, KC_LBRC, KC_RBRC, M_ARROW,                                             KC_EQL,  KC_EXLM, KC_AT,   KC_HASH, _______, SM_ANON,
+                                                        KC_SPC, _______,         _______, _______
 ),
 
 [_VIM] = LAYOUT(

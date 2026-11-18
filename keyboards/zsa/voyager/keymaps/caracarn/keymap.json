@@ -3,6 +3,7 @@
         "mwpardue/casemodes",
         "mwpardue/custom_shift_keys",
         "mwpardue/super_leader",
-        "mwpardue/select_word"
+        "mwpardue/select_word",
+        "Kawamashi/layer_word"
     ]
 }

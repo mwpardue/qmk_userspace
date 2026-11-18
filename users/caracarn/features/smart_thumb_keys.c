@@ -37,6 +37,7 @@ process_record_result_t process_smart_thumb_keys(uint16_t keycode, keyrecord_t *
     switch (keycode) {
         case GLOL_THM:
         case CLIL_THM:
+        case CLOL_THM:
         case MEH_ESC:
         case VIM_ESC:
         case SFT_ESC:
@@ -142,13 +143,20 @@ process_record_result_t process_smart_thumb_keys(uint16_t keycode, keyrecord_t *
                     return PROCESS_RECORD_RETURN_FALSE;
                 }
 
+
+                if (isAlt) {
+                    caps_word_on();
+                    dprintln("ALT caps_word_on");
+                    return PROCESS_RECORD_RETURN_FALSE;
+                }
+
                 if (isShift) {
                     caps_word_on();
-                    dprintln("SHIFT caps_word_on");
+                    dprintln("caps_word_on");
                 }
 
                 enable_xcase();
-                dprintln("enable xcase");
+                dprintln("enable_xcase");
                 return PROCESS_RECORD_RETURN_FALSE;
             }
             return PROCESS_RECORD_RETURN_FALSE;
