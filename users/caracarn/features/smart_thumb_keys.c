@@ -37,7 +37,6 @@ process_record_result_t process_smart_thumb_keys(uint16_t keycode, keyrecord_t *
     switch (keycode) {
         case GLOL_THM:
         case CLIL_THM:
-        case CLOL_THM:
         case MEH_ESC:
         case VIM_ESC:
         case SFT_ESC:
@@ -67,7 +66,8 @@ process_record_result_t process_smart_thumb_keys(uint16_t keycode, keyrecord_t *
             }
             break;
 
-        case GLIL_THM:
+        case CLOL_THM:
+        case CLOR_THM:
             if (record->event.pressed) {
                 if (record->tap.count > 0) {
                         if (isAlt) {
